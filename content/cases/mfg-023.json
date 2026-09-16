@@ -1,0 +1,28 @@
+{
+  "id": "mfg-023",
+  "industry": "mfg",
+  "no": 23,
+  "stage": 3,
+  "title": "一人ひとりの注文に合わせた製品を大量生産と同じコストで作る仕組み",
+  "summary": "お客さまがWebで好みを入力するとAIが製造方法を自動設計し、カスタム品でも大量生産並みのコストで作れる",
+  "budget": 5,
+  "tools": [
+    "Shopify B2B（受注カスタム生産）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Shopify B2B（受注カスタム生産）",
+      "what": "顧客が自分の仕様をWebで入力して注文できる受注カスタム生産システム。個別仕様の受付からAI設計まで自動化できます。",
+      "how": "ShopifyのB2Bプランに商品カスタマイズ機能を追加。顧客がサイズ・色・素材などを選択して注文するとシステムが自動で製造指示を生成します。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

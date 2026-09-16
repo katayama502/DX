@@ -1,0 +1,28 @@
+{
+  "id": "edu-029",
+  "industry": "edu",
+  "no": 29,
+  "stage": 3,
+  "title": "グローバルオンライン高校の設立",
+  "summary": "国境を超えたオンライン高校を設立し世界中の生徒と教師をつなぐ新教育モデル",
+  "budget": 3,
+  "tools": [
+    "Zoom Webinar（グローバル授業配信）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Zoom Webinar（グローバル授業配信）",
+      "what": "世界中の生徒・教師が同時参加できる大規模オンライン授業配信ツール。国境を越えた学習機会を提供できます。",
+      "how": "Zoom Webinarを使って授業を配信。世界中の参加者がURLから視聴でき、Q&A機能で質問を受け付け。多言語字幕機能で言語の壁を越えた授業が実現します。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

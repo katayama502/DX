@@ -1,0 +1,28 @@
+{
+  "id": "edu-001",
+  "industry": "edu",
+  "no": 1,
+  "stage": 1,
+  "title": "Googleスライドでペーパーレス授業",
+  "summary": "生徒がいつでも授業内容を見返せるようクラウドでスライドを共有",
+  "budget": 0,
+  "tools": [
+    "Googleスライド"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Googleスライド",
+      "what": "ブラウザ上でプレゼン資料を作成・共有できる無料ツール。授業のスライドをURLで共有するだけで生徒がいつでも見返せます。",
+      "how": "Googleスライドで授業資料を作成し、共有設定を「リンクを知っている全員が閲覧可」に変更。URLをクラスルーム等で配布するだけで生徒のスマホ・PCから閲覧可能になります。",
+      "url": "https://docs.google.com/presentation/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

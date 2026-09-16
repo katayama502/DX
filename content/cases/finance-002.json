@@ -1,0 +1,28 @@
+{
+  "id": "finance-002",
+  "industry": "finance",
+  "no": 2,
+  "stage": 1,
+  "title": "帳票のPDF自動生成",
+  "summary": "見積書・領収書・明細書がシステムから自動でPDF出力され郵送が不要に",
+  "budget": 4,
+  "tools": [
+    "invoiceAgent（帳票自動生成）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "invoiceAgent（帳票自動生成）",
+      "what": "システムから見積書・請求書・領収書を自動でPDF出力して送付まで自動化するサービス。手書き・手入力の手間を完全に排除します。",
+      "how": "基幹システムと連携してデータが変わると自動でPDFを生成。メール送付も自動化でき、送付済み・開封済みの状況も確認できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

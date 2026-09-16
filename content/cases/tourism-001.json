@@ -1,0 +1,28 @@
+{
+  "id": "tourism-001",
+  "industry": "tourism",
+  "no": 1,
+  "stage": 1,
+  "title": "予約管理をクラウドシステムで一元化",
+  "summary": "電話・FAX予約をじゃらん・楽天トラベル連携の一元管理システムに集約",
+  "budget": 4,
+  "tools": [
+    "TL-Lincoln（予約管理）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "TL-Lincoln（予約管理）",
+      "what": "じゃらん・楽天トラベル・Booking.com等の予約を一画面で一元管理できるサービスマネージャーシステム。各サイトのカレンダーを自動同期してダブルブッキングをゼロにします。",
+      "how": "TL-Lincolnに各予約サイトのIDを登録するだけで在庫の自動連動が始まります。1つのサイトで予約が入ると他のサイトの在庫が自動で減ります。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

@@ -1,0 +1,28 @@
+{
+  "id": "tourism-003",
+  "industry": "tourism",
+  "no": 3,
+  "stage": 1,
+  "title": "Canvaで館内案内・周辺マップを作成",
+  "summary": "デザイナーなしでおしゃれな館内マップ・ウェルカムカードを内製",
+  "budget": 0,
+  "tools": [
+    "Canva"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Canva",
+      "what": "館内案内・周辺マップ・ウェルカムカードをデザイン知識なしで内製できる無料デザインツール。",
+      "how": "canva.com で「案内板」「マップ」のテンプレートを選んで施設名・地図情報・写真を差し替えるだけで完成。外国語対応版も簡単に作れます。",
+      "url": "https://www.canva.com/ja_jp/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

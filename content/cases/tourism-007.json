@@ -1,0 +1,28 @@
+{
+  "id": "tourism-007",
+  "industry": "tourism",
+  "no": 7,
+  "stage": 1,
+  "title": "スマホで客室の不具合を即時報告",
+  "summary": "清掃スタッフがスマホで客室不具合を写真付き報告しフロントが即対応",
+  "budget": 1,
+  "tools": [
+    "LINE WORKS（客室報告）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "LINE WORKS（客室報告）",
+      "what": "清掃スタッフが客室の不具合をスマホで写真付き報告してフロントが即対応できるビジネスチャットツール。",
+      "how": "LINE WORKSに清掃スタッフとフロントのアカウントを作成。不具合発見時に写真を撮って送信するだけ。フロントは即座に確認して対応を指示できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

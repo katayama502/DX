@@ -1,0 +1,28 @@
+{
+  "id": "const-026",
+  "industry": "const",
+  "no": 26,
+  "stage": 3,
+  "title": "CO2クレジット事業への参入",
+  "summary": "脱炭素建材・省エネ設計のデータを可視化しCO2クレジット販売で付加収益",
+  "budget": 3,
+  "tools": [
+    "CO2排出管理システム（Assimilation等）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "CO2排出管理システム（Assimilation等）",
+      "what": "建設資材・施工プロセスのCO2排出量を自動計算してカーボンクレジット販売に活用できるシステム。",
+      "how": "使用した建材・エネルギーのデータを入力するとシステムがCO2排出量を自動計算。脱炭素建材に変更した場合の削減効果もシミュレーションできます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

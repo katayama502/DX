@@ -1,0 +1,28 @@
+{
+  "id": "retail-006",
+  "industry": "retail",
+  "no": 6,
+  "stage": 1,
+  "title": "GoogleフォームでCSアンケート",
+  "summary": "退店後にQRコードからアンケートに答えてもらい紙不要で集計自動化",
+  "budget": 0,
+  "tools": [
+    "Googleフォーム"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Googleフォーム",
+      "what": "Googleが無料で提供するアンケート・申込フォーム作成ツール。QRコードで配布でき、回答がスプレッドシートに自動集計されます。",
+      "how": "Googleドライブから「新規→フォーム」で作成。満足度・好きな商品・要望などの質問を追加してQRコードを生成。レシートやレジ横に貼れば退店後にスマホから回答してもらえます。",
+      "url": "https://docs.google.com/forms/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

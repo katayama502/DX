@@ -1,0 +1,28 @@
+{
+  "id": "medical-019",
+  "industry": "medical",
+  "no": 19,
+  "stage": 2,
+  "title": "RPAで診療報酬請求を自動化",
+  "summary": "月次のレセプト作成をRPAが自動処理しミスと残業時間を同時に削減",
+  "budget": 4,
+  "tools": [
+    "WinClaim（レセプト自動作成）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "WinClaim（レセプト自動作成）",
+      "what": "診察情報から診療報酬請求データを自動作成するレセプト処理システム。月次の手作業請求業務を自動化して残業時間を大幅削減します。",
+      "how": "電子カルテと連携してWinClaimが自動でレセプトを作成・チェック。誤りが自動検出されて修正箇所が表示されます。審査支払機関へのオンライン請求も自動化できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

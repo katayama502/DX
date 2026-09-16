@@ -1,0 +1,28 @@
+{
+  "id": "logistics-004",
+  "industry": "logistics",
+  "no": 4,
+  "stage": 1,
+  "title": "LINE WORKSで配車・連絡を一元化",
+  "summary": "電話・無線での指示をLINE WORKSにまとめ伝達ミスと記録を改善",
+  "budget": 1,
+  "tools": [
+    "LINE WORKS"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "LINE WORKS",
+      "what": "配車指示・ドライバーとの連絡をビジネス向けLINEで一元化するツール。電話・無線よりも伝達ミスが少なく記録が残ります。",
+      "how": "LINE WORKSに管理者・ドライバーのアカウントを作成。配車指示はグループトークで送信してドライバーが確認ボタンで既読通知。写真・場所情報も共有できます。",
+      "url": "https://line-works.com/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

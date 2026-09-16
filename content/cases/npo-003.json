@@ -1,0 +1,28 @@
+{
+  "id": "npo-003",
+  "industry": "npo",
+  "no": 3,
+  "stage": 1,
+  "title": "Zoomで住民説明会・総会をオンライン開催",
+  "summary": "移動コストをなくし遠方の住民も参加できる説明会・総会を実現",
+  "budget": 0,
+  "tools": [
+    "Zoom"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Zoom",
+      "what": "遠方の住民も移動なしで参加できるオンライン説明会・総会を開催できるビデオ会議ツール。参加率の向上と運営コスト削減を同時に実現します。",
+      "how": "Zoomで会議URLを作成して告知するだけ。住民はスマホ・PCからアクセスするだけで参加できます。録画して後日配信することで参加できなかった方にも情報を届けられます。",
+      "url": "https://zoom.us/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

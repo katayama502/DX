@@ -1,0 +1,28 @@
+{
+  "id": "logistics-019",
+  "industry": "logistics",
+  "no": 19,
+  "stage": 2,
+  "title": "AIカメラで積み付けを自動提案",
+  "summary": "荷物サイズをスキャンしAIが最効率な積み付けパターンを3D表示で即時提案",
+  "budget": 4,
+  "tools": [
+    "積み付けAIシステム（PAKS等）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "積み付けAIシステム（PAKS等）",
+      "what": "荷物のサイズをスキャンするとAIが最も積載効率の高い積み方を3Dで即時提案するシステム。積載率を向上させてトラック台数を削減します。",
+      "how": "パレット・荷物の寸法データを入力するとAIが最適な積み方を3D表示で提案。現場担当者がその通りに積めば積載効率が最大化されます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

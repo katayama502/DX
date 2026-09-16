@@ -1,0 +1,28 @@
+{
+  "id": "npo-013",
+  "industry": "npo",
+  "no": 13,
+  "stage": 2,
+  "title": "AIによる生活保護・支援制度の適用判定支援",
+  "summary": "申請内容をAIが分析し担当者が制度適用の見落としなく包括的に支援案内",
+  "budget": 0,
+  "tools": [
+    "ChatGPT（支援制度照合）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "ChatGPT（支援制度照合）",
+      "what": "申請内容をAIが分析して適用可能な支援制度の見落としをなくすシステム。複雑な制度体系を担当者がすべて把握せずに網羅的な案内が可能です。",
+      "how": "ChatGPTに支援制度情報をすべてアップロードしてプロンプトを設定。申請者の状況を入力するだけでAIが適用可能な制度を一覧表示します。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

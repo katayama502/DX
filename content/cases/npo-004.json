@@ -1,0 +1,28 @@
+{
+  "id": "npo-004",
+  "industry": "npo",
+  "no": 4,
+  "stage": 1,
+  "title": "LINEで住民向け情報配信",
+  "summary": "回覧板・広報紙をLINE公式アカウントの配信に切り替え即時性と到達率を向上",
+  "budget": 1,
+  "tools": [
+    "LINE公式アカウント"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "LINE公式アカウント",
+      "what": "回覧板・広報紙の代わりに住民にLINEで即時情報配信できるサービス。到達率が大幅に向上します。",
+      "how": "LINE公式アカウントを登録してQRコードを作成。自治会の掲示板・SNS・チラシでQRコードを告知して友だち登録を促すだけ。登録した住民全員にプッシュ通知で情報が届きます。",
+      "url": "https://www.lycbiz.com/jp/service/line-official-account/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

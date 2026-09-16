@@ -1,0 +1,28 @@
+{
+  "id": "tourism-008",
+  "industry": "tourism",
+  "no": 8,
+  "stage": 1,
+  "title": "Googleビジネスプロフィールで口コミ管理",
+  "summary": "Googleマップの口コミに迅速返信し評価向上・検索露出アップを実現",
+  "budget": 0,
+  "tools": [
+    "Googleビジネスプロフィール"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Googleビジネスプロフィール",
+      "what": "Googleマップ上の口コミを管理・返信して評価スコアを高め、検索からの集客を強化できる無料ツール。",
+      "how": "Google Search Consoleでビジネスプロフィールを申請・認証。口コミに丁寧な返信をするだけで評価が上がり、Googleマップ検索での表示順位が改善されます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

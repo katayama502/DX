@@ -1,0 +1,28 @@
+{
+  "id": "agri-016",
+  "industry": "agri",
+  "no": 16,
+  "stage": 2,
+  "title": "衛星データで広域作物管理",
+  "summary": "農業用衛星画像サービスで広大な農地の葉色・生育ムラをPCで一目確認",
+  "budget": 3,
+  "tools": [
+    "Geosys（農業用衛星画像）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Geosys（農業用衛星画像）",
+      "what": "農業専用の衛星画像サービス。広大な農地の生育状況・葉色・ムラをPCやスマホで一目確認できます。",
+      "how": "Geosysに農地を登録すると定期的に衛星が撮影した農地画像が届きます。色の差異から「この区画は肥料不足」「害虫が発生している」などを早期に発見できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

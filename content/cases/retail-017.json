@@ -1,0 +1,28 @@
+{
+  "id": "retail-017",
+  "industry": "retail",
+  "no": 17,
+  "stage": 2,
+  "title": "返品・交換プロセスの自動化",
+  "summary": "ECの返品申請をシステム化し着荷確認から返金まで人手介在なく処理",
+  "budget": 2,
+  "tools": [
+    "Shopify Returns（返品管理）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Shopify Returns（返品管理）",
+      "what": "返品申請から在庫戻し・返金処理まで自動化できるShopify内蔵の返品管理機能。顧客がセルフで返品申請でき、自動承認・自動返金まで人手なしで処理できます。",
+      "how": "Shopifyの管理画面で返品ポリシーと自動承認条件を設定するだけ。顧客がWebから返品申請すると条件を満たせば自動承認、返送ラベルが自動発行、在庫が自動で戻されます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

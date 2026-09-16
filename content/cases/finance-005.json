@@ -1,0 +1,28 @@
+{
+  "id": "finance-005",
+  "industry": "finance",
+  "no": 5,
+  "stage": 1,
+  "title": "Zoomで来店不要の相談・審査面談",
+  "summary": "住宅ローン・保険相談をオンラインに変え顧客・担当者の移動コストをゼロに",
+  "budget": 0,
+  "tools": [
+    "Zoom"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Zoom",
+      "what": "住宅ローン・保険相談をオンラインで完結できるビデオ会議ツール。顧客が来店せずに詳細な相談・審査が受けられます。",
+      "how": "Zoomで面談用URLを作成して顧客にメール送付。画面共有でシミュレーション表・資料を見せながら相談。本人確認は事前の本人確認書類送付と組み合わせて完結できます。",
+      "url": "https://zoom.us/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

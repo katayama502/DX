@@ -1,0 +1,28 @@
+{
+  "id": "logistics-012",
+  "industry": "logistics",
+  "no": 12,
+  "stage": 2,
+  "title": "需要予測AIで配送便数を事前最適化",
+  "summary": "EC受注データから翌日配送量をAI予測しトラック台数・人員を前日に最適調整",
+  "budget": 4,
+  "tools": [
+    "AI配送計画システム（オービック等）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "AI配送計画システム（オービック等）",
+      "what": "EC受注データからAIが翌日の配送量を予測してトラック台数と人員を自動最適化するシステム。過剰配車や人員不足を防ぎます。",
+      "how": "ECプラットフォームと連携した受注データをAIが分析して需要予測を実行。「明日は○台・○人が必要」と前日に自動通知されます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

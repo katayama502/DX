@@ -1,0 +1,28 @@
+{
+  "id": "retail-005",
+  "industry": "retail",
+  "no": 5,
+  "stage": 1,
+  "title": "Square・Airレジでキャッシュレス対応",
+  "summary": "現金のみの会計をQRコード・カード払いに対応させ売上データも自動集計",
+  "budget": 1,
+  "tools": [
+    "Square POSレジ"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Square POSレジ",
+      "what": "スマホやタブレットをレジとして使えるサービス。現金・カード・QRコード決済に対応し、売上データが自動集計されます。",
+      "how": "Square.comで無料登録してアプリをインストール。専用カードリーダー（無料提供）をスマホに差し込むとクレジットカード決済が可能に。売上はダッシュボードでリアルタイム確認でき、日次・月次レポートも自動生成されます。",
+      "url": "https://squareup.com/jp/ja"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

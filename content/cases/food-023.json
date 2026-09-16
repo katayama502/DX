@@ -1,0 +1,28 @@
+{
+  "id": "food-023",
+  "industry": "food",
+  "no": 23,
+  "stage": 3,
+  "title": "データドリブンなメニュー開発",
+  "summary": "SNSトレンドと自社売上データをAIが分析し次のヒットメニューを予測提案",
+  "budget": 0,
+  "tools": [
+    "ChatGPT + 売上分析ツール"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "ChatGPT + 売上分析ツール",
+      "what": "SNSのトレンドと自社売上データをAIが分析し、次のヒットメニューを提案してくれます。直感に頼ったメニュー開発をデータドリブンに変えます。",
+      "how": "ChatGPTに「最近のSNSで話題の料理」「当店の売上上位メニューの特徴」を入力して新メニューのアイデアを生成。POSデータと組み合わせて「売れる可能性が高いメニュー」を絞り込みます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

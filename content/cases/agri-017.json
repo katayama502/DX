@@ -1,0 +1,28 @@
+{
+  "id": "agri-017",
+  "industry": "agri",
+  "no": 17,
+  "stage": 2,
+  "title": "AIカメラで病害虫を早期発見",
+  "summary": "圃場設置のAIカメラが葉の変色・虫の発生を自動検知しスマホにアラート送信",
+  "budget": 2,
+  "tools": [
+    "SUNDROP（AIカメラ病害虫検知）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "SUNDROP（AIカメラ病害虫検知）",
+      "what": "圃場に設置したカメラがAIで葉の変色・害虫を自動検知してスマホにアラートを送るシステム。",
+      "how": "圃場の複数箇所にカメラを設置してWi-Fiに接続。AIが毎時間画像を解析して異常を検知するとスマホに通知が届きます。毎日全ての圃場を歩いて確認する作業が不要になります。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

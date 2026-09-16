@@ -1,0 +1,28 @@
+{
+  "id": "medical-003",
+  "industry": "medical",
+  "no": 3,
+  "stage": 1,
+  "title": "院内PHSをスマホアプリに置き換え",
+  "summary": "医療従事者間の連絡をTeamsや専用アプリに移行し即時共有",
+  "budget": 2,
+  "tools": [
+    "Microsoft Teams（院内コミュニケーション）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Microsoft Teams（院内コミュニケーション）",
+      "what": "医療スタッフ間の連絡・情報共有をチャット・音声通話で即座に行えるツール。PHSの交換と内線電話の廃止でコスト削減と即時連絡を両立できます。",
+      "how": "全スタッフにTeamsアカウントを付与してスマホにインストール。緊急連絡はチャット、カンファレンスはビデオ通話、ファイル共有はTeams内で完結。患者情報の共有は暗号化されて安全に行えます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

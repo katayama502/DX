@@ -1,0 +1,28 @@
+{
+  "id": "mfg-024",
+  "industry": "mfg",
+  "no": 24,
+  "stage": 3,
+  "title": "3Dプリンティングによるオンデマンド部品製造",
+  "summary": "在庫を持たず受注後に3Dプリンタで部品を製造するデジタル在庫モデルへ転換",
+  "budget": 5,
+  "tools": [
+    "Markforged（3Dプリンタ）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Markforged（3Dプリンタ）",
+      "what": "受注後に金属・炭素繊維の部品を3Dプリンタで直接製造するシステム。在庫ゼロで多品種少量生産を実現します。",
+      "how": "CADデータをMarkforgedに送信するだけで造形が始まります。従来の金型製造が不要なため試作から量産まで同じプロセスで対応できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

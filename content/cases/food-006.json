@@ -1,0 +1,28 @@
+{
+  "id": "food-006",
+  "industry": "food",
+  "no": 6,
+  "stage": 1,
+  "title": "写真・動画で調理マニュアルを作成",
+  "summary": "口頭伝達だったレシピをスマホ動画で録画しYouTube限定公開でスタッフ共有",
+  "budget": 0,
+  "tools": [
+    "YouTube Studio（限定公開）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "YouTube Studio（限定公開）",
+      "what": "録画した動画をYouTubeに限定公開してスタッフのみ視聴できる研修動画として活用できる機能。URLを知っている人だけが見られる設定です。",
+      "how": "スマホで調理手順を録画してYouTubeに「限定公開」でアップ。URLをスタッフにLINEで共有するだけで、新人がいつでも自分のペースで何度でも見返せる動画マニュアルが完成します。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

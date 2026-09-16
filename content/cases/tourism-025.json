@@ -1,0 +1,28 @@
+{
+  "id": "tourism-025",
+  "industry": "tourism",
+  "no": 25,
+  "stage": 3,
+  "title": "航空×ホテル×体験のシームレス予約プラットフォーム",
+  "summary": "旅行の全工程をワンストップで予約・決済・管理できるスーパーアプリを構築",
+  "budget": 5,
+  "tools": [
+    "トリバゴ API連携（シームレス予約）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "トリバゴ API連携（シームレス予約）",
+      "what": "航空・ホテル・体験を一括予約できるスーパーアプリのAPIを活用して、旅行の全工程をワンストップで提供するシステム。",
+      "how": "Expedia・Booking.com・アクティビティプラットフォームのAPIを自社アプリに統合。ゲストが1つのアプリで航空券・宿泊・観光体験を一括で予約・管理できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

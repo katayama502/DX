@@ -1,0 +1,28 @@
+{
+  "id": "retail-021",
+  "industry": "retail",
+  "no": 21,
+  "stage": 3,
+  "title": "サブスクリプション型定期購入モデル",
+  "summary": "単品販売から月額課金で定期お届けするモデルに転換しお客さまの長期的な購買額を大幅アップ",
+  "budget": 2,
+  "tools": [
+    "Shopify + 定期購買アプリ（Recharge）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Shopify + 定期購買アプリ（Recharge）",
+      "what": "ECサイトに月額課金の定期購入機能を追加できるアプリ。一度登録してもらえば毎月自動で決済・発送が行われ、継続収益が生まれます。",
+      "how": "ShopifyにRechargeアプリを追加して商品に「定期購入プラン」を設定するだけ。顧客がサブスクを選んで登録すると、毎月自動課金・自動注文が発生。解約・変更もマイページから顧客自身で操作できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

@@ -1,0 +1,28 @@
+{
+  "id": "finance-019",
+  "industry": "finance",
+  "no": 19,
+  "stage": 2,
+  "title": "データ分析で解約予測・早期アプローチ",
+  "summary": "解約リスクが高い顧客をAIが予測し担当者が事前にフォロー連絡を実施",
+  "budget": 4,
+  "tools": [
+    "Salesforce Einstein（解約予測AI）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Salesforce Einstein（解約予測AI）",
+      "what": "顧客の行動データをAIが分析して解約リスクスコアを算出して、ハイリスク顧客への早期アプローチを自動アラートするシステム。",
+      "how": "CRMの顧客データ・取引履歴をAIが学習。「3ヶ月未取引」「ネガティブな問い合わせ増加」などのパターンから解約リスクを予測。担当者に「このお客様に連絡してください」とアラートが届きます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

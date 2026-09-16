@@ -1,0 +1,28 @@
+{
+  "id": "edu-017",
+  "industry": "edu",
+  "no": 17,
+  "stage": 2,
+  "title": "ChatGPTを活用した論文・レポート指導",
+  "summary": "AIが文章の論理性・構成を評価しフィードバックを提供する指導補助ツールを活用",
+  "budget": 0,
+  "tools": [
+    "ChatGPT（論文指導補助）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "ChatGPT（論文指導補助）",
+      "what": "AIが生徒の文章を読んで論理性・構成のフィードバックを即座に提供するツール。教員の添削負担を減らしながら生徒の文章力を向上させます。",
+      "how": "ChatGPTに「この文章の論理的な問題点を指摘してください」と入力して生徒の文章を貼り付けるだけ。AIが構成・根拠・表現の改善点を具体的にフィードバック。自分で推敲する力が身につきます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

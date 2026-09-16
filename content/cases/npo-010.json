@@ -1,0 +1,28 @@
+{
+  "id": "npo-010",
+  "industry": "npo",
+  "no": 10,
+  "stage": 1,
+  "title": "Notionでボランティア管理・スケジュール共有",
+  "summary": "ボランティア名簿・シフト・活動記録をNotionで管理し全員が最新情報を参照",
+  "budget": 0,
+  "tools": [
+    "Notion"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Notion",
+      "what": "ボランティア名簿・シフト・活動記録・マニュアルをひとつのツールで管理できるオールインワンツール。情報の散逸を防ぎ引き継ぎを容易にします。",
+      "how": "Notionでボランティアデータベースを作成。名前・連絡先・得意分野・活動記録を登録して検索・フィルターで絞り込めます。シフト表もカレンダービューで視覚的に管理できます。",
+      "url": "https://www.notion.so/ja-jp"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

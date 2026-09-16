@@ -1,0 +1,28 @@
+{
+  "id": "medical-001",
+  "industry": "medical",
+  "no": 1,
+  "stage": 1,
+  "title": "電子カルテの導入",
+  "summary": "紙カルテをデジタル化し医師・看護師が端末からどこでも確認・更新できる",
+  "budget": 4,
+  "tools": [
+    "MEDIBASE（電子カルテ）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "MEDIBASE（電子カルテ）",
+      "what": "クラウド型の電子カルテシステム。医師・看護師がタブレットやPCからどこでもカルテを確認・更新でき、紙カルテの管理・保管コストがなくなります。",
+      "how": "診察室・ナースステーション・処置室にタブレットを配置してMEDIBASEにアクセス。患者情報・処方・検査結果が一画面で確認でき、前回の診察内容もすぐに呼び出せます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

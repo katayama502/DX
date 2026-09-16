@@ -1,0 +1,28 @@
+{
+  "id": "logistics-016",
+  "industry": "logistics",
+  "no": 16,
+  "stage": 2,
+  "title": "電動マイクロモビリティでラストマイル",
+  "summary": "都市部の小口配送を電動キックボード・カーゴバイクに切り替えCO2削減と渋滞回避",
+  "budget": 3,
+  "tools": [
+    "電動カーゴバイク（Urban Arrow等）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "電動カーゴバイク（Urban Arrow等）",
+      "what": "荷物を積んで都市部を走れる電動アシスト付きカーゴバイク。小口配送コストを削減しながらCO2排出量もゼロにできます。",
+      "how": "電動カーゴバイクをリースして配送ルートを設計。1回で最大100kg程度の荷物を積んで走れます。充電は通常のコンセントから行えます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

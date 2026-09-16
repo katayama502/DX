@@ -1,0 +1,34 @@
+theme: invoice
+nodes:
+  - id: s0
+    type: say
+    text: インボイス・電子帳簿保存のご相談ですね。制度の判断は税理士の領域なので、ここでは「何を確認すべきか」を整理します。
+  - id: q_registered
+    type: ask_single
+    text: インボイス（適格請求書発行事業者）の登録はしていますか？
+    why: 登録の有無で、次に確認することが変わります
+    options: [登録している, 登録していない, わからない]
+  - id: q_partners
+    type: ask_single
+    show_if: { q_registered: [登録していない, わからない] }
+    text: 主な取引先は会社ですか、一般のお客さまですか？
+    why: 取引先が会社の場合、インボイスを求められることがあります
+    options: [主に会社・事業者, 主に一般のお客さま, 両方]
+  - id: q_receipts
+    type: ask_single
+    text: 請求書や領収書は、どうやって受け取ることが多いですか？
+    why: 電子で受け取るものは電子で保存する必要があります
+    options: [ほぼ紙, メールやWebが多い, 両方]
+  - id: q_bookkeeping
+    type: ask_single
+    text: 今、帳簿づけはどうしていますか？
+    why: 会計ソフトで両方にまとめて対応できるか判断します
+    options: [手書き・Excel, 会計ソフト（パソコン）, クラウド会計, 税理士に丸投げ]
+  - id: q_need
+    type: ask_single
+    text: 今日いちばん困っていることはどれですか？
+    why: 制度の判断が必要か、ツールの案内で足りるかを見分けます
+    options: [登録すべきか判断したい, 保存のやり方を知りたい, 会計ソフトを選びたい, 税額の計算が不安]
+  - id: end
+    type: say
+    text: ありがとうございます。ここまでの内容をまとめました。

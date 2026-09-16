@@ -1,0 +1,28 @@
+{
+  "id": "finance-016",
+  "industry": "finance",
+  "no": 16,
+  "stage": 2,
+  "title": "リアルタイム為替・株価アラートの自動配信",
+  "summary": "顧客設定の条件に達したらアプリプッシュで即時通知しスタッフ介在なく対応",
+  "budget": 4,
+  "tools": [
+    "マーケットアラートAPI（Bloomberg等）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "マーケットアラートAPI（Bloomberg等）",
+      "what": "為替・株価が設定した条件に達したら自動でアプリプッシュ通知を顧客に送るシステム。スタッフが個別に連絡する手間がなくなります。",
+      "how": "顧客がアプリで「ドル円が150円を超えたら通知」などの条件を設定。条件を満たすとシステムが自動で通知を送信します。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

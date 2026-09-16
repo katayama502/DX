@@ -1,0 +1,28 @@
+{
+  "id": "agri-026",
+  "industry": "agri",
+  "no": 26,
+  "stage": 3,
+  "title": "AIが農家に最適な品種・農法を提案するクラウドサービス（月額制のオンラインソフト）",
+  "summary": "気候・土壌・市況データをAIが分析し収益最大化する品種・栽培方法を毎シーズン提案",
+  "budget": 2,
+  "tools": [
+    "Greenhouse（農業SaaS）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Greenhouse（農業SaaS）",
+      "what": "気候・土壌・市況データをAIが分析して収益最大化する品種・栽培方法を毎シーズン提案するクラウドサービス。",
+      "how": "農地情報と過去の収量データを登録するとAIが分析。今シーズンは何を植えれば利益が最大化するかを品種・作付け面積・出荷先別に提案してくれます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

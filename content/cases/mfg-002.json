@@ -1,0 +1,28 @@
+{
+  "id": "mfg-002",
+  "industry": "mfg",
+  "no": 2,
+  "stage": 1,
+  "title": "Googleワークスペースで部門間情報共有",
+  "summary": "メール・ドキュメント・スプレッドシートをクラウドに移行し連絡効率化",
+  "budget": 2,
+  "tools": [
+    "Googleワークスペース"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Googleワークスペース",
+      "what": "メール・ドキュメント・スプレッドシートをクラウドに移行して、本社と工場がリアルタイムで情報共有できる基盤。",
+      "how": "Googleドライブに部門別フォルダを作成して文書を共有。Googleスプレッドシートで生産計画・在庫表を複数部門が同時編集。Meetで多拠点の打ち合わせを即座に開催できます。",
+      "url": "https://workspace.google.com/intl/ja/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

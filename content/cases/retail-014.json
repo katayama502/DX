@@ -1,0 +1,28 @@
+{
+  "id": "retail-014",
+  "industry": "retail",
+  "no": 14,
+  "stage": 2,
+  "title": "チャットボットで接客・FAQ自動対応",
+  "summary": "サイト上のAIチャットが24時間問い合わせに対応しオペレーター負荷を削減",
+  "budget": 3,
+  "tools": [
+    "Zendesk（チャットボット）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Zendesk（チャットボット）",
+      "what": "WebサイトにAIチャットを設置して、24時間自動でお客様の問い合わせに回答できるカスタマーサポートツール。よくある質問への自動回答からオペレーターへの引き継ぎまで対応します。",
+      "how": "ZendeskのコードをWebサイトに貼り付けるだけで右下にチャットアイコンが表示されます。よくある質問と回答を登録しておくとAIが自動で回答。対応できない質問はスタッフにメール通知されます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

@@ -1,0 +1,28 @@
+{
+  "id": "retail-022",
+  "industry": "retail",
+  "no": 22,
+  "stage": 3,
+  "title": "D2Cブランドで中間流通を排除",
+  "summary": "メーカーが自社ECで直接消費者に販売しブランドと利益率を同時に強化",
+  "budget": 0,
+  "tools": [
+    "BASE（自社ECサイト）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "BASE（自社ECサイト）",
+      "what": "プログラミング不要で自社ブランドのECサイトを無料で作れるサービス。メーカーが直接消費者に販売するD2Cビジネスに最適です。",
+      "how": "BASE.ne.jpで登録してショップ名・商品・ブランドイメージを設定するだけでECサイトが完成。Instagramと連携して投稿から直接購入できる設定もできます。配送・決済・在庫管理もすべてBase内で完結。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

@@ -1,0 +1,28 @@
+{
+  "id": "const-008",
+  "industry": "const",
+  "no": 8,
+  "stage": 1,
+  "title": "安全教育動画のスマホ配信",
+  "summary": "集合安全教育を廃止しYouTube限定公開の動画を各自閲覧・確認テスト実施",
+  "budget": 0,
+  "tools": [
+    "YouTube（安全教育動画）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "YouTube（安全教育動画）",
+      "what": "集合安全教育の代わりにYouTube限定公開の動画を各自閲覧・確認テストで完結できる研修システム。",
+      "how": "安全教育内容をスマホで録画してYouTubeに限定公開でアップ。URLをQRコードでヘルメットや現場掲示板に貼るだけで新人がいつでも視聴できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

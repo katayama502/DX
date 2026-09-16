@@ -1,0 +1,28 @@
+{
+  "id": "retail-029",
+  "industry": "retail",
+  "no": 29,
+  "stage": 3,
+  "title": "ライブコマースで購買体験を変革",
+  "summary": "SNSライブ配信中にリアルタイムで購入できる仕組みで衝動買い需要を取込",
+  "budget": 0,
+  "tools": [
+    "Tiktok LIVE Shopping"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Tiktok LIVE Shopping",
+      "what": "TikTokのライブ配信中にリアルタイムで商品購入ができる機能。配信を見ながら即購入できるため衝動買い需要を取り込めます。",
+      "how": "TikTokビジネスアカウントを作成してTikTok Shopに登録。商品を登録してライブ配信を開始し、配信中に商品タグを表示するだけ。視聴者は画面をタップするだけで購入できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

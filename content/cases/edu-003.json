@@ -1,0 +1,28 @@
+{
+  "id": "edu-003",
+  "industry": "edu",
+  "no": 3,
+  "stage": 1,
+  "title": "Zoomで保護者面談・PTA会議",
+  "summary": "来校不要のオンライン面談で保護者参加率が大幅向上",
+  "budget": 0,
+  "tools": [
+    "Zoom"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Zoom",
+      "what": "パソコン・スマホからビデオ通話ができるツール。保護者が来校せずに面談に参加できるため参加率が大幅に上がります。",
+      "how": "zoom.usで無料登録して面談用URLを作成。保護者にURLをメール・アプリで送付して指定時間に接続してもらうだけ。録画機能で内容を記録することもできます。",
+      "url": "https://zoom.us/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

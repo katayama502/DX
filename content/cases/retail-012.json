@@ -1,0 +1,28 @@
+{
+  "id": "retail-012",
+  "industry": "retail",
+  "no": 12,
+  "stage": 2,
+  "title": "ネット注文と実店舗の在庫をひとつにまとめて管理",
+  "summary": "実店舗とECの在庫を統合しネットで注文→店舗受取が可能に",
+  "budget": 3,
+  "tools": [
+    "Shopify（EC一元管理）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Shopify（EC一元管理）",
+      "what": "実店舗とネットショップの在庫・注文・顧客データを一つの画面で管理できるECプラットフォーム。在庫が売れると自動で減算され、どのチャネルで在庫を持つか一元管理できます。",
+      "how": "Shopifyに商品情報を登録して実店舗のPOSとECを連携。実店舗でもネットでも同じ在庫データを参照するため在庫ズレがなくなります。ネットで注文→店舗受取の設定も数クリックで設定可能です。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

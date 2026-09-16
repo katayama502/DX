@@ -1,0 +1,28 @@
+{
+  "id": "retail-026",
+  "industry": "retail",
+  "no": 26,
+  "stage": 3,
+  "title": "ARで自宅試着・試し置きサービス",
+  "summary": "スマホカメラで家具や服を実空間に重ねて確認でき購買前の不安を解消",
+  "budget": 4,
+  "tools": [
+    "IKEA Place（ARアプリ）参考例"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "IKEA Place（ARアプリ）参考例",
+      "what": "スマホカメラで実際の部屋に家具・商品を重ねて確認できるARアプリ。購入前の「合わなかった」という返品を大幅に削減できます。",
+      "how": "自社の3D商品データを用意し、ARアプリ（Vuforia等で開発またはShopifyのAR機能）を活用。顧客がスマホで商品ページの「ARで見る」ボタンを押すと実空間に商品が表示されます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

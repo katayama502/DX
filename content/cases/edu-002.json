@@ -1,0 +1,28 @@
+{
+  "id": "edu-002",
+  "industry": "edu",
+  "no": 2,
+  "stage": 1,
+  "title": "Googleフォームで小テストをデジタル化",
+  "summary": "紙テストをフォームに替え採点・集計・フィードバックを自動化",
+  "budget": 0,
+  "tools": [
+    "Googleフォーム"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Googleフォーム",
+      "what": "Googleが無料で提供するアンケート・テスト作成ツール。選択式・記述式の問題を作れて採点・集計が自動化されます。",
+      "how": "フォームを作成して「クイズモード」をオンにすると各問題に正解を設定できます。生徒が回答するとその場で採点結果が表示され、教員の採点作業がゼロになります。",
+      "url": "https://docs.google.com/forms/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

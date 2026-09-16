@@ -1,0 +1,28 @@
+{
+  "id": "agri-007",
+  "industry": "agri",
+  "no": 7,
+  "stage": 1,
+  "title": "YouTubeで農業技術を学習・発信",
+  "summary": "ベテラン農家の技術を動画で記録し後継者育成や消費者への生産現場発信に活用",
+  "budget": 0,
+  "tools": [
+    "YouTube（農業技術発信）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "YouTube（農業技術発信）",
+      "what": "農業技術・栽培方法をYouTubeで発信することで全国から視聴者・ファン・直接購入顧客を獲得できます。",
+      "how": "スマホで農作業の様子を撮影してYouTubeにアップ。「トマトの摘芯のやり方」「有機農業への転換方法」など役立つ内容が視聴者に支持されます。チャンネル登録が増えると販売ページへの誘導もできます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

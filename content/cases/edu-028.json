@@ -1,0 +1,28 @@
+{
+  "id": "edu-028",
+  "industry": "edu",
+  "no": 28,
+  "stage": 3,
+  "title": "生成AIで個人専用教科書を自動生成",
+  "summary": "生徒の習熟度・興味・学習スタイルに合わせAIが毎回最適な教材を生成提供",
+  "budget": 2,
+  "tools": [
+    "ChatGPT API（個人専用教材生成）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "ChatGPT API（個人専用教材生成）",
+      "what": "生徒の理解度・興味・学習スタイルの情報をAIに渡して、その生徒専用の説明文・問題・事例を自動生成するシステム。",
+      "how": "ChatGPT APIに生徒プロフィール（得意科目・苦手分野・興味）を渡して「この生徒向けの数学問題を5問作成」と指示するだけ。個別最適化された教材が自動生成されます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

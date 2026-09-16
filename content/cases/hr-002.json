@@ -1,0 +1,28 @@
+{
+  "id": "hr-002",
+  "industry": "hr",
+  "no": 2,
+  "stage": 1,
+  "title": "電子契約（雇用契約・NDA）の導入",
+  "summary": "書面契約をクラウドサインなどの電子署名サービスで代替し郵送・印紙が不要に",
+  "budget": 1,
+  "tools": [
+    "クラウドサイン"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "クラウドサイン",
+      "what": "雇用契約・NDA・業務委託契約をオンラインで送って電子署名してもらえるサービス。郵送・印紙代がゼロになります。",
+      "how": "cloudsign.jpで登録し契約書PDFをアップして相手のメールアドレスを入力して送信。相手はリンクから確認してクリックするだけで署名完了。控えが双方に自動送付されます。",
+      "url": "https://www.cloudsign.jp/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

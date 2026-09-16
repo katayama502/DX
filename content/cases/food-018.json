@@ -1,0 +1,28 @@
+{
+  "id": "food-018",
+  "industry": "food",
+  "no": 18,
+  "stage": 2,
+  "title": "顧客分析CRMで常連客を見える化",
+  "summary": "来店頻度・好みのメニューをデータ管理し離脱しそうな常連にクーポン配信",
+  "budget": 4,
+  "tools": [
+    "Tablecheck（顧客管理CRM）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Tablecheck（顧客管理CRM）",
+      "what": "予約・来店履歴・好みを顧客ごとに管理して、誕生日クーポンや離脱顧客への自動メッセージ配信ができる飲食店向けCRMシステム。",
+      "how": "予約・来店時に顧客情報を登録すると自動でプロフィールが蓄積。3ヶ月来店のない顧客に自動でメッセージを送ったり、誕生日月にクーポンを配信する設定ができます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

@@ -1,0 +1,28 @@
+{
+  "id": "npo-002",
+  "industry": "npo",
+  "no": 2,
+  "stage": 1,
+  "title": "SNSで活動報告・イベント告知",
+  "summary": "チラシ配布からInstagram・FacebookへのSNS発信に切り替え若年層へのリーチ強化",
+  "budget": 0,
+  "tools": [
+    "Facebook/Instagramビジネスアカウント"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Facebook/Instagramビジネスアカウント",
+      "what": "NPOの活動報告・イベント告知をSNSで発信して若い世代へのリーチを強化できる無料ツール。",
+      "how": "Facebookページを作成して活動報告・写真・動画を週2〜3回投稿。Instagramも連携して発信すると若年層にも届きます。イベント告知は「Facebook イベント」機能で拡散できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

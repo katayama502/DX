@@ -1,0 +1,28 @@
+{
+  "id": "const-020",
+  "industry": "const",
+  "no": 20,
+  "stage": 2,
+  "title": "入居者向けスマートロック・IoT設備管理",
+  "summary": "鍵の受け渡し不要なスマートロックとIoT設備で遠隔管理・トラブル対応",
+  "budget": 3,
+  "tools": [
+    "ASSA ABLOY（スマートロック）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "ASSA ABLOY（スマートロック）",
+      "what": "鍵の受け渡し不要で入居者がスマホで施錠・解錠できるシステム。管理会社は遠隔で鍵の発行・失効が可能です。",
+      "how": "物件の錠前をスマートロックに交換するだけ。入居者のスマホにアプリをインストールして鍵情報を付与。鍵の紛失・交換費用がゼロになります。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

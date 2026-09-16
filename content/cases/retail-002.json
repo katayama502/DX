@@ -1,0 +1,28 @@
+{
+  "id": "retail-002",
+  "industry": "retail",
+  "no": 2,
+  "stage": 1,
+  "title": "Googleスプレッドシートで在庫管理",
+  "summary": "紙の在庫台帳をクラウドシートに移行し複数スタッフがリアルタイムで確認",
+  "budget": 0,
+  "tools": [
+    "Googleスプレッドシート"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Googleスプレッドシート",
+      "what": "Excelのようにブラウザやスマホでリアルタイムにチームでシートを共有・編集できる無料ツール。ファイル送付不要で常に最新の状態を全員が確認できます。",
+      "how": "Googleドライブで新規スプレッドシートを作り、商品名・数量・入出庫日を入力する在庫表を作成。URLをスタッフに共有するだけで同時編集可能に。在庫が変わったらスマホからも入力できます。",
+      "url": "https://docs.google.com/spreadsheets/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

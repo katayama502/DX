@@ -1,0 +1,28 @@
+{
+  "id": "tourism-015",
+  "industry": "tourism",
+  "no": 15,
+  "stage": 2,
+  "title": "客室IoTで空調・照明を自動制御",
+  "summary": "入退室センサーと連動した空調・照明自動管理でエネルギーコストを削減",
+  "budget": 4,
+  "tools": [
+    "IoT客室コントローラー（ECOJOULE等）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "IoT客室コントローラー（ECOJOULE等）",
+      "what": "客室の入退室センサーと連動して空調・照明・テレビを自動制御するIoTシステム。空室時の無駄なエネルギー消費を大幅削減します。",
+      "how": "各客室にIoTセンサーとコントローラーを設置するだけ。客室に誰もいない時間が続くと自動で空調をスリープモードに切り替えます。管理画面で全客室のエネルギー状況を一覧できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

@@ -1,0 +1,28 @@
+{
+  "id": "npo-008",
+  "industry": "npo",
+  "no": 8,
+  "stage": 1,
+  "title": "YouTubeで活動動画を発信してファンを増やす",
+  "summary": "活動現場のドキュメント動画をYouTubeで公開し共感・寄付・ボランティア募集に活用",
+  "budget": 0,
+  "tools": [
+    "YouTube（活動動画発信）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "YouTube（活動動画発信）",
+      "what": "NPOの活動現場の動画をYouTubeで公開して共感・寄付・ボランティア募集につなげられます。",
+      "how": "スマホで活動現場を録画してYouTubeにアップするだけ。サムネイルをCanvaで作成すると視聴率が上がります。寄付ページへのリンクを概要欄に貼ることで直接支援につなげられます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

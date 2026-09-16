@@ -1,0 +1,28 @@
+{
+  "id": "mfg-008",
+  "industry": "mfg",
+  "no": 8,
+  "stage": 1,
+  "title": "スマホ動画で熟練者の技能を記録",
+  "summary": "熟練作業者の動作をスマホ動画で記録し技能伝承動画ライブラリを整備",
+  "budget": 0,
+  "tools": [
+    "YouTube（技能動画ライブラリ）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "YouTube（技能動画ライブラリ）",
+      "what": "熟練者の作業動作をスマホで録画してYouTubeに限定公開することで技能伝承動画ライブラリを構築できます。",
+      "how": "熟練工の作業をスマホで録画（コツ・注意点・確認ポイントを説明してもらいながら）。YouTubeに限定公開でアップしてURLをQRコードで現場に掲示。新人がいつでも視聴して確認できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

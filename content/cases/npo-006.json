@@ -1,0 +1,28 @@
+{
+  "id": "npo-006",
+  "industry": "npo",
+  "no": 6,
+  "stage": 1,
+  "title": "CanvaでNPO広報・クラウドファンディングのビジュアル作成",
+  "summary": "デザイン予算なしでもCanvaで見栄えのいい広報物・資金調達資料を内製",
+  "budget": 0,
+  "tools": [
+    "Canva for Nonprofits"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Canva for Nonprofits",
+      "what": "NPO向けに無料で使えるCanvaのプレミアムプラン。クラウドファンディングのビジュアル・チラシ・SNS投稿を内製できます。",
+      "how": "Canva.com/nonprofit でNPO無料プランに申請するだけで全プレミアム機能が無料に。クラウドファンディングの訴求力の高いビジュアルを簡単に制作できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

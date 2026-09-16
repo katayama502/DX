@@ -1,0 +1,28 @@
+{
+  "id": "logistics-013",
+  "industry": "logistics",
+  "no": 13,
+  "stage": 2,
+  "title": "倉庫自動化（GTP・ソーターロボット）",
+  "summary": "ピッキングロボットや自動仕分けシステムで倉庫作業の大部分を無人化",
+  "budget": 5,
+  "tools": [
+    "AutoStore（倉庫自動化システム）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "AutoStore（倉庫自動化システム）",
+      "what": "ロボットが棚の上を走って商品を取り出すグリッド型自動倉庫システム。人の歩行ピッキングを無人化して作業効率を10倍以上にします。",
+      "how": "既存倉庫にAutoStoreのグリッドを設置してロボットを配置。注文が入るとシステムが自動でロボットに取り出し指示を出して商品をピッキングステーションに届けます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

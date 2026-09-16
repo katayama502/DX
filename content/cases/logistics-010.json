@@ -1,0 +1,28 @@
+{
+  "id": "logistics-010",
+  "industry": "logistics",
+  "no": 10,
+  "stage": 1,
+  "title": "置き配・時間帯指定をLINEで受付",
+  "summary": "再配達依頼を電話からLINEチャットに変えドライバーの電話対応時間を削減",
+  "budget": 1,
+  "tools": [
+    "LINE（再配達・時間帯変更受付）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "LINE（再配達・時間帯変更受付）",
+      "what": "再配達の電話対応をLINEチャットに変えてドライバーの業務負担を削減するシステム。顧客も電話より気軽に連絡できます。",
+      "how": "LINE公式アカウントを作成してチャットボットで「時間帯変更」「置き配希望」を受け付ける設定を行います。顧客がLINEで連絡するとシステムが自動でドライバーに通知します。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

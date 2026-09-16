@@ -1,0 +1,28 @@
+{
+  "id": "retail-009",
+  "industry": "retail",
+  "no": 9,
+  "stage": 1,
+  "title": "スマホカメラでネット出品",
+  "summary": "フリマアプリ・ECサイトにスマホ撮影の商品写真を即日アップロード",
+  "budget": 0,
+  "tools": [
+    "メルカリShops"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "メルカリShops",
+      "what": "ブランドを持って自社ECショップをスマホで開設・運営できるサービス。メルカリの集客力を活用しながら自分のお店として販売できます。",
+      "how": "メルカリShopsに登録してショップ名・プロフィールを設定。スマホで商品を撮影して説明文と価格を入力して出品するだけ。売れたら梱包・発送。送料計算・決済・入金もすべて自動処理されます。",
+      "url": "https://mercari-shops.com/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

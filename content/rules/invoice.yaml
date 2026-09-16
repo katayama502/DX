@@ -1,0 +1,14 @@
+theme: invoice
+rules:
+  - id: invoice-r1
+    if: { q_need: [登録すべきか判断したい, 税額の計算が不安] }
+    level: red
+    reason: 登録の判断・税額計算は税理士の判断が必要なため
+  - id: invoice-y1
+    if: { q_registered: [登録していない, わからない], q_partners: [主に会社・事業者, 両方] }
+    level: yellow
+    reason: 取引先が事業者の場合、登録の要否を取引先と確認する必要があるため
+  - id: invoice-y2
+    if: { q_bookkeeping: [手書き・Excel] }
+    level: yellow
+    reason: 会計ソフトの導入を含めて比較検討が必要なため

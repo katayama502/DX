@@ -1,0 +1,28 @@
+{
+  "id": "mfg-028",
+  "industry": "mfg",
+  "no": 28,
+  "stage": 3,
+  "title": "AIデザインで製品開発期間を10分の1に",
+  "summary": "要件を入力するとAIが数百のデザイン案を生成しエンジニアが絞り込む新開発プロセス",
+  "budget": 4,
+  "tools": [
+    "Autodesk Generative Design（AIデザイン）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Autodesk Generative Design（AIデザイン）",
+      "what": "設計条件を入力するとAIが数百の最適設計案を自動生成するシステム。設計期間を大幅短縮しながら軽量・高強度の設計が実現します。",
+      "how": "製品の機能要件・制約・材料をシステムに入力するとAIが設計案を自動生成。エンジニアが候補から最適案を選んで詳細設計に進めます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

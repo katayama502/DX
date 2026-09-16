@@ -1,0 +1,28 @@
+{
+  "id": "tourism-030",
+  "industry": "tourism",
+  "no": 30,
+  "stage": 3,
+  "title": "サステナブルツーリズム認証のデジタル化",
+  "summary": "環境負荷データをリアルタイム計測・公開し認証を取得して欧米ハイエンド旅行者を誘致",
+  "budget": 3,
+  "tools": [
+    "Green Key（サステナブル認証管理）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Green Key（サステナブル認証管理）",
+      "what": "施設の環境負荷データをリアルタイム計測して国際的なサステナブル観光認証を取得するためのシステム。エコ意識の高い欧米旅行者の誘致につながります。",
+      "how": "電力・水・廃棄物の使用量をIoTセンサーで自動計測してシステムに記録。Green Keyなどの認証機関への提出データが自動生成されます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

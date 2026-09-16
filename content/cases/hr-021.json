@@ -1,0 +1,28 @@
+{
+  "id": "hr-021",
+  "industry": "hr",
+  "no": 21,
+  "stage": 3,
+  "title": "従業員のデータを分析して採用・配置・育成を科学的に行う",
+  "summary": "社員の勤怠・評価・スキルなどのデータを分析して、活躍できる場所や離職リスクを予測しながら人事を行う",
+  "budget": 5,
+  "tools": [
+    "IBM People Analytics"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "IBM People Analytics",
+      "what": "従業員データを統合分析してパフォーマンス予測・最適配置を実現するデータドリブン人事プラットフォーム。戦略人事への転換を支援します。",
+      "how": "人事・勤怠・評価・研修データをプラットフォームに統合。AIが「このチーム構成だと生産性が最大化される」「この社員は6ヶ月以内に離職リスクあり」などを予測します。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

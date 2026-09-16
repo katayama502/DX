@@ -1,0 +1,28 @@
+{
+  "id": "const-024",
+  "industry": "const",
+  "no": 24,
+  "stage": 3,
+  "title": "スマートシティ開発のデータ事業者化",
+  "summary": "街全体のインフラデータを収集・販売し建設会社がデータプロバイダに転換",
+  "budget": 5,
+  "tools": [
+    "スマートシティOS（Sidewalk Labs等）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "スマートシティOS（Sidewalk Labs等）",
+      "what": "街のインフラデータを収集・分析して自治体・事業者に提供するデータプラットフォーム。建設会社がデータプロバイダに転換できます。",
+      "how": "開発した街のインフラにセンサーを設置してデータを収集・クラウドに蓄積。自治体や企業にAPIでデータを提供することで継続的な収益が生まれます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

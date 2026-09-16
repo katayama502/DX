@@ -1,0 +1,28 @@
+{
+  "id": "tourism-013",
+  "industry": "tourism",
+  "no": 13,
+  "stage": 2,
+  "title": "多言語AIチャットボットで問い合わせ対応",
+  "summary": "英語・中国語・韓国語でのFAQをAIが24時間自動対応しスタッフ負担を軽減",
+  "budget": 4,
+  "tools": [
+    "Concieria（多言語チャットボット）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Concieria（多言語チャットボット）",
+      "what": "英語・中国語・韓国語でのFAQにAIが24時間自動回答するホテル向けチャットボット。多言語スタッフを雇わずに外国人対応ができます。",
+      "how": "Concieriaにホテルのよくある質問を登録するだけでAIが多言語で回答を学習。予約サイト・Webサイト・LINEに設置するとゲストが言語を選んで質問できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

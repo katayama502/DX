@@ -1,0 +1,28 @@
+{
+  "id": "edu-011",
+  "industry": "edu",
+  "no": 11,
+  "stage": 2,
+  "title": "LMSでブレンド学習",
+  "summary": "動画・課題・テスト・進捗管理を一プラットフォームに集約し個別化学習を実現",
+  "budget": 0,
+  "tools": [
+    "Google Classroom（LMS）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Google Classroom（LMS）",
+      "what": "授業資料配布・課題提出・採点・進捗管理を一つのプラットフォームで完結できるGoogleの学習管理システム。Googleアカウントがあれば無料で使えます。",
+      "how": "Google Classroomにクラスを作成して生徒を招待。課題をアップすると生徒のスマホ・PCに通知が届き、提出されると自動で一覧表示。コメントで個別フィードバックも送れます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

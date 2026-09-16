@@ -1,0 +1,28 @@
+{
+  "id": "retail-030",
+  "industry": "retail",
+  "no": 30,
+  "stage": 3,
+  "title": "店舗をデジタルで再現してお客さまの動きを分析・改善",
+  "summary": "店内のセンサーでお客さまの動き方を記録・分析し、商品の並べ方や通路の配置をデータで最適化する",
+  "budget": 5,
+  "tools": [
+    "Retailing Insights（店舗分析AI）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Retailing Insights（店舗分析AI）",
+      "what": "店内カメラとAIで顧客の動線・滞在時間・購買行動を分析するシステム。データに基づいて陳列や通路配置を改善できます。",
+      "how": "既存の防犯カメラにAI解析システムを連携。どの棚に立ち寄る客が多いか、どこで迷っているかなどを自動可視化。週次レポートで改善提案が届きます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

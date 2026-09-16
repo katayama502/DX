@@ -1,0 +1,28 @@
+{
+  "id": "retail-003",
+  "industry": "retail",
+  "no": 3,
+  "stage": 1,
+  "title": "LINEで会員証をデジタル化",
+  "summary": "プラスチックカードをLINE会員証に替えポイント管理をアプリで完結",
+  "budget": 1,
+  "tools": [
+    "LINE公式アカウント"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "LINE公式アカウント",
+      "what": "お店が顧客に一斉メッセージを送れるLINEの法人向け機能。顧客は普段使っているLINEで受信できるので、新しいアプリを入れさせる必要がありません。",
+      "how": "LINE公式アカウントマネージャーで登録後、友だち追加QRコードをレジ横に貼るだけで準備完了。メッセージ作成→配信ボタンで全員に一斉送信。ポイントカード機能も内蔵しています。",
+      "url": "https://www.lycbiz.com/jp/service/line-official-account/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

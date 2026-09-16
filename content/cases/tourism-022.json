@@ -1,0 +1,28 @@
+{
+  "id": "tourism-022",
+  "industry": "tourism",
+  "no": 22,
+  "stage": 3,
+  "title": "観光地域のデータプラットフォーム事業",
+  "summary": "宿泊・交通・消費データを統合して自治体・事業者に提供する観光地の統合マネジメント組織のデータ基盤を構築",
+  "budget": 2,
+  "tools": [
+    "Google データポータル（DMOデータ基盤）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Google データポータル（DMOデータ基盤）",
+      "what": "宿泊・交通・消費データをリアルタイムで可視化して地域の観光戦略に活かせるダッシュボードを無料で構築できるツール。",
+      "how": "Google Data StudioにOTA予約データ・観光スポット訪問数・飲食消費データを連携するだけで自動でグラフ・地図が生成されます。自治体・観光事業者に共有URLを渡すだけで全員が最新データを確認できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

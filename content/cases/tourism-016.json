@@ -1,0 +1,28 @@
+{
+  "id": "tourism-016",
+  "industry": "tourism",
+  "no": 16,
+  "stage": 2,
+  "title": "需要に合わせて宿泊料金を自動で最適化するシステムの導入",
+  "summary": "予約状況・競合の価格・時期などをAIが分析し、一番利益が出る料金を自動でコントロールする",
+  "budget": 5,
+  "tools": [
+    "IDeaS Revenue Management"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "IDeaS Revenue Management",
+      "what": "稼働率・単価・チャネルミックスを統合最適化するレベニューマネジメントシステム。AIが最大収益になる料金・販売チャネルを自動で提案します。",
+      "how": "IDeaSに予約データを連携するだけでAIが学習を開始。毎日「今日の推奨料金」と「販売すべきチャネル比率」が提案されます。OTA手数料と直販比率も自動最適化されます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

@@ -1,0 +1,28 @@
+{
+  "id": "retail-007",
+  "industry": "retail",
+  "no": 7,
+  "stage": 1,
+  "title": "Zoomで仕入れ先とのバイヤー商談",
+  "summary": "遠方のメーカー・問屋との商談をオンラインに切り替え出張費を削減",
+  "budget": 0,
+  "tools": [
+    "Zoom"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Zoom",
+      "what": "パソコン・スマホからビデオ通話・会議ができるツール。画面共有で商品カタログを見せながら商談ができます。",
+      "how": "zoom.usで無料登録してアプリをインストール。「新しいミーティング」でURLを生成して仕入れ先にメール送信。会議中に「画面共有」を押すと商品リストや価格表をそのまま見せながら交渉できます。",
+      "url": "https://zoom.us/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

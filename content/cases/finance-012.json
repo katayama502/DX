@@ -1,0 +1,28 @@
+{
+  "id": "finance-012",
+  "industry": "finance",
+  "no": 12,
+  "stage": 2,
+  "title": "チャットボットで問い合わせ24時間対応",
+  "summary": "よくある質問・手続き案内をAIが自動対応しコールセンター負荷を大幅削減",
+  "budget": 3,
+  "tools": [
+    "Zendesk AI（チャットボット）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Zendesk AI（チャットボット）",
+      "what": "Webサイト・アプリ上でよくある質問に24時間自動回答するAIチャットシステム。コールセンターの負荷を大幅に削減します。",
+      "how": "Zendeskに登録してよくある質問と回答を登録するだけでAIが自動学習。自然な会話形式で回答できます。解決できない場合はオペレーターに自動転送されます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

@@ -1,0 +1,28 @@
+{
+  "id": "medical-018",
+  "industry": "medical",
+  "no": 18,
+  "stage": 2,
+  "title": "手術ナビゲーションシステムの活用",
+  "summary": "CT画像と連動したナビゲーターが術中のリアルタイム位置情報を外科医に提示",
+  "budget": 5,
+  "tools": [
+    "Stryker iSuite（手術ナビゲーション）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Stryker iSuite（手術ナビゲーション）",
+      "what": "CT画像と連動して術中に手術器具の位置をリアルタイム表示するナビゲーションシステム。正確性が高まり手術時間の短縮と合併症リスク低下が期待できます。",
+      "how": "手術前にCTデータをシステムに読み込んでプランニング。手術中に術野とナビゲーション画面を見ながら操作することで計画通りの術式を遂行できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

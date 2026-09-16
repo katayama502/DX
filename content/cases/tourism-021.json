@@ -1,0 +1,28 @@
+{
+  "id": "tourism-021",
+  "industry": "tourism",
+  "no": 21,
+  "stage": 3,
+  "title": "宿泊データ活用の体験型滞在設計",
+  "summary": "ゲストの好みデータをもとに旅行前から帰宅後まで一貫したパーソナライズ旅行体験を提供",
+  "budget": 5,
+  "tools": [
+    "Salesforce Marketing Cloud"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Salesforce Marketing Cloud",
+      "what": "宿泊者のデータをもとに旅行前・滞在中・帰宅後の一貫したパーソナライズ体験を設計できるマーケティング自動化プラットフォーム。",
+      "how": "予約・滞在・口コミデータをプラットフォームに統合。「〇〇様の誕生月に合わせた特別プランのご案内」「前回の滞在から3ヶ月・またお越しください」などを自動配信します。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

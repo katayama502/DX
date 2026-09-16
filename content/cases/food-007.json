@@ -1,0 +1,28 @@
+{
+  "id": "food-007",
+  "industry": "food",
+  "no": 7,
+  "stage": 1,
+  "title": "Zoomでスタッフ朝礼・研修",
+  "summary": "多店舗の朝礼やメニュー研修をオンラインで一括実施し店舗移動コスト削減",
+  "budget": 0,
+  "tools": [
+    "Zoom"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Zoom",
+      "what": "複数店舗のスタッフが場所を問わず参加できるビデオ会議ツール。多店舗の朝礼や研修をオンラインで一括実施できます。",
+      "how": "zoom.usで無料登録して定例朝礼のURLを作成。全店舗のスタッフにURLを共有して毎朝接続するだけ。画面共有でシフト表やメニュー変更を見せながら説明できます。",
+      "url": "https://zoom.us/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

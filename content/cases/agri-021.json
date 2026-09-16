@@ -1,0 +1,28 @@
+{
+  "id": "agri-021",
+  "industry": "agri",
+  "no": 21,
+  "stage": 3,
+  "title": "産直ECプラットフォームで中間流通を排除",
+  "summary": "農家と消費者を直接つなぐアプリで中間マージンを省き農家の手取りを改善",
+  "budget": 0,
+  "tools": [
+    "ポケットマルシェ（産直EC）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "ポケットマルシェ（産直EC）",
+      "what": "農家と消費者を直接つなぐ産直ECアプリ。収穫した農産物を当日出品して消費者に直送できます。",
+      "how": "pocket-marche.com に農家として登録して商品写真・説明・価格を入力して出品するだけ。注文が入ったら梱包・発送するだけで決済・配送料の計算もシステムが自動処理します。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

@@ -1,0 +1,28 @@
+{
+  "id": "medical-008",
+  "industry": "medical",
+  "no": 8,
+  "stage": 1,
+  "title": "研修資料のeラーニング化",
+  "summary": "集合研修で使っていたマニュアルを動画化しスタッフが空き時間に自習できる",
+  "budget": 0,
+  "tools": [
+    "YouTube Studio（限定公開）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "YouTube Studio（限定公開）",
+      "what": "研修動画をYouTubeに限定公開してスタッフがいつでも繰り返し視聴できる動画研修システム。集合研修の廃止と夜勤前の自習に最適です。",
+      "how": "スマホで研修内容を録画してYouTubeに「限定公開」でアップ。URLをスタッフに共有するだけで完成。処置手順・感染対策・記録方法など動画化しておくと新人研修の工数が大幅に削減されます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

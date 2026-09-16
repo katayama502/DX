@@ -1,0 +1,28 @@
+{
+  "id": "mfg-004",
+  "industry": "mfg",
+  "no": 4,
+  "stage": 1,
+  "title": "QRコードで設備・部品の情報管理",
+  "summary": "設備にQRシールを貼りスキャンするだけで点検履歴・仕様書を即参照",
+  "budget": 2,
+  "tools": [
+    "QRコード管理（kintone連携）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "QRコード管理（kintone連携）",
+      "what": "設備・部品にQRコードを貼り付けてスキャンするだけで点検履歴・仕様書を即座に参照できるシステム。",
+      "how": "kintoneにデータベースを作成して設備情報・点検記録を登録。各設備のQRコードを印刷して貼り付け。スタッフがスキャンすると設備情報と過去の点検記録が表示されます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

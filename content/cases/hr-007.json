@@ -1,0 +1,28 @@
+{
+  "id": "hr-007",
+  "industry": "hr",
+  "no": 7,
+  "stage": 1,
+  "title": "Zoomで採用面接をオンライン実施",
+  "summary": "遠方候補者も交通費不要でカジュアル面談から最終面接まで完結",
+  "budget": 0,
+  "tools": [
+    "Zoom"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Zoom",
+      "what": "遠方の候補者も交通費不要でカジュアル面談から最終面接まで完結できるビデオ会議ツール。",
+      "how": "Zoomで面接用URLを作成して候補者にメール送付。指定時間にアクセスしてもらうだけで面接が始まります。録画して採用担当者間での評価共有も可能です。",
+      "url": "https://zoom.us/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

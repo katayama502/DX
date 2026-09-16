@@ -1,0 +1,28 @@
+{
+  "id": "logistics-002",
+  "industry": "logistics",
+  "no": 2,
+  "stage": 1,
+  "title": "スマホGPSで配送車をリアルタイム追跡",
+  "summary": "ドライバーのスマホGPSで現在地を把握し顧客への到着連絡を自動化",
+  "budget": 2,
+  "tools": [
+    "Google Maps Platform（位置情報API）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Google Maps Platform（位置情報API）",
+      "what": "ドライバーのスマホGPSをリアルタイムで可視化して管理者が配送状況を把握できるシステム。顧客への到着通知も自動化できます。",
+      "how": "配車管理アプリにGoogle Maps APIを組み込む、またはクラウド配車管理ツールを利用。管理者が画面でドライバーの現在地を確認できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

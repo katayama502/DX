@@ -1,0 +1,28 @@
+{
+  "id": "const-017",
+  "industry": "const",
+  "no": 17,
+  "stage": 2,
+  "title": "AIによる建物劣化診断",
+  "summary": "外壁や橋梁の写真をAIが解析してひび割れ・劣化箇所を自動検出・評価",
+  "budget": 4,
+  "tools": [
+    "Ridge-i（建物劣化AI診断）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Ridge-i（建物劣化AI診断）",
+      "what": "外壁・橋梁の写真をスマホで撮影するだけでAIがひび割れ・劣化箇所を自動検出・評価するシステム。目視点検の見落としをなくします。",
+      "how": "スマホで外壁を撮影してシステムにアップロードするだけ。AIが数分でひび割れの位置・幅・深刻度を評価してレポートを自動生成します。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

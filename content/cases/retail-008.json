@@ -1,0 +1,28 @@
+{
+  "id": "retail-008",
+  "industry": "retail",
+  "no": 8,
+  "stage": 1,
+  "title": "Notionで商品マスタ・価格表を管理",
+  "summary": "ExcelバラバラをNotionデータベースに統一しリンクで誰でも参照可能",
+  "budget": 1,
+  "tools": [
+    "Notion"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Notion",
+      "what": "メモ・データベース・マニュアルをひとつのツールで管理できるオールインワンツール。商品マスタや価格表をデータベース形式で一元管理できます。",
+      "how": "notion.soで登録してデータベースを作成。商品名・価格・仕入れ先・在庫状況などの列を設定し、商品を追加していきます。フィルターやソートで絞り込みが簡単で、URLを共有すれば全スタッフが最新情報を参照できます。",
+      "url": "https://www.notion.so/ja-jp"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

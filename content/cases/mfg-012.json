@@ -1,0 +1,28 @@
+{
+  "id": "mfg-012",
+  "industry": "mfg",
+  "no": 12,
+  "stage": 2,
+  "title": "AIによる外観検査の自動化",
+  "summary": "カメラとAIが製品の傷・欠陥を人より高速・高精度に検出し不良流出をゼロへ",
+  "budget": 5,
+  "tools": [
+    "Keyence（AI画像検査）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Keyence（AI画像検査）",
+      "what": "カメラとAIが製品の傷・欠陥を人より高速・高精度に検出する自動外観検査システム。不良品の流出をゼロにします。",
+      "how": "ラインにカメラを設置してKeyenceのAI検査システムに接続。良品の画像を学習させるだけでAIが不良を自動判定。不良品はラインから自動で排除されます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

@@ -1,0 +1,28 @@
+{
+  "id": "tourism-018",
+  "industry": "tourism",
+  "no": 18,
+  "stage": 2,
+  "title": "VRで観光地の事前体験コンテンツを提供",
+  "summary": "旅行前に目的地の観光スポットをVRで体験できるコンテンツで予約転換率向上",
+  "budget": 2,
+  "tools": [
+    "Matterport（360°VRツアー）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Matterport（360°VRツアー）",
+      "what": "施設内の写真を360°で撮影してVRバーチャルツアーを作成できるサービス。旅行前に施設を疑似体験してもらえて予約転換率が上がります。",
+      "how": "Matterportの専用カメラまたはiPhoneで施設内を撮影するだけで自動的に3Dバーチャルツアーが生成されます。予約サイトやWebサイトに埋め込んで公開できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

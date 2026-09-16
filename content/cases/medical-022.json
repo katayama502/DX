@@ -1,0 +1,28 @@
+{
+  "id": "medical-022",
+  "industry": "medical",
+  "no": 22,
+  "stage": 3,
+  "title": "AIがんスクリーニングサービス",
+  "summary": "内視鏡・病理画像をAIが一次判定し専門医不足地域でもがん早期発見を実現",
+  "budget": 5,
+  "tools": [
+    "AI内視鏡診断支援（EndoBRAIN）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "AI内視鏡診断支援（EndoBRAIN）",
+      "what": "内視鏡検査中にAIがリアルタイムでポリープ・がんの疑い箇所を自動検出するシステム。見落としを防いでがん早期発見率を向上させます。",
+      "how": "既存の内視鏡システムに接続するとAIが映像をリアルタイム解析。疑わしい箇所にマーカーが表示されて術者に警告。検査中に確認できるため取り残しを防止します。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

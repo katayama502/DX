@@ -1,0 +1,28 @@
+{
+  "id": "const-006",
+  "industry": "const",
+  "no": 6,
+  "stage": 1,
+  "title": "Zoomで施主との打ち合わせ",
+  "summary": "週次の進捗報告や設計変更の確認をオンラインにし双方の移動時間をなくす",
+  "budget": 0,
+  "tools": [
+    "Zoom"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Zoom",
+      "what": "施主・設計士・工事監督がどこからでも打ち合わせできるビデオ会議ツール。図面を画面共有しながら打ち合わせが完結します。",
+      "how": "Zoomで打ち合わせURLを作成して施主にメール送付するだけ。画面共有で図面・3Dイメージを見ながら設計変更の確認ができます。",
+      "url": "https://zoom.us/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

@@ -1,0 +1,28 @@
+{
+  "id": "mfg-011",
+  "industry": "mfg",
+  "no": 11,
+  "stage": 2,
+  "title": "IoTセンサーで設備稼働を見える化",
+  "summary": "機械に取り付けたセンサーで稼働率・温度・振動をリアルタイム監視しダウンタイム削減",
+  "budget": 3,
+  "tools": [
+    "SORACOM（IoTセンサー基盤）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "SORACOM（IoTセンサー基盤）",
+      "what": "工場の設備にセンサーを取り付けてクラウドにデータを送るIoTの通信基盤サービス。稼働率・温度・振動をリアルタイムでモニタリングできます。",
+      "how": "設備に振動センサー・温度センサーを取り付けてSORACOMのSIMカードで通信。データがクラウドに自動送信されてスマホのダッシュボードでリアルタイム確認できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

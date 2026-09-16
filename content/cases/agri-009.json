@@ -1,0 +1,28 @@
+{
+  "id": "agri-009",
+  "industry": "agri",
+  "no": 9,
+  "stage": 1,
+  "title": "デジタル地図で用水路・農道を管理",
+  "summary": "地図情報システムアプリで用水路・農道・水門の位置と点検状況を地図上でデジタル管理",
+  "budget": 2,
+  "tools": [
+    "GIS農地管理（AGRI SMILE等）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "GIS農地管理（AGRI SMILE等）",
+      "what": "農地・用水路・農道をデジタル地図上で管理して点検記録もデジタル化できるシステム。広域の農地管理を効率化します。",
+      "how": "スマホアプリで農地を歩きながら写真・メモを記録するとGPSと組み合わせて地図に自動プロット。水門の開閉記録・農道の補修要否もアプリで管理できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

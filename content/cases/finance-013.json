@@ -1,0 +1,28 @@
+{
+  "id": "finance-013",
+  "industry": "finance",
+  "no": 13,
+  "stage": 2,
+  "title": "不正検知AIでリアルタイム取引監視",
+  "summary": "機械学習モデルが取引パターンの異常を即時検出しカード不正利用を自動ブロック",
+  "budget": 5,
+  "tools": [
+    "Fraud Detection AI（不正検知）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Fraud Detection AI（不正検知）",
+      "what": "取引パターンの異常をAIがリアルタイムで検知してカード不正利用を自動ブロックするシステム。",
+      "how": "全取引データをAIが学習して正常パターンを把握。異常な取引（深夜の高額決済・海外からの利用など）を検知すると自動でブロックして顧客にSMSで通知します。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

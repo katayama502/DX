@@ -1,0 +1,28 @@
+{
+  "id": "food-017",
+  "industry": "food",
+  "no": 17,
+  "stage": 2,
+  "title": "フードデリバリーとPOSの自動連携",
+  "summary": "Uber Eatsなど複数デリバリーの注文をPOSに自動取り込み手入力ミスを防止",
+  "budget": 0,
+  "tools": [
+    "Uber Eats レストランマネージャー"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Uber Eats レストランマネージャー",
+      "what": "Uber Eatsの注文をPOSシステムに自動取り込みする連携機能。複数のデリバリーサービスの注文を一元管理できます。",
+      "how": "POSシステム（Airレジ・Squareなど）とUber Eatsを連携設定するだけ。デリバリー注文が入ると自動でPOSに反映され手入力が不要に。複数サービス（出前館・menu等）を1画面で管理できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

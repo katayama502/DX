@@ -1,0 +1,28 @@
+{
+  "id": "food-016",
+  "industry": "food",
+  "no": 16,
+  "stage": 2,
+  "title": "セルフオーダー・セルフ会計端末",
+  "summary": "タッチパネル端末でお客が自分で注文・支払いを完結しピーク時の行列を解消",
+  "budget": 2,
+  "tools": [
+    "Square KDS（キッチンディスプレイ）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Square KDS（キッチンディスプレイ）",
+      "what": "注文情報をキッチンのモニターにリアルタイム表示するシステム。口頭・メモ伝達によるオーダーミスをゼロにします。",
+      "how": "キッチンにモニターを設置してSquare KDSアプリをインストール。注文が入ると厨房のモニターに自動表示され、調理完了ボタンを押すとホールに通知されます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

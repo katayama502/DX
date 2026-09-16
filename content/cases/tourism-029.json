@@ -1,0 +1,28 @@
+{
+  "id": "tourism-029",
+  "industry": "tourism",
+  "no": 29,
+  "stage": 3,
+  "title": "宿泊×農業×教育の複合滞在型事業",
+  "summary": "農作業・食育・自然体験を組み合わせた滞在プログラムで地域の付加価値を最大化",
+  "budget": 0,
+  "tools": [
+    "Airbnb Experiences（体験プログラム）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Airbnb Experiences（体験プログラム）",
+      "what": "農作業・食育・自然体験などの滞在型プログラムをAirbnbで全国の旅行者に販売できるプラットフォーム。",
+      "how": "Airbnb.com/host/experiences でホストとして登録して体験プログラムを作成するだけ。Airbnbの集客力で全国・海外からゲストを集められます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

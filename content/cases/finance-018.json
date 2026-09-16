@@ -1,0 +1,28 @@
+{
+  "id": "finance-018",
+  "industry": "finance",
+  "no": 18,
+  "stage": 2,
+  "title": "AIが契約書の問題箇所を自動でチェック",
+  "summary": "大量の契約書をAIが読んで危険な条項や不備を自動で見つけ、法務担当者の手間を大幅削減",
+  "budget": 5,
+  "tools": [
+    "LegalForce（契約書AI審査）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "LegalForce（契約書AI審査）",
+      "what": "大量の契約書をAIが読み込んでリスク条項・不備・有利不利を自動で検出するシステム。法務担当者の審査時間を大幅に削減します。",
+      "how": "契約書のPDFをLegalForceにアップするだけ。AIが10秒以内にリスク箇所をハイライトして修正案を提示。どの条項がリスクか・なぜリスクかも日本語で説明してくれます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

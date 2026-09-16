@@ -1,0 +1,28 @@
+{
+  "id": "edu-014",
+  "industry": "edu",
+  "no": 14,
+  "stage": 2,
+  "title": "翻訳AIで多国籍生徒を支援",
+  "summary": "外国籍の保護者へのお知らせをAI翻訳で自動多言語化し対応コストを削減",
+  "budget": 0,
+  "tools": [
+    "DeepL（AI翻訳）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "DeepL（AI翻訳）",
+      "what": "世界トップクラスの翻訳精度を誇る無料AIツール。保護者へのお知らせを瞬時に多言語翻訳して、外国籍家庭との連絡をスムーズにします。",
+      "how": "deepl.com にアクセスして日本語のお知らせ文を貼り付けるだけで自動翻訳。英語・中国語・ポルトガル語など数十言語に対応。PDFファイルをアップロードするとそのまま翻訳されます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

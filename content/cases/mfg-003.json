@@ -1,0 +1,28 @@
+{
+  "id": "mfg-003",
+  "industry": "mfg",
+  "no": 3,
+  "stage": 1,
+  "title": "図面のPDFデータ化と一元管理",
+  "summary": "紙図面をスキャン・CADデータ化しDriveで管理して誰でも最新版を参照可能",
+  "budget": 0,
+  "tools": [
+    "Google Drive（PDFデータ管理）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Google Drive（PDFデータ管理）",
+      "what": "CAD図面・仕様書をPDFでクラウドに保存してどこからでも最新版を参照できる仕組み。メールでの図面やり取りと版管理ミスを解消します。",
+      "how": "Googleドライブに製品別・工程別のフォルダを作成してPDFをアップロード。バージョン管理機能で更新履歴が自動保存されます。QRコードを貼り付けて設備横からも参照可能です。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

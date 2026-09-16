@@ -1,0 +1,28 @@
+{
+  "id": "tourism-002",
+  "industry": "tourism",
+  "no": 2,
+  "stage": 1,
+  "title": "Googleフォームでお客様の声を収集",
+  "summary": "チェックアウト時にQRコードでアンケートに誘導し紙カードを廃止",
+  "budget": 0,
+  "tools": [
+    "Googleフォーム"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Googleフォーム",
+      "what": "チェックアウト時にQRコードで誘導するだけで宿泊者の声を収集できる無料のアンケートツール。紙のアンケートカードが不要になります。",
+      "how": "Googleフォームでアンケートを作成してQRコードを生成。ルームキーや精算書に印刷しておくだけで宿泊者がスマホから回答できます。回答はスプレッドシートに自動集計されます。",
+      "url": "https://docs.google.com/forms/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

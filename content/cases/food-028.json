@@ -1,0 +1,28 @@
+{
+  "id": "food-028",
+  "industry": "food",
+  "no": 28,
+  "stage": 3,
+  "title": "AIシェフロボットによる無人調理",
+  "summary": "ラーメン・揚げ物など定型調理をロボットが代替し深夜も人件費ゼロで営業",
+  "budget": 5,
+  "tools": [
+    "調理ロボット（Miso Robotics等）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "調理ロボット（Miso Robotics等）",
+      "what": "ラーメン・揚げ物・炒め物など定型的な調理工程をロボットが代替するシステム。人手不足解消と品質の均一化が実現します。",
+      "how": "厨房に調理ロボットを設置してレシピをプログラミング。スイッチを入れるだけで決まった手順で調理を実行します。深夜帯の無人運営が可能になります。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

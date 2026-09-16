@@ -1,0 +1,28 @@
+{
+  "id": "logistics-006",
+  "industry": "logistics",
+  "no": 6,
+  "stage": 1,
+  "title": "Googleマップで最寄りルートをナビ活用",
+  "summary": "ベテランの感覚依存だったルート選択をGoogleマップに標準化し新人でも効率配送",
+  "budget": 0,
+  "tools": [
+    "Googleマップ（配送ナビ）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Googleマップ（配送ナビ）",
+      "what": "最短・最速ルートをリアルタイムで案内するナビゲーションツール。ベテランの経験に頼らずに新人でも効率的な配送ができます。",
+      "how": "Googleマップを開いて配送先住所を入力するだけ。交通渋滞・道路工事情報をリアルタイムで反映した最適ルートを案内します。複数の配送先を順番に入力することもできます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

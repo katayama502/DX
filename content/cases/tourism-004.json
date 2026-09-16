@@ -1,0 +1,28 @@
+{
+  "id": "tourism-004",
+  "industry": "tourism",
+  "no": 4,
+  "stage": 1,
+  "title": "InstagramでPR・観光スポット情報を発信",
+  "summary": "絶景写真・地域の食を毎日発信し検索経由のオーガニック集客を強化",
+  "budget": 0,
+  "tools": [
+    "Instagramビジネスアカウント"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Instagramビジネスアカウント",
+      "what": "宿泊施設の絶景写真・地域の食・体験コンテンツを毎日発信して、検索からの予約につなげるSNSツール。",
+      "how": "Instagramのプロアカウントに切り替えて毎日写真を投稿。「#宿名」「#エリア名」「#露天風呂」などのハッシュタグをつけることで旅行検討者に届きます。リール動画が特に拡散されやすいです。",
+      "url": "https://www.instagram.com/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

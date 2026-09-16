@@ -1,0 +1,28 @@
+{
+  "id": "hr-004",
+  "industry": "hr",
+  "no": 4,
+  "stage": 1,
+  "title": "Slackで社内連絡・ナレッジ共有",
+  "summary": "メール・電話での社内連絡をSlackに統一しナレッジを検索可能な形で蓄積",
+  "budget": 0,
+  "tools": [
+    "Slack"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Slack",
+      "what": "メール・電話での社内連絡をチャットで一元化するツール。ナレッジも蓄積されて検索できます。",
+      "how": "Slackにワークスペースを作成して社員を招待。部署別・プロジェクト別のチャンネルを作るだけ。ファイル共有・メンション・検索が全て内蔵されています。",
+      "url": "https://slack.com/intl/ja-jp/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

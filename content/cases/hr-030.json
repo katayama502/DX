@@ -1,0 +1,28 @@
+{
+  "id": "hr-030",
+  "industry": "hr",
+  "no": 30,
+  "stage": 3,
+  "title": "人事データをAPIで経営ダッシュボードに統合",
+  "summary": "HR・財務・営業データをリアルタイム統合し経営陣がワンクリックで意思決定できる環境を構築",
+  "budget": 3,
+  "tools": [
+    "Tableau（HR経営ダッシュボード）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Tableau（HR経営ダッシュボード）",
+      "what": "HR・財務・営業データをリアルタイム統合して経営陣がワンクリックで意思決定できる経営ダッシュボードを構築するBIツール。",
+      "how": "各システムのデータをTableauに接続するだけで自動でグラフ・ダッシュボードが生成されます。人材コスト・採用効率・離職率・業績相関を一画面で確認できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

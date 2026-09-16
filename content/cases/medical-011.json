@@ -1,0 +1,28 @@
+{
+  "id": "medical-011",
+  "industry": "medical",
+  "no": 11,
+  "stage": 2,
+  "title": "遠隔診療の本格導入",
+  "summary": "スマホでかかりつけ医に相談できる仕組みで通院困難な患者に対応",
+  "budget": 3,
+  "tools": [
+    "LINEドクター（遠隔診療）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "LINEドクター（遠隔診療）",
+      "what": "LINEアプリから医師にビデオ診療ができるサービス。患者がスマホから予約・診察・処方薬の受け取りまでできます。通院が難しい患者の受診率が上がります。",
+      "how": "LINE Doctorに医療機関として登録して診療科・時間枠・担当医を設定。患者はLINEから予約して指定時間にビデオ通話で診察。処方箋は薬局に自動送信されます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

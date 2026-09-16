@@ -1,0 +1,28 @@
+{
+  "id": "const-025",
+  "industry": "const",
+  "no": 25,
+  "stage": 3,
+  "title": "AIによる建築設計自動生成",
+  "summary": "敷地条件・予算・用途をAIに入力すると最適な間取りと構造を自動生成",
+  "budget": 4,
+  "tools": [
+    "Autodesk Generative Design"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Autodesk Generative Design",
+      "what": "敷地条件・予算・用途をAIに入力するだけで最適な間取り・構造を数百案自動生成するシステム。設計期間を大幅短縮します。",
+      "how": "Revitまたは専用ツールに建物の制約条件を入力するとAIが数百の設計案を生成。コスト・日照・居住性などの指標でフィルタリングして最適案を選べます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

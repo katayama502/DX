@@ -1,0 +1,28 @@
+{
+  "id": "npo-001",
+  "industry": "npo",
+  "no": 1,
+  "stage": 1,
+  "title": "Googleフォームで申請・アンケートをデジタル化",
+  "summary": "紙申請書を廃止しフォームから提出→スプレッドシート自動集計で業務を効率化",
+  "budget": 0,
+  "tools": [
+    "Googleフォーム"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Googleフォーム",
+      "what": "申請書・アンケートをオンライン化して回答がスプレッドシートに自動集計される無料ツール。紙の申請書廃止と作業効率化を同時に実現します。",
+      "how": "フォームを作成してURLをWebサイトに貼り付けるかQRコードで配布するだけ。申請・回答はスプレッドシートに自動集計されてメール通知も設定できます。",
+      "url": "https://docs.google.com/forms/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

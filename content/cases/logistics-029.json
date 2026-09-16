@@ -1,0 +1,28 @@
+{
+  "id": "logistics-029",
+  "industry": "logistics",
+  "no": 29,
+  "stage": 3,
+  "title": "輸出入通関手続きの完全デジタル自動化",
+  "summary": "AIが書類作成・申告・関税計算を自動処理しゼロタッチ通関を実現",
+  "budget": 4,
+  "tools": [
+    "通関自動化システム（TradeWaltz）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "通関自動化システム（TradeWaltz）",
+      "what": "輸出入の通関手続きをデジタル化してAIが書類作成・申告・関税計算を自動処理するシステム。ゼロタッチ通関を実現します。",
+      "how": "TradeWaltzに取引情報を入力するだけでHSコード分類・関税計算・申告書類が自動生成されます。税関とのシステム連携で電子申告まで自動化できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

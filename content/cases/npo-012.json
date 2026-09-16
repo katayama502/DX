@@ -1,0 +1,28 @@
+{
+  "id": "npo-012",
+  "industry": "npo",
+  "no": 12,
+  "stage": 2,
+  "title": "キャッシュレス寄付プラットフォームの導入",
+  "summary": "クレジット・スマホ決済・定期寄付に対応した寄付システムで少額支援を増加",
+  "budget": 0,
+  "tools": [
+    "Syncable（キャッシュレス寄付）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Syncable（キャッシュレス寄付）",
+      "what": "クレジット・スマホ決済・定期寄付に対応した寄付プラットフォーム。少額でも手軽に支援できる環境を整えて寄付者数を増やします。",
+      "how": "syncable.jp にNPOとして登録して活動内容・目標金額・寄付特典を設定するだけで寄付ページが完成。SNSで拡散するだけで全国から支援が集まります。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

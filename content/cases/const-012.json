@@ -1,0 +1,28 @@
+{
+  "id": "const-012",
+  "industry": "const",
+  "no": 12,
+  "stage": 2,
+  "title": "ドローンによる測量・進捗管理",
+  "summary": "定期的にドローン撮影した点群データで土量計算・進捗確認を自動化",
+  "budget": 4,
+  "tools": [
+    "DJI Phantom（測量ドローン）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "DJI Phantom（測量ドローン）",
+      "what": "ドローンで現場を空撮して点群データから土量計算・進捗確認を自動化するシステム。",
+      "how": "DJI Phantomで現場を自動飛行・撮影するだけで点群データが生成されます。専用ソフトで土量計算・断面図作成が数分で完了します。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

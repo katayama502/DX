@@ -1,0 +1,28 @@
+{
+  "id": "hr-001",
+  "industry": "hr",
+  "no": 1,
+  "stage": 1,
+  "title": "クラウド勤怠管理で打刻・集計を自動化",
+  "summary": "タイムカードをスマホ打刻に変え集計・有給管理・残業アラートまで自動化",
+  "budget": 1,
+  "tools": [
+    "KING OF TIME"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "KING OF TIME",
+      "what": "スマホやタブレットからワンタップで出退勤を打刻できるクラウド勤怠管理システム。シフト管理・有給管理・残業集計まで自動化できます。",
+      "how": "管理者がスタッフのアカウントを発行してURLを共有するだけ。スタッフはスマホから出退勤ボタンを押すだけで打刻完了。管理者はリアルタイムで全員の勤怠状況を確認できます。",
+      "url": "https://www.kingoftiime.jp/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

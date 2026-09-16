@@ -1,0 +1,28 @@
+{
+  "id": "medical-023",
+  "industry": "medical",
+  "no": 23,
+  "stage": 3,
+  "title": "在宅医療×IoT統合プラットフォーム",
+  "summary": "バイタル・服薬・生活動作のデータを統合し自宅でも病院並みのケアを提供",
+  "budget": 5,
+  "tools": [
+    "ACES Med（在宅医療IoT統合）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "ACES Med（在宅医療IoT統合）",
+      "what": "在宅患者のバイタル・服薬・生活動作データを統合管理して病院並みのケアを自宅で提供するプラットフォーム。",
+      "how": "患者宅に各種センサーを設置してWi-Fiに接続。データがクラウドに自動集約されて医師・看護師・家族がそれぞれのアプリで確認。異常があれば担当者に即時通知が届きます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

@@ -1,0 +1,28 @@
+{
+  "id": "medical-027",
+  "industry": "medical",
+  "no": 27,
+  "stage": 3,
+  "title": "介護施設の完全デジタルツイン運営",
+  "summary": "施設全体をセンサーとAIで管理し転倒予測・徘徊検知を自動化した次世代施設",
+  "budget": 5,
+  "tools": [
+    "介護施設向けIoTプラットフォーム（LiveAssist）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "介護施設向けIoTプラットフォーム（LiveAssist）",
+      "what": "施設内にセンサーを設置して居住者の行動・バイタルをAIで常時監視するシステム。転倒・徘徊を事前検知してスタッフに通知します。",
+      "how": "床センサー・カメラ・ウェアラブルを施設内に設置。AIが「いつもと違う動き」を検知すると即座にスタッフのスマホに通知。夜間の見回り回数を大幅に削減できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

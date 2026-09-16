@@ -1,0 +1,28 @@
+{
+  "id": "hr-011",
+  "industry": "hr",
+  "no": 11,
+  "stage": 2,
+  "title": "RPAで給与計算・仕訳作業を自動化",
+  "summary": "毎月の給与計算・仕訳・振込データ作成をRPAが全自動処理しミスと残業を削減",
+  "budget": 4,
+  "tools": [
+    "WinActor（RPA）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "WinActor（RPA）",
+      "what": "給与計算・仕訳・振込データ作成などの定型入力作業をロボットが全自動処理するRPAツール。ミスと残業時間を同時に削減します。",
+      "how": "WinActorで繰り返し作業の手順を「記録」するだけでロボットが操作を学習。次回からはボタン1つで全自動実行されます。プログラミング不要です。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

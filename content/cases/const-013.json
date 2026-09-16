@@ -1,0 +1,28 @@
+{
+  "id": "const-013",
+  "industry": "const",
+  "no": 13,
+  "stage": 2,
+  "title": "IoTセンサーで現場環境を遠隔監視",
+  "summary": "現場の電力使用量や温湿度をスマホでリアルタイム確認し異常をアラート通知",
+  "budget": 3,
+  "tools": [
+    "SORACOMセンサー基盤（IoT監視）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "SORACOMセンサー基盤（IoT監視）",
+      "what": "現場の電力・温湿度・騒音をセンサーでリアルタイム監視してスマホでどこからでも確認できるシステム。",
+      "how": "センサーをSORACOM SIMに接続して現場に設置するだけ。スマホのダッシュボードでリアルタイムに確認でき、異常値が出るとアラートが届きます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

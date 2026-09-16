@@ -1,0 +1,28 @@
+{
+  "id": "agri-025",
+  "industry": "agri",
+  "no": 25,
+  "stage": 3,
+  "title": "農業×観光のアグリツーリズムDX",
+  "summary": "農作業体験・収穫イベントをデジタル予約・SNS発信で全国集客し農業収入を多様化",
+  "budget": 2,
+  "tools": [
+    "ヤマップ×農業観光連携"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "ヤマップ×農業観光連携",
+      "what": "農作業体験・収穫イベントをデジタル予約とSNS発信で全国から集客できるアグリツーリズムプラットフォーム。農業収入を多様化します。",
+      "how": "Airリザーブ等の予約システムで農業体験プランを登録してInstagram・YouTubeで体験の様子を発信。遠方からも申し込みが入る集客体制を整えます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

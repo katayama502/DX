@@ -1,0 +1,28 @@
+{
+  "id": "tourism-023",
+  "industry": "tourism",
+  "no": 23,
+  "stage": 3,
+  "title": "メタバース観光で来る前に来る体験提供",
+  "summary": "バーチャル観光を入口に実際の訪問需要を喚起するハイブリッド観光モデルを構築",
+  "budget": 4,
+  "tools": [
+    "cluster（メタバース観光）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "cluster（メタバース観光）",
+      "what": "バーチャル空間で観光地を事前体験してもらい実際の来訪意欲を高めるメタバースプラットフォーム。",
+      "how": "cluster.mu に観光地の3Dモデルを作成してアップロード。スマホ・PCから誰でも無料で体験できる状態にするだけでSNSを通じて拡散されます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

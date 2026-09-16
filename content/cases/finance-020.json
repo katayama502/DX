@@ -1,0 +1,28 @@
+{
+  "id": "finance-020",
+  "industry": "finance",
+  "no": 20,
+  "stage": 2,
+  "title": "保険×ウェアラブルで健康増進プログラム",
+  "summary": "歩数・心拍などの健康データと保険を連動させ健康行動に応じて特典を付与",
+  "budget": 2,
+  "tools": [
+    "Vitality（健康増進保険プログラム）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Vitality（健康増進保険プログラム）",
+      "what": "ウェアラブルの歩数・運動データと保険を連携させて、健康行動に応じて保険料が下がる仕組みを実現するプログラム。",
+      "how": "Vitalityアプリと保険契約を連携。毎日の歩数・運動量・健診受診がポイントに変換されて保険料割引・ギフト券と交換できます。健康行動が続くほど保険料が安くなります。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

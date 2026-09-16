@@ -1,0 +1,28 @@
+{
+  "id": "food-014",
+  "industry": "food",
+  "no": 14,
+  "stage": 2,
+  "title": "料理動画を自動編集してSNS投稿",
+  "summary": "スマホで撮った料理動画をAIアプリが自動編集・キャプション生成してReels投稿",
+  "budget": 0,
+  "tools": [
+    "CapCut（動画自動編集）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "CapCut（動画自動編集）",
+      "what": "スマホで撮った料理動画をAIが自動編集・BGM追加・テロップ生成までやってくれる無料の動画編集アプリ。プロ品質の動画がスマホで簡単に作れます。",
+      "how": "CapCutアプリを開いて料理動画を選択。「自動作成」ボタンを押すとAIが自動でカット・BGM・テロップを追加してReelsやTikTok向けの動画が完成。そのままInstagramにアップできます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

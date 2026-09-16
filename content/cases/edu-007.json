@@ -1,0 +1,28 @@
+{
+  "id": "edu-007",
+  "industry": "edu",
+  "no": 7,
+  "stage": 1,
+  "title": "Slackで職員室の情報共有",
+  "summary": "全体アナウンスや学年連絡をSlackに集約し職員室の口頭連絡を削減",
+  "budget": 0,
+  "tools": [
+    "Slack（教育版）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Slack（教育版）",
+      "what": "職員室の情報共有・連絡をチャットで一元化するツール。メール・口頭連絡を集約してチャンネル別に整理できます。",
+      "how": "Slack.comで学校のワークスペースを作成して職員にアカウントを発行。「全体連絡」「学年別」「部活別」などチャンネルを作って連絡を振り分けるだけで情報が整理されます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

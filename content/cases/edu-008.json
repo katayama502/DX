@@ -1,0 +1,28 @@
+{
+  "id": "edu-008",
+  "industry": "edu",
+  "no": 8,
+  "stage": 1,
+  "title": "電子黒板・プロジェクターで視覚的授業",
+  "summary": "チョーク板を廃止しリッチな映像・アニメーションで概念を視覚的に説明",
+  "budget": 5,
+  "tools": [
+    "BenQ 電子黒板"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "BenQ 電子黒板",
+      "what": "タッチ操作ができる大型ディスプレイ。YouTube動画・スライド・Webサイトをそのまま映しながら指でタッチして注釈を書き込める電子黒板です。",
+      "how": "電子黒板をHDMIでPCに繋ぐだけで導入完了。Googleスライドの授業資料を映しながら、手書きで図や説明を追加できます。グループワークでは生徒がタッチしてまとめを作ることも可能です。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

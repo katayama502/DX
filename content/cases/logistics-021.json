@@ -1,0 +1,28 @@
+{
+  "id": "logistics-021",
+  "industry": "logistics",
+  "no": 21,
+  "stage": 3,
+  "title": "ドローン配送でラストワンマイルを革新",
+  "summary": "山間部・島嶼部へドローンが直接配送し過疎地インフラを低コストで維持",
+  "budget": 5,
+  "tools": [
+    "DRONE.jp（ドローン配送）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "DRONE.jp（ドローン配送）",
+      "what": "山間部・離島へのドローン配送サービス。過疎地への生活必需品・医薬品配送を低コストで維持できます。",
+      "how": "DRONE.jpのプラットフォームを通じてドローン配送サービスと連携。顧客がアプリで注文するとドローンが自動で飛行して届けます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

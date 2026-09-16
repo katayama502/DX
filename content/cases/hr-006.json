@@ -1,0 +1,28 @@
+{
+  "id": "hr-006",
+  "industry": "hr",
+  "no": 6,
+  "stage": 1,
+  "title": "オンボーディング研修のeラーニング化",
+  "summary": "新入社員研修をLMS動画に変え入社前から自習できる環境を整備",
+  "budget": 2,
+  "tools": [
+    "Google Classroom（eラーニング）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Google Classroom（eラーニング）",
+      "what": "オンボーディング研修の動画・資料・テストをひとつのプラットフォームで管理できる無料のLMS。入社前から自習できる環境が作れます。",
+      "how": "Google Classroomにコースを作成して研修動画・資料をアップロード。新入社員のGoogleアカウントを招待するだけで入社前からアクセスして自習できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

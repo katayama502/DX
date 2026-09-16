@@ -1,0 +1,28 @@
+{
+  "id": "retail-010",
+  "industry": "retail",
+  "no": 10,
+  "stage": 1,
+  "title": "クラウド会計ソフトで帳簿自動化",
+  "summary": "freee・マネーフォワードでレシートを撮影するだけで仕訳が自動入力される",
+  "budget": 2,
+  "tools": [
+    "freee会計"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "freee会計",
+      "what": "レシートを写真で撮るだけで経費入力ができるクラウド会計ソフト。銀行・カードと連携すると入出金が自動記録されて帳簿が自動で作られます。",
+      "how": "freee.co.jpに登録後、銀行口座とクレジットカードを連携するだけで過去の取引が自動取り込み。現金支払いはアプリでレシートを撮影するだけで入力完了。売上・経費が自動集計されて損益がひと目でわかります。",
+      "url": "https://www.freee.co.jp/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

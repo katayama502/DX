@@ -1,0 +1,28 @@
+{
+  "id": "medical-012",
+  "industry": "medical",
+  "no": 12,
+  "stage": 2,
+  "title": "AIによるレントゲン・CT画像診断支援",
+  "summary": "AIが画像を解析し異常候補箇所を提示・医師の見落とし防止と業務効率化",
+  "budget": 5,
+  "tools": [
+    "富士フイルム AI画像診断支援"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "富士フイルム AI画像診断支援",
+      "what": "レントゲン・CT画像をAIが解析して異常候補を自動検出するシステム。医師の読影を補助して見落としリスクを低減します。",
+      "how": "既存の医療画像システムとAI解析エンジンを連携。撮影後に自動でAIが解析して「要確認箇所」をハイライト表示。医師はAIの指摘を参考に最終判断を行います。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

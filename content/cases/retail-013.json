@@ -1,0 +1,28 @@
+{
+  "id": "retail-013",
+  "industry": "retail",
+  "no": 13,
+  "stage": 2,
+  "title": "AIレコメンドエンジンでEC売上向上",
+  "summary": "閲覧・購入履歴からAIが「次に買いそうな商品」を自動表示し購入率アップ",
+  "budget": 5,
+  "tools": [
+    "Salesforce Commerce Cloud"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Salesforce Commerce Cloud",
+      "what": "購買履歴・閲覧データをもとにAIが「次に買いそうな商品」を自動表示するECプラットフォーム。パーソナライズされた商品提案で購入率を向上させます。",
+      "how": "商品データと顧客の行動データを連携させるとAIが自動的にレコメンド表示を最適化。「この商品を見た人はこれも購入しています」などの表示が自動生成され、ほぼ設定不要で効果が出ます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

@@ -1,0 +1,28 @@
+{
+  "id": "edu-006",
+  "industry": "edu",
+  "no": 6,
+  "stage": 1,
+  "title": "YouTubeで授業動画を限定公開",
+  "summary": "欠席した生徒や復習したい生徒が後から授業動画を視聴できる環境を整備",
+  "budget": 0,
+  "tools": [
+    "YouTube Studio（限定公開）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "YouTube Studio（限定公開）",
+      "what": "授業動画をYouTubeに限定公開するだけで生徒がいつでも復習できる環境が整います。専用機材は不要です。",
+      "how": "スマホで授業を録画してYouTubeに「限定公開」でアップ。URLをClassiや連絡帳で配布。欠席した生徒も自分のペースで授業を視聴でき、補習の手間が大幅に減ります。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

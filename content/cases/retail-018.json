@@ -1,0 +1,28 @@
+{
+  "id": "retail-018",
+  "industry": "retail",
+  "no": 18,
+  "stage": 2,
+  "title": "需要予測AIによるダイナミックプライシング",
+  "summary": "時間帯・競合価格・在庫量に応じて価格をリアルタイム自動変更",
+  "budget": 4,
+  "tools": [
+    "Dynamic Pricing AI（価格最適化AI）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Dynamic Pricing AI（価格最適化AI）",
+      "what": "時間帯・在庫数・競合価格を分析してリアルタイムで最適価格を自動変更するAIツール。特にECサイトでの活用が進んでいます。",
+      "how": "ECプラットフォームと連携してAIが価格を自動調整。競合サイトの価格・在庫状況・需要パターンをリアルタイム分析。設定した価格範囲内で自動変更するため利益率を維持しながら売上を最大化できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

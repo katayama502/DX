@@ -1,0 +1,28 @@
+{
+  "id": "const-001",
+  "industry": "const",
+  "no": 1,
+  "stage": 1,
+  "title": "図面のPDF化・クラウド共有",
+  "summary": "現場でタブレットによりPDFを閲覧・注記できる",
+  "budget": 0,
+  "tools": [
+    "Googleドライブ（PDF図面管理）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Googleドライブ（PDF図面管理）",
+      "what": "現場でタブレットからPDF図面を閲覧・注記できるクラウドストレージ。紙図面の持ち歩きと印刷コストをゼロにします。",
+      "how": "Googleドライブに工事ごとフォルダを作成してPDF図面をアップロード。タブレットで閲覧しながら注記ツールで書き込みができます。常に最新版を参照できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

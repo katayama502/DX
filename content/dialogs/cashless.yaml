@@ -1,0 +1,34 @@
+theme: cashless
+nodes:
+  - id: s0
+    type: say
+    text: キャッシュレス決済のご相談ですね。いくつか質問します。途中でやめても大丈夫です。
+  - id: q_register
+    type: ask_single
+    text: 今、レジは何を使っていますか？
+    why: 既存のレジと連携できるかで、選ぶ端末と費用が変わります
+    options: [手書き・電卓, 昔ながらのレジ, タブレットやスマホのレジ, わからない]
+  - id: q_link
+    type: ask_single
+    show_if: { q_register: [昔ながらのレジ, タブレットやスマホのレジ] }
+    text: 決済と売上データをつなげたいですか？
+    why: 連携が必要な場合は個別の設計が必要になります
+    options: [つなげたい, 別々でよい, わからない]
+  - id: q_methods
+    type: ask_multi
+    text: 対応したい決済はどれですか？（複数可）
+    why: 決済手段ごとに手数料と端末が変わります
+    options: [クレジットカード, QRコード（PayPayなど）, 電子マネー（交通系など）, わからない]
+  - id: q_volume
+    type: ask_single
+    text: 月の売上はどのくらいですか？（おおよそで大丈夫です）
+    why: 手数料の負担感と、入金サイクルの重要度を判断します
+    options: [〜50万円, 50〜200万円, 200万円以上, 答えたくない]
+  - id: q_already
+    type: ask_single
+    text: 以前にキャッシュレスを申し込んだり、断られたりしたことはありますか？
+    why: 審査で通らなかった場合は、別の相談先が必要になります
+    options: [ない, 申し込んだが審査に通らなかった, 以前使っていてやめた]
+  - id: end
+    type: say
+    text: ありがとうございます。ここまでの内容をまとめました。

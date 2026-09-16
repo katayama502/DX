@@ -1,0 +1,28 @@
+{
+  "id": "retail-024",
+  "industry": "retail",
+  "no": 24,
+  "stage": 3,
+  "title": "パーソナライズ商品のオンデマンド製造販売",
+  "summary": "顧客データをもとにAIが商品をカスタム提案し受注後に製造する体制",
+  "budget": 2,
+  "tools": [
+    "Shopify + Printful（オンデマンド製造）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Shopify + Printful（オンデマンド製造）",
+      "what": "注文が入ってから商品を製造・発送してくれるプリントオンデマンドサービス。在庫を抱えずにオリジナル商品を販売できます。",
+      "how": "Shopifyと連携してデザインをアップロードするだけで商品ページが完成。注文が入るとPrintfulが自動で製造・梱包・発送まで行います。オーナーは注文確認とSNS発信に集中できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

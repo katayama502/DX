@@ -1,0 +1,28 @@
+{
+  "id": "edu-015",
+  "industry": "edu",
+  "no": 15,
+  "stage": 2,
+  "title": "学習の記録や作品をデジタルでまとめて振り返れるようにする",
+  "summary": "作文や工作、取得した資格や課外活動の記録をデジタルでまとめ、進路相談や自己評価に使えるようにする",
+  "budget": 0,
+  "tools": [
+    "Google Sites（ポートフォリオサイト）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Google Sites（ポートフォリオサイト）",
+      "what": "コーディング不要でWebサイト・ポートフォリオを作れるGoogleの無料ツール。生徒の作品・資格・活動記録をデジタルでまとめて管理できます。",
+      "how": "sites.google.com で生徒ごとのサイトを作成。作文・工作写真・発表動画・資格情報をページに追加。URLを共有すれば進路面談で活用でき、自己PR資料として就活にも使えます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

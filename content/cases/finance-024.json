@@ -1,0 +1,28 @@
+{
+  "id": "finance-024",
+  "industry": "finance",
+  "no": 24,
+  "stage": 3,
+  "title": "オープンバンキングAPIで金融エコシステム",
+  "summary": "口座情報APIを外部に公開しFinTechアプリが無数の金融サービスを創出できる基盤に",
+  "budget": 5,
+  "tools": [
+    "Open Banking API（金融API基盤）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Open Banking API（金融API基盤）",
+      "what": "銀行の口座情報・取引データを外部のFinTechアプリが安全に利用できるAPI基盤。家計管理・資産運用など様々なサービスが生まれる基盤になります。",
+      "how": "金融機関がAPI仕様を公開して外部開発者がアプリを開発。顧客はスマホアプリを使って銀行残高確認・自動送金・資産管理などができます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

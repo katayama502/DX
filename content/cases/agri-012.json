@@ -1,0 +1,28 @@
+{
+  "id": "agri-012",
+  "industry": "agri",
+  "no": 12,
+  "stage": 2,
+  "title": "ドローンで農薬散布・生育状況調査",
+  "summary": "ドローンが広大な農地に均一・効率的に散布し生育状況を空撮で把握",
+  "budget": 5,
+  "tools": [
+    "DJI AGRAS（農業用ドローン）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "DJI AGRAS（農業用ドローン）",
+      "what": "農薬散布専用に設計された農業用ドローン。広大な農地に均一・効率的に農薬を散布できます。",
+      "how": "DJI AGRASに農薬を補充して圃場の地図をアプリに登録するだけで自動飛行・自動散布が始まります。人が入りにくい田んぼや傾斜地にも安全に対応できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+/* 設計書 §02 デザイントークン */
+@theme {
+  --color-primary: #1f4e8c;
+  --color-primary-soft: #e4edf8;
+  --color-primary-dark: #173d70;
+  --color-accent: #d9731a;
+  --color-accent-soft: #fbeadb;
+  --color-accent-dark: #b85f12;
+  --color-ink: #1b232e;
+  --color-ink-2: #4b5866;
+  --color-muted: #7a8794;
+  --color-line: #d6dde5;
+  --color-line-strong: #b9c3ce;
+  --color-bg: #f4f6f8;
+  --color-surface: #ffffff;
+  --color-surface-2: #eaeef3;
+  --color-lv-blue: #2c6fd1;
+  --color-lv-blue-soft: #e3edfb;
+  --color-lv-yellow: #9a6a00;
+  --color-lv-yellow-soft: #fdf2d4;
+  --color-lv-red: #c9362b;
+  --color-lv-red-soft: #fbe3e0;
+  --color-lv-urgent: #7c1a3c;
+  --color-lv-urgent-soft: #f6dde6;
+  --font-sans: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", system-ui, sans-serif;
+  --font-display: "Zen Kaku Gothic New", "Noto Sans JP", "Hiragino Sans", sans-serif;
+}
+
+html, body, #root { height: 100%; }
+body { background: var(--color-bg); color: var(--color-ink); font-family: var(--font-sans); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.35; text-wrap: balance; }
+*:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+@utility btn { @apply inline-flex items-center justify-center gap-2 rounded-xl font-bold text-[17px] min-h-14 px-5 w-full transition-colors select-none disabled:opacity-50 disabled:cursor-not-allowed; }
+@utility chip { @apply inline-flex items-center rounded-full border-2 border-primary text-primary bg-surface font-bold text-[15px] min-h-12 px-4 hover:bg-primary-soft; }
+
+@layer components {
+  .btn-primary { @apply btn bg-primary text-white hover:bg-primary-dark active:bg-primary-dark; }
+  .btn-accent { @apply btn bg-accent text-white hover:bg-accent-dark; }
+  .btn-secondary { @apply btn bg-surface text-primary border-2 border-primary hover:bg-primary-soft; }
+  .btn-ghost { @apply btn bg-transparent text-primary hover:bg-primary-soft; }
+  .btn-sm { @apply min-h-12 text-[15px] px-4; }
+  .card { @apply bg-surface border border-line rounded-xl p-4; }
+  .label { @apply block text-[13px] font-bold tracking-wide text-muted mb-1; }
+  .input { @apply w-full rounded-xl border-2 border-line-strong bg-surface px-4 min-h-14 text-[17px] focus:border-primary disabled:bg-surface-2 disabled:text-muted disabled:border-line; }
+  .chip-on { @apply bg-primary text-white; }
+  .lv-blue { @apply bg-lv-blue-soft text-lv-blue; }
+  .lv-yellow { @apply bg-lv-yellow-soft text-lv-yellow; }
+  .lv-red { @apply bg-lv-red-soft text-lv-red; }
+  .lv-urgent { @apply bg-lv-urgent-soft text-lv-urgent; }
+  .bubble-bot { @apply bg-surface-2 rounded-2xl rounded-bl-md px-4 py-3 max-w-[92%] self-start; }
+  .bubble-user { @apply bg-primary text-white rounded-2xl rounded-br-md px-4 py-3 max-w-[85%] self-end; }
+}
+
+/* 事業者に見せるモード：相談員向けの注釈を隠し、文字を大きく */
+.show-mode .staff-only { display: none !important; }
+.show-mode { font-size: 18px; }
+
+/* 印刷（1枚資料・相談票）：A4縦 1枚に収める */
+@media print {
+  @page { size: A4 portrait; margin: 14mm; }
+  body { background: #fff; font-size: 12pt; }
+  .no-print { display: none !important; }
+  .print-only { display: block !important; }
+  .print-sheet { box-shadow: none !important; border: 0 !important; }
+}
+.print-only { display: none; }

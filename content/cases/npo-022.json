@@ -1,0 +1,28 @@
+{
+  "id": "npo-022",
+  "industry": "npo",
+  "no": 22,
+  "stage": 3,
+  "title": "街全体のデータをつなげてAIで住みやすい街を自動管理",
+  "summary": "交通・電気・医療・防災など街のあらゆるデータをまとめてAIが管理し、渋滞や停電、災害対応を自動で最適化する",
+  "budget": 5,
+  "tools": [
+    "Esri ArcGIS（スマートシティ基盤）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Esri ArcGIS（スマートシティ基盤）",
+      "what": "交通・エネルギー・医療・防災データを地図上に統合してAIが都市全体を最適管理できるGIS基盤プラットフォーム。",
+      "how": "各部署のデータをArcGISに接続するだけで地図上にデータが可視化されます。「交通渋滞が多い場所」「医療資源が不足している地区」が地図で一目でわかります。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

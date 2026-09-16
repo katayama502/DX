@@ -1,0 +1,28 @@
+{
+  "id": "const-004",
+  "industry": "const",
+  "no": 4,
+  "stage": 1,
+  "title": "Googleマップで現場位置を共有",
+  "summary": "複数現場の場所・担当者をGoogleマップのピンで社内共有し移動効率化",
+  "budget": 0,
+  "tools": [
+    "Googleマップ（カスタムマップ）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Googleマップ（カスタムマップ）",
+      "what": "複数現場の場所・担当者・進捗をGoogleマップ上に表示して社内共有できるツール。現場移動の効率化と所在確認を自動化します。",
+      "how": "Googleマップのマイマップ機能で各現場をピンで登録して担当者・工期・状況をコメント入力。URLを全社員に共有するだけでスマホからリアルタイムで確認できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

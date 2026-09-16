@@ -1,0 +1,28 @@
+{
+  "id": "const-011",
+  "industry": "const",
+  "no": 11,
+  "stage": 2,
+  "title": "BIMで設計・施工管理",
+  "summary": "3Dモデルで設計ミスや干渉を着工前に発見し手戻りコストを大幅削減",
+  "budget": 4,
+  "tools": [
+    "Autodesk Revit（BIM）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Autodesk Revit（BIM）",
+      "what": "3D建物モデルで設計ミスや干渉を着工前に発見して手戻りコストを大幅削減できるBIMツール。",
+      "how": "Revitで3Dモデルを作成するだけで各図面が自動生成されます。配管・電気・構造の干渉チェックが自動で行われて問題箇所がハイライト表示されます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

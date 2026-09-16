@@ -1,0 +1,28 @@
+{
+  "id": "mfg-020",
+  "industry": "mfg",
+  "no": 20,
+  "stage": 2,
+  "title": "CO2排出量の自動計測・報告システム",
+  "summary": "エネルギー使用データをセンサーで収集し、自社・仕入れ先・製品使用時のCO2排出量を自動で計算・公開する",
+  "budget": 4,
+  "tools": [
+    "Accrete CO2管理システム"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Accrete CO2管理システム",
+      "what": "エネルギー使用データをIoTで収集してCO2排出量を自動算出・報告するシステム。サプライヤーへの開示要求に対応できます。",
+      "how": "電力メーターや設備にセンサーを取り付けてエネルギー使用量を自動収集。システムがCO2換算して部門別・工程別の排出量レポートを自動生成します。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

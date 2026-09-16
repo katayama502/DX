@@ -1,0 +1,28 @@
+{
+  "id": "finance-017",
+  "industry": "finance",
+  "no": 17,
+  "stage": 2,
+  "title": "スマホだけで本人確認を完結",
+  "summary": "窓口に来なくてもスマホのカメラで顔と身分証を撮るだけで本人確認が完了する",
+  "budget": 4,
+  "tools": [
+    "TRUSTDOCK（eKYC本人確認）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "TRUSTDOCK（eKYC本人確認）",
+      "what": "窓口来店・郵送なしにスマホの顔認証＋身分証OCRで本人確認を完結できるサービス。口座開設・契約手続きの完全オンライン化を実現します。",
+      "how": "TRUSTDOCKのAPIを自社アプリに組み込むと顧客のスマホで顔撮影・身分証撮影するだけで本人確認が完了。照合結果が数秒で返ってきます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

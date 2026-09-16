@@ -1,0 +1,14 @@
+theme: sns-hijack
+rules:
+  - id: hijack-u1
+    if: { q_status: [SNSに勝手に投稿されている, ログインできなくなった, お金を振り込んだ・カード番号を入れた] }
+    level: urgent
+    reason: 被害が進行中のため、まず初動対応が必要です
+  - id: hijack-u2
+    if: { q_status: [不審なメールのリンクを開いた] }
+    level: urgent
+    reason: ウイルス感染や情報流出の可能性があるため、端末をネットから切り離す初動が必要です
+  - id: hijack-r1
+    if: { q_status: [まだ何も起きていないが不安] }
+    level: yellow
+    reason: 被害は発生していないため、基本的なセキュリティ対策の資料を渡して予防を案内します

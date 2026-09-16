@@ -1,0 +1,28 @@
+{
+  "id": "tourism-014",
+  "industry": "tourism",
+  "no": 14,
+  "stage": 2,
+  "title": "AIによる需要予測と動的価格設定",
+  "summary": "予約状況・競合・イベント情報をAIが分析し最適な客室価格をリアルタイムで変動",
+  "budget": 4,
+  "tools": [
+    "Rate Shopper（動的価格設定）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Rate Shopper（動的価格設定）",
+      "what": "競合施設の料金・予約状況・周辺イベントをAIが分析して最適な客室価格をリアルタイムで変動させるシステム。機会損失と低単価販売を同時になくします。",
+      "how": "Rate Shopperに自施設と競合施設を登録するだけでAIが自動分析。「今日は競合が満室なので価格を10%上げる」などの提案または自動変更が行われます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

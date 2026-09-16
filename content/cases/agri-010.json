@@ -1,0 +1,28 @@
+{
+  "id": "agri-010",
+  "industry": "agri",
+  "no": 10,
+  "stage": 1,
+  "title": "Canvaで農産物ブランドのパッケージデザイン",
+  "summary": "デザイナー不要でCanvaを使い農産物パッケージや市場向けPOPを自作",
+  "budget": 0,
+  "tools": [
+    "Canva"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Canva",
+      "what": "農産物のパッケージデザイン・市場向けPOP・SNS投稿をデザイン知識なしで作れる無料デザインツール。",
+      "how": "canva.com にアクセスして「ラベル」「チラシ」のテンプレートを選択。農園名・商品名・産地情報を入力して写真を差し替えるだけでプロ品質のデザインが完成します。",
+      "url": "https://www.canva.com/ja_jp/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

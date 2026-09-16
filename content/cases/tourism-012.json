@@ -1,0 +1,28 @@
+{
+  "id": "tourism-012",
+  "industry": "tourism",
+  "no": 12,
+  "stage": 2,
+  "title": "スマートロックで客室キー管理",
+  "summary": "スマートフォンがルームキー代わりになりフロント不要で24h入退室可能",
+  "budget": 3,
+  "tools": [
+    "ASSA ABLOY（スマートロック）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "ASSA ABLOY（スマートロック）",
+      "what": "スマートフォンがルームキー代わりになるデジタルキーシステム。チェックインアプリと連動してフロント不要の入退室管理が実現します。",
+      "how": "各客室の錠前をスマートロックに交換するだけで導入完了。宿泊者はチェックインアプリでデジタルキーを取得して客室ドアをスマホで解錠します。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

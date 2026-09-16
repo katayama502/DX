@@ -1,0 +1,28 @@
+{
+  "id": "medical-020",
+  "industry": "medical",
+  "no": 20,
+  "stage": 2,
+  "title": "スマート医療機器の遠隔モニタリング",
+  "summary": "心臓ペースメーカーや在宅人工呼吸器のデータをクラウドで常時監視",
+  "budget": 5,
+  "tools": [
+    "Philips HealthSuite（遠隔モニタリング）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Philips HealthSuite（遠隔モニタリング）",
+      "what": "在宅患者の医療機器データをクラウドで常時監視するプラットフォーム。異常値を自動検知してリアルタイムでアラートを受けられます。",
+      "how": "在宅患者の医療機器にセンサーを接続してクラウドに接続。医師・看護師のPC・スマホでリアルタイムにデータを監視。設定した閾値を超えると即座に通知が届きます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

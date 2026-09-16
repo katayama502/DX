@@ -1,0 +1,28 @@
+{
+  "id": "logistics-022",
+  "industry": "logistics",
+  "no": 22,
+  "stage": 3,
+  "title": "自動配送ロボットの街中展開",
+  "summary": "歩道走行型ロボットが近距離の食品・宅配を無人配送し人手不足を根本解決",
+  "budget": 5,
+  "tools": [
+    "Starship Technologies（配送ロボット）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Starship Technologies（配送ロボット）",
+      "what": "歩道を自律走行して近距離配送を無人で行うロボット。人件費ゼロで24時間配送を実現します。",
+      "how": "専用アプリで注文するとロボットが自律走行で配送に向かいます。顧客がアプリでロック解除するとフタが開いて商品が取り出せます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

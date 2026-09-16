@@ -1,0 +1,28 @@
+{
+  "id": "finance-009",
+  "industry": "finance",
+  "no": 9,
+  "stage": 1,
+  "title": "動画研修で外務員・FP試験対策",
+  "summary": "集合研修を動画化しスタッフが自分のペースで繰り返し視聴できる",
+  "budget": 0,
+  "tools": [
+    "YouTube（限定公開動画研修）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "YouTube（限定公開動画研修）",
+      "what": "試験対策・商品知識の研修動画をYouTubeに限定公開してスタッフがスキマ時間に自習できる環境を作れます。",
+      "how": "試験範囲を分かりやすく解説した動画をスマホで録画してYouTubeに限定公開。URLをスタッフに共有するだけ。スマホで何度でも繰り返し視聴できるため理解度が上がります。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

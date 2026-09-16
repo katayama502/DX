@@ -1,0 +1,10 @@
+{
+  "name": "DX相談ナビ",
+  "short_name": "相談ナビ",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f6f8",
+  "theme_color": "#1f4e8c",
+  "lang": "ja",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

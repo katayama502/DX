@@ -1,0 +1,28 @@
+{
+  "id": "hr-005",
+  "industry": "hr",
+  "no": 5,
+  "stage": 1,
+  "title": "Googleドライブで規程・マニュアルを集約",
+  "summary": "部署ごとにバラバラだった就業規則・マニュアルをクラウドに統合して最新版管理",
+  "budget": 0,
+  "tools": [
+    "Googleドライブ"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Googleドライブ",
+      "what": "就業規則・マニュアル・規程をクラウドに集約して全員が最新版を参照できる無料のファイル管理サービス。",
+      "how": "Googleドライブに「社内規程」「マニュアル」などフォルダを作成して文書をアップロード。閲覧権限を設定してURLを共有するだけで全員がアクセスできます。",
+      "url": "https://drive.google.com/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

@@ -1,0 +1,28 @@
+{
+  "id": "tourism-017",
+  "industry": "tourism",
+  "no": 17,
+  "stage": 2,
+  "title": "顧客CRMで宿泊歴・好みを管理",
+  "summary": "何度も泊まった顧客の好みをCRMで管理しサービスをパーソナライズ",
+  "budget": 3,
+  "tools": [
+    "Salesforce CRM"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Salesforce CRM",
+      "what": "宿泊者の好み・アレルギー・記念日・部屋の好みを管理してリピーターへのパーソナライズサービスを実現するCRMシステム。",
+      "how": "チェックイン時に宿泊者情報を登録するだけで自動でプロフィールが蓄積されます。次回来館時に「前回希望の禁煙室を準備しています」などのおもてなしが自動で通知されます。",
+      "url": "https://www.salesforce.com/jp/products/crm/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

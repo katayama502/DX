@@ -1,0 +1,28 @@
+{
+  "id": "edu-023",
+  "industry": "edu",
+  "no": 23,
+  "stage": 3,
+  "title": "AIチューター常時個別指導サービス",
+  "summary": "24時間対応のAIが一人ひとりの学習状況に合わせた指導を行い塾代替サービスを提供",
+  "budget": 0,
+  "tools": [
+    "Khan Academy（AI個別指導参考）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Khan Academy（AI個別指導参考）",
+      "what": "AIが一人ひとりの学習レベルに合わせた問題と解説を提供する個別最適化学習サービス。24時間いつでも個別指導を受けられます。",
+      "how": "khanacademy.org に登録して科目・学年を設定。AIが理解度を自動測定して最適な問題を出題。わからない問題は動画解説・ステップバイステップのヒントが表示されます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

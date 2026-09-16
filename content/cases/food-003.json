@@ -1,0 +1,28 @@
+{
+  "id": "food-003",
+  "industry": "food",
+  "no": 3,
+  "stage": 1,
+  "title": "SNSで日替わりメニューを告知",
+  "summary": "黒板メニューの写真をInstagramにアップし来店前に見てもらえる仕組み",
+  "budget": 0,
+  "tools": [
+    "Instagramビジネスアカウント"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Instagramビジネスアカウント",
+      "what": "毎日の料理写真を投稿することで、知らないお客さまにも料理の魅力を届けられるSNSツール。「今日のランチ」投稿が来店のきっかけになります。",
+      "how": "プロアカウントに切り替えて、毎日の日替わりメニューをスマホで撮影して投稿。「#エリア名ランチ」「#料理名」などのハッシュタグをつけると検索からの流入が増えます。ストーリーズで予約状況も告知できます。",
+      "url": "https://www.instagram.com/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

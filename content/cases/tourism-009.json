@@ -1,0 +1,28 @@
+{
+  "id": "tourism-009",
+  "industry": "tourism",
+  "no": 9,
+  "stage": 1,
+  "title": "多言語翻訳アプリでフロント接客",
+  "summary": "外国語対応のためDeepLやGoogle翻訳をフロントのタブレットに常備",
+  "budget": 0,
+  "tools": [
+    "DeepL（翻訳ツール）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "DeepL（翻訳ツール）",
+      "what": "世界トップクラスの精度で多言語翻訳ができる無料AIツール。フロントのタブレットに常備して外国語接客を支援します。",
+      "how": "deepl.com にアクセスして話したい内容を日本語で入力するだけで瞬時に翻訳。英語・中国語・韓国語など30言語以上に対応。フリープランでファイル翻訳も可能です。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

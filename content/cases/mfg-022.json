@@ -1,0 +1,28 @@
+{
+  "id": "mfg-022",
+  "industry": "mfg",
+  "no": 22,
+  "stage": 3,
+  "title": "製造データのAPI公開でオープンファクトリー",
+  "summary": "工場のリアルタイムデータをAPIで外部パートナーに開放し共同開発エコシステムを形成",
+  "budget": 5,
+  "tools": [
+    "Manufacturing API Gateway"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Manufacturing API Gateway",
+      "what": "工場のリアルタイムデータをAPIで外部パートナー（顧客・サプライヤー・開発者）に安全に提供する基盤。共同開発・新サービス創出が可能になります。",
+      "how": "生産システムのデータをAPIで外部公開する仕組みをクラウドに構築。顧客が自社システムからリアルタイムで製造状況を確認できるようになり、信頼性向上と新ビジネス創出につながります。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

@@ -1,0 +1,18 @@
+theme: cashless
+rules:
+  - id: cashless-r1
+    if: { q_link: [つなげたい] }
+    level: red
+    reason: 「今のレジと売上データを連携したい」と回答 → 個別設計が必要なため
+  - id: cashless-y1
+    if: { q_register: [タブレットやスマホのレジ], q_link: [別々でよい, わからない] }
+    level: yellow
+    reason: 既存のタブレットレジとの相性を比較検討する必要があるため
+  - id: cashless-y2
+    if: { q_volume: [200万円以上] }
+    level: yellow
+    reason: 売上規模が大きく、手数料の差が大きな金額になるため複数社の比較が必要
+  - id: cashless-r2
+    if: { q_already: [申し込んだが審査に通らなかった] }
+    level: red
+    reason: 審査に通らなかった経緯の確認が必要で、専門窓口での相談が適切なため

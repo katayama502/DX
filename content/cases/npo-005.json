@@ -1,0 +1,28 @@
+{
+  "id": "npo-005",
+  "industry": "npo",
+  "no": 5,
+  "stage": 1,
+  "title": "Googleドライブで組織の文書をクラウド管理",
+  "summary": "散在する議事録・企画書・報告書をGoogleドライブに集約し引継ぎを容易に",
+  "budget": 0,
+  "tools": [
+    "Googleドライブ"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Googleドライブ",
+      "what": "組織の議事録・企画書・報告書をクラウドに集約して誰でも最新版を参照できる無料のファイル管理サービス。引き継ぎが容易になります。",
+      "how": "Googleドライブにフォルダを作成して文書をアップロード。役員・ボランティア全員にURLを共有するだけでどこからでもアクセスできます。更新履歴が自動保存されるため変更内容も追跡できます。",
+      "url": "https://drive.google.com/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

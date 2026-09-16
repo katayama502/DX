@@ -1,0 +1,28 @@
+{
+  "id": "tourism-028",
+  "industry": "tourism",
+  "no": 28,
+  "stage": 3,
+  "title": "AIガイドロボットで多言語ツアー提供",
+  "summary": "AIロボットが館内・観光地を多言語でガイドし人員削減と24h観光案内を同時に実現",
+  "budget": 5,
+  "tools": [
+    "Keenon（AIガイドロボット）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Keenon（AIガイドロボット）",
+      "what": "AIロボットが館内や観光地を多言語でガイドするシステム。人員削減と24時間観光案内を同時に実現します。",
+      "how": "Keenonロボットに施設情報・ガイドコンテンツをプログラミングして設置するだけ。ロボットが自律走行しながらゲストを案内します。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

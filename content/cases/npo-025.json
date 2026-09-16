@@ -1,0 +1,28 @@
+{
+  "id": "npo-025",
+  "industry": "npo",
+  "no": 25,
+  "stage": 3,
+  "title": "デジタルノマド誘致でワーケーション特区化",
+  "summary": "高速Wi-Fi・住居・コワーキングをパッケージ化しリモートワーカーを定住まで誘導するDX地方戦略",
+  "budget": 2,
+  "tools": [
+    "Co-Workation（ワーケーション特区）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Co-Workation（ワーケーション特区）",
+      "what": "高速Wi-Fi・住居・コワーキングをパッケージ化してリモートワーカーを誘致するワーケーション特区プラットフォーム。",
+      "how": "地域の宿泊施設・コワーキングスペース・Wi-Fi環境を整備してワーケーション特区として登録するだけ。都市部のリモートワーカーがプラットフォームで検索して予約できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

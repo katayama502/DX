@@ -1,0 +1,28 @@
+{
+  "id": "retail-028",
+  "industry": "retail",
+  "no": 28,
+  "stage": 3,
+  "title": "無人店舗・スマートストアの運営",
+  "summary": "カメラとAIで入退店・決済を自動管理し人件費ゼロの24h無人店舗を実現",
+  "budget": 5,
+  "tools": [
+    "Amazon Goの技術（カメラAI決済）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Amazon Goの技術（カメラAI決済）",
+      "what": "入店時にアプリで認証し、商品を手に取って退店するだけで決済が完了する無人店舗システム。24時間運営で人件費をゼロにします。",
+      "how": "天井カメラとAIが商品の手に取り・棚戻しを検知して自動集計。退店するとアプリに請求が届きます。導入には施設工事とシステム構築が必要です。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

@@ -1,0 +1,28 @@
+{
+  "id": "tourism-005",
+  "industry": "tourism",
+  "no": 5,
+  "stage": 1,
+  "title": "Zoomで旅行エージェントと商談",
+  "summary": "国内外のエージェントとオンラインで商談し出張費ゼロで関係構築",
+  "budget": 0,
+  "tools": [
+    "Zoom"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Zoom",
+      "what": "国内外の旅行エージェントとオンラインで商談できるビデオ会議ツール。出張費ゼロで関係構築・交渉ができます。",
+      "how": "Zoomで商談用URLを作成してエージェント担当者にメール送付。施設の写真・動画を画面共有しながら料金交渉・プラン内容を決められます。",
+      "url": "https://zoom.us/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

@@ -1,0 +1,28 @@
+{
+  "id": "mfg-019",
+  "industry": "mfg",
+  "no": 19,
+  "stage": 2,
+  "title": "サプライチェーン全体の可視化システム",
+  "summary": "仕入れ先から自社工場・物流・顧客まで部品・製品の所在をリアルタイム追跡",
+  "budget": 4,
+  "tools": [
+    "Infor Nexus（SCM可視化）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Infor Nexus（SCM可視化）",
+      "what": "仕入れ先から自社工場・物流・顧客まで全体の部品・製品の所在をリアルタイムで追跡できるサプライチェーン管理システム。",
+      "how": "取引先や物流業者をプラットフォームに接続して、各工程の在庫・輸送ステータスをAPIで自動収集。「部品がどこにあるか」が一画面で把握できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

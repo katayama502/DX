@@ -1,0 +1,28 @@
+{
+  "id": "hr-023",
+  "industry": "hr",
+  "no": 23,
+  "stage": 3,
+  "title": "社内版ChatGPTで全社ナレッジを民主化",
+  "summary": "社内情報・マニュアル・過去事例をAIが横断検索・回答し属人ナレッジをゼロに",
+  "budget": 5,
+  "tools": [
+    "社内向けChatGPT（Azure OpenAI）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "社内向けChatGPT（Azure OpenAI）",
+      "what": "社内情報・マニュアル・過去事例をAIが横断検索して回答してくれる社内版ChatGPT。属人化したナレッジをゼロにします。",
+      "how": "Azure OpenAIに社内文書・マニュアル・Q&AをアップロードするだけでAIが学習。社員は普通の文章で質問するだけで関連情報を自動検索して回答してくれます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

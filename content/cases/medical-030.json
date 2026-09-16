@@ -1,0 +1,28 @@
+{
+  "id": "medical-030",
+  "industry": "medical",
+  "no": 30,
+  "stage": 3,
+  "title": "保険×医療データ連携型ヘルスケア事業",
+  "summary": "健康行動に応じて保険料が下がる仕組みで医療・保険・予防を一体化したサービス",
+  "budget": 3,
+  "tools": [
+    "健康増進保険（Vitality）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "健康増進保険（Vitality）",
+      "what": "ウェアラブルデバイスの歩数・運動データと保険を連携させて、健康行動に応じて保険料が下がる仕組み。医療・保険・予防を一体化したサービスです。",
+      "how": "Vitalityアプリと保険契約を連携。毎日の歩数・運動量がポイントに変換されて保険料割引やギフト券に交換できます。健康行動が続くほど保険料が安くなります。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

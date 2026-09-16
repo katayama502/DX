@@ -1,0 +1,28 @@
+{
+  "id": "const-002",
+  "industry": "const",
+  "no": 2,
+  "stage": 1,
+  "title": "工程表をGanttツールで作成・共有",
+  "summary": "Excel手書きの工程表をbacklogやNotionで作りリモートからも確認可能に",
+  "budget": 1,
+  "tools": [
+    "backlog（工程管理）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "backlog（工程管理）",
+      "what": "工程表をクラウドで作成・共有してリモートからも進捗を確認できるプロジェクト管理ツール。",
+      "how": "backlogにプロジェクトを作成して工程・担当者・期限を入力するだけでガントチャートが自動生成。施主や協力会社とも共有できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

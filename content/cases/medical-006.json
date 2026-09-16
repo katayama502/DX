@@ -1,0 +1,28 @@
+{
+  "id": "medical-006",
+  "industry": "medical",
+  "no": 6,
+  "stage": 1,
+  "title": "Googleカレンダーで往診スケジュール管理",
+  "summary": "複数スタッフの訪問予定をクラウド共有しダブルブッキングをなくす",
+  "budget": 0,
+  "tools": [
+    "Googleカレンダー"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Googleカレンダー",
+      "what": "往診・訪問看護のスケジュールをチームで共有できる無料カレンダーツール。複数スタッフの予定を一画面で確認でき、ダブルブッキングを防止できます。",
+      "how": "Googleアカウントでカレンダーを作成して「チームで共有」設定に変更するだけ。往診先・時間・担当者を入力するとスタッフ全員のスマホに表示されます。変更があればリアルタイムで全員に通知が届きます。",
+      "url": "https://calendar.google.com/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

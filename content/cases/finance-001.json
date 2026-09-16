@@ -1,0 +1,28 @@
+{
+  "id": "finance-001",
+  "industry": "finance",
+  "no": 1,
+  "stage": 1,
+  "title": "申込書の電子化（電子署名）",
+  "summary": "紙の申込書にサインする代わりにスマホ・PCで電子署名して手続き完了",
+  "budget": 1,
+  "tools": [
+    "クラウドサイン"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "クラウドサイン",
+      "what": "契約書をオンラインで送って電子署名してもらえるサービス。郵送・印紙代が不要で締結が数日から数分に短縮されます。",
+      "how": "cloudsign.jpで登録し契約書PDFをアップして相手のメールアドレスを入力して送信。相手はメールのリンクから内容確認してクリックするだけで署名完了。自動で控えが双方に届きます。",
+      "url": "https://www.cloudsign.jp/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

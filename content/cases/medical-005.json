@@ -1,0 +1,28 @@
+{
+  "id": "medical-005",
+  "industry": "medical",
+  "no": 5,
+  "stage": 1,
+  "title": "介護記録をスマホアプリで入力",
+  "summary": "手書き介護日誌をアプリ入力に変え家族への共有・引継ぎが即時に",
+  "budget": 3,
+  "tools": [
+    "CareViewer（介護記録アプリ）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "CareViewer（介護記録アプリ）",
+      "what": "スマホで介護記録を入力してチーム全員がリアルタイムで確認できるクラウド介護記録システム。手書き日誌の手間がなくなり家族への共有も即座に行えます。",
+      "how": "スタッフのスマホにアプリをインストール。ケア内容・食事量・バイタルをタップで記録するだけでクラウドに保存。管理者・家族もアプリやWebから確認できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

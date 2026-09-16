@@ -1,0 +1,28 @@
+{
+  "id": "retail-027",
+  "industry": "retail",
+  "no": 27,
+  "stage": 3,
+  "title": "コミュニティ型会員制EC",
+  "summary": "購入者がレビューや動画で商品を紹介し合うコミュニティを核にしたEC運営",
+  "budget": 3,
+  "tools": [
+    "Shopify + コミュニティ機能（Circle等）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Shopify + コミュニティ機能（Circle等）",
+      "what": "購入者同士がレビューを投稿・閲覧・交流できるコミュニティ機能をECサイトに追加するサービス。口コミが自然に蓄積され集客コストが削減されます。",
+      "how": "ShopifyにCircleやLoyaltyLionを連携してポイント制度とコミュニティを設定。購入者がレビューを書くとポイント付与、他の顧客の購入を後押しするレビュー循環が生まれます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

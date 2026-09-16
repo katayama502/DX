@@ -1,0 +1,28 @@
+{
+  "id": "logistics-018",
+  "industry": "logistics",
+  "no": 18,
+  "stage": 2,
+  "title": "ブロックチェーンで食品コールドチェーンを証明",
+  "summary": "温度データをブロックチェーンに記録し受取人が鮮度・品質履歴をスマホで確認",
+  "budget": 5,
+  "tools": [
+    "Everledger（ブロックチェーントレーサビリティ）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Everledger（ブロックチェーントレーサビリティ）",
+      "what": "食品の温度・輸送データをブロックチェーンに記録して改ざん不可能な品質証明を提供するシステム。",
+      "how": "輸送コンテナに温度センサーを設置してデータをブロックチェーンに自動記録。受取人がQRコードをスキャンすると全輸送過程の温度履歴が表示されます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

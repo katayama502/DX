@@ -1,0 +1,28 @@
+{
+  "id": "tourism-010",
+  "industry": "tourism",
+  "no": 10,
+  "stage": 1,
+  "title": "LINEで宿泊者への情報配信",
+  "summary": "チェックイン後にLINEで夕食時間・温泉情報・周辺観光スポットを配信",
+  "budget": 1,
+  "tools": [
+    "LINE公式アカウント"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "LINE公式アカウント",
+      "what": "チェックイン後に宿泊者にLINEで夕食時間・温泉情報・周辺スポットを自動配信できるサービス。満足度と口コミ評価が向上します。",
+      "how": "LINE公式アカウントを作成してQRコードを客室に設置。宿泊者がLINE友だちに追加するとメッセージを自動送信できます。翌朝のチェックアウト案内も自動化できます。",
+      "url": "https://www.lycbiz.com/jp/service/line-official-account/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

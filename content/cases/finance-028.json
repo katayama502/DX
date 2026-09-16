@@ -1,0 +1,28 @@
+{
+  "id": "finance-028",
+  "industry": "finance",
+  "no": 28,
+  "stage": 3,
+  "title": "保険会社がヘルスケアクラウドサービス（月額制のオンラインソフト）企業に転換",
+  "summary": "保険販売からデータ活用型の健康管理プラットフォーム事業者へビジネスモデルを刷新",
+  "budget": 5,
+  "tools": [
+    "Salesforce Health Cloud"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Salesforce Health Cloud",
+      "what": "保険販売から健康管理プラットフォームへの転換を支援するCRMプラットフォーム。顧客の健康データと保険情報を統合管理して予防型サービスを提供できます。",
+      "how": "顧客の健診データ・ウェアラブルデータ・保険情報をHealth Cloudに統合。AIが健康リスクを分析して個別の健康改善プログラムを提案。顧客との接点が増えてLTV向上につながります。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

@@ -1,0 +1,28 @@
+{
+  "id": "agri-003",
+  "industry": "agri",
+  "no": 3,
+  "stage": 1,
+  "title": "Googleマップで農地・圃場を管理",
+  "summary": "農地の位置・面積・作付け計画をGoogleマップ上で管理し把握しやすく",
+  "budget": 0,
+  "tools": [
+    "Google Mapsカスタムマップ"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Google Mapsカスタムマップ",
+      "what": "自分の農地・圃場を地図上にピンで登録して作付け計画・水管理を可視化できる無料の地図ツール。",
+      "how": "maps.google.comの「マイマップ」機能を使って圃場ごとに色分け・コメントを付加。どの圃場に何を植えているか・最終管理日はいつかを地図で一覧管理できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

@@ -1,0 +1,28 @@
+{
+  "id": "mfg-001",
+  "industry": "mfg",
+  "no": 1,
+  "stage": 1,
+  "title": "作業指示書をタブレット表示に",
+  "summary": "紙の作業マニュアルをタブレット配信に変え常に最新版が現場に届く",
+  "budget": 1,
+  "tools": [
+    "i-Construction（タブレット作業指示）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "i-Construction（タブレット作業指示）",
+      "what": "作業指示書・マニュアルをタブレットで配信して現場でいつでも最新版を確認できるシステム。紙の印刷・配布・差し替えが不要になります。",
+      "how": "Notionやkintoneで作業マニュアルを作成してURLをQRコードで印刷。設備横に貼っておくだけで作業者がスキャンしていつでも確認できます。更新はオンラインで即時反映されます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

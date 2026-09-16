@@ -1,0 +1,28 @@
+{
+  "id": "edu-030",
+  "industry": "edu",
+  "no": 30,
+  "stage": 3,
+  "title": "感情AI×学習データで精神的サポート体制",
+  "summary": "表情・タイピング・回答パターンから学習意欲・精神状態をAIが推定し早期介入",
+  "budget": 4,
+  "tools": [
+    "Affectiva（感情AI）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Affectiva（感情AI）",
+      "what": "表情や声のトーンからAIが感情・集中度を分析するシステム。授業中の生徒の精神状態をリアルタイムで把握して早期介入を可能にします。",
+      "how": "PCのカメラに接続してAIが表情分析を実施。「集中度低下」「不安」などのシグナルを検知するとダッシュボードに表示されます。（プライバシーへの配慮と保護者同意が必要）",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

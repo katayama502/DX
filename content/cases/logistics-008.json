@@ -1,0 +1,28 @@
+{
+  "id": "logistics-008",
+  "industry": "logistics",
+  "no": 8,
+  "stage": 1,
+  "title": "Zoomで全国拠点の朝礼・安全会議",
+  "summary": "各拠点の朝礼・月次安全会議をオンラインに統一し移動コストと時間を節約",
+  "budget": 0,
+  "tools": [
+    "Zoom（全国拠点朝礼）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Zoom（全国拠点朝礼）",
+      "what": "全国の拠点をオンラインでつないで朝礼や安全会議をビデオで一括実施できるツール。移動コストと時間を完全になくします。",
+      "how": "Zoomで定例朝礼・安全会議のURLを作成して全拠点に共有。毎朝指定時間にアクセスするだけで全国会議が始まります。画面共有で資料を見せながら説明できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

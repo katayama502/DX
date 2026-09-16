@@ -1,0 +1,28 @@
+{
+  "id": "edu-016",
+  "industry": "edu",
+  "no": 16,
+  "stage": 2,
+  "title": "VRで理科・歴史の没入型体験学習",
+  "summary": "宇宙・恐竜時代・歴史的建造物をVRで体感しテキストだけの学習を変革",
+  "budget": 1,
+  "tools": [
+    "CoSpaces EDU（VR教育）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "CoSpaces EDU（VR教育）",
+      "what": "生徒がVR・AR空間を自分で作って学べる教育向けプラットフォーム。宇宙・古代遺跡・生物の体内などをVRで体験しながら学習できます。",
+      "how": "cospaces.io/edu でクラスを作成して生徒にアカウントを発行。生徒はVR空間で理科の実験・歴史の現場を体験できます。スマホを段ボールVRゴーグルに入れるだけで没入体験が可能です。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

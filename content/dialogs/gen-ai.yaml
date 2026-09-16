@@ -1,0 +1,28 @@
+theme: gen-ai
+nodes:
+  - id: s0
+    type: say
+    text: 生成AIのご相談ですね。何に使いたいかと、心配な点を整理します。
+  - id: q_use
+    type: ask_multi
+    text: どんな場面で使いたいですか？（複数可）
+    why: 用途によって、無料で十分か、注意点が変わります
+    options: [お知らせ・SNSの文章, メールの返信, 資料の要約, 画像づくり, 顧客対応の自動化, まだ決めていない]
+  - id: q_data
+    type: ask_single
+    text: お客さまの個人情報や取引先の情報を入力する予定はありますか？
+    why: 個人情報を扱う場合は、設定やルール作りが先に必要です
+    options: [入力しない, 入力するかもしれない, 入力したい]
+  - id: q_tried
+    type: ask_single
+    text: 生成AIを使ったことはありますか？
+    why: 初めての方には「試し方」から案内します
+    options: [ない, 無料版を少し, 仕事で使っている]
+  - id: q_scope
+    type: ask_single
+    text: 使うのはご本人だけですか、スタッフ全員ですか？
+    why: 複数人で使うならルールと有料プランの検討が必要です
+    options: [自分だけ, スタッフ数人, 全員]
+  - id: end
+    type: say
+    text: ありがとうございます。ここまでの内容をまとめました。

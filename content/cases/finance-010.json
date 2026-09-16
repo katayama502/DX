@@ -1,0 +1,28 @@
+{
+  "id": "finance-010",
+  "industry": "finance",
+  "no": 10,
+  "stage": 1,
+  "title": "ペーパーレス会議・承認フロー",
+  "summary": "紙の稟議書をクラウドワークフローに移行し出社せず承認が完了する",
+  "budget": 2,
+  "tools": [
+    "CloudSign（クラウド稟議・承認）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "CloudSign（クラウド稟議・承認）",
+      "what": "紙の稟議書をデジタル化して、出社せずにスマホやPCで承認ができるワークフローシステム。",
+      "how": "cloudsign.jpまたはジョブカンワークフローなどで稟議テンプレートを作成。担当者がWebで申請→上司がスマホで承認→自動でログが残ります。テレワーク中でも承認フローが止まりません。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

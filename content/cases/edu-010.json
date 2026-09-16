@@ -1,0 +1,28 @@
+{
+  "id": "edu-010",
+  "industry": "edu",
+  "no": 10,
+  "stage": 1,
+  "title": "デジタル出席簿・成績管理システム",
+  "summary": "紙の出席簿を廃止しクラウドシステムで出欠・成績を一括管理",
+  "budget": 4,
+  "tools": [
+    "School Manager（校務支援システム）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "School Manager（校務支援システム）",
+      "what": "出席簿・成績・指導記録をデジタルで一元管理する校務支援システム。紙の出席簿を廃止して教員の事務作業を大幅削減します。",
+      "how": "システムにクラス・生徒情報を登録。毎日の出欠をPCまたはタブレットで入力するだけで自動集計・通知が行われます。成績入力・通知表作成も同じシステムで完結します。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

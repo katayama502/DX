@@ -1,0 +1,28 @@
+{
+  "id": "medical-028",
+  "industry": "medical",
+  "no": 28,
+  "stage": 3,
+  "title": "医療データ基盤のAPI公開でエコシステム形成",
+  "summary": "病院が匿名化データをAPIで研究機関・スタートアップに提供し新薬開発を加速",
+  "budget": 5,
+  "tools": [
+    "FHIR APIプラットフォーム"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "FHIR APIプラットフォーム",
+      "what": "病院の医療データを標準化されたAPIで外部の研究機関・スタートアップに安全に提供できるデータ連携基盤。新薬開発・AIツール開発を加速します。",
+      "how": "電子カルテシステムにFHIR APIを実装して匿名化データを外部に開放。研究機関や医療スタートアップがAPIでデータにアクセスして新薬・診断AIを開発できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

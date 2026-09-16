@@ -1,0 +1,29 @@
+# 表記ゆれ辞書：variants に含まれる語は canonical に置き換えてから検索・テーマ判定する
+- canonical: ホームページ
+  variants: [HP, ＨＰ, ホムペ, ウェブサイト, webサイト, Webサイト, サイト, ホームぺージ]
+- canonical: Googleビジネスプロフィール
+  variants: [グーグルビジネス, Googleマイビジネス, マイビジネス, ビジネスプロフィール, GBP]
+- canonical: ネットショップ
+  variants: [ECサイト, EC, オンラインショップ, 通販サイト, ネット販売, ネットで売る]
+- canonical: Instagram
+  variants: [インスタ, インスタグラム, insta, IG]
+- canonical: キャッシュレス
+  variants: [きゃっしゅれす, キャッシュレス決済, 現金以外, カード払い]
+- canonical: PayPay
+  variants: [ペイペイ, paypay, QR決済, QRコード決済, バーコード決済]
+- canonical: インボイス
+  variants: [いんぼいす, 適格請求書, インボイス制度, 消費税の請求書, 登録番号]
+- canonical: 電子帳簿保存
+  variants: [電帳法, 電子帳簿保存法, 電子保存, でんちょうほう]
+- canonical: 生成AI
+  variants: [生成えーあい, せいせいAI, チャットGPT, chatgpt, ChatGPT, Chat GPT, ジェミニ, クロード, 対話型AI]
+- canonical: 乗っ取り
+  variants: [のっとり, 乗っ取られた, アカウント乗っ取り, ハッキング, ハッキングされた, 不正ログイン, 不正アクセス]
+- canonical: 詐欺
+  variants: [さぎ, 詐欺メール, 迷惑メール, なりすまし, 偽メール, フィッシング詐欺, 架空請求]
+- canonical: ウイルス
+  variants: [ウィルス, マルウェア, ランサムウェア, 感染]
+- canonical: 会計
+  variants: [会計ソフト, 経理, 記帳, 帳簿づけ, 仕訳]
+- canonical: レジ
+  variants: [POS, POSレジ, ポスレジ, Airレジ, エアレジ, スマレジ]

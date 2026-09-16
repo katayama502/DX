@@ -1,0 +1,28 @@
+{
+  "id": "edu-022",
+  "industry": "edu",
+  "no": 22,
+  "stage": 3,
+  "title": "自社開発の学習システムを他校に販売する事業者へ転換",
+  "summary": "教育機関が自ら開発したシステムをクラウドサービス（月額制のオンラインソフト）として他校に提供し新規収益を創出",
+  "budget": 3,
+  "tools": [
+    "Shopify（学習システムのSaaS販売）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Shopify（学習システムのSaaS販売）",
+      "what": "自校開発の学習システムをShopifyで他校に月額販売するECプラットフォーム。教育機関が収益を生み出すビジネスモデルを実現します。",
+      "how": "ShopifyにSaaSプランとして「月額〇〇円で利用可能」という商品を登録。他校の担当者が申し込むとシステムアクセスが自動付与される仕組みを構築します。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

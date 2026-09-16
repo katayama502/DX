@@ -1,0 +1,28 @@
+{
+  "id": "edu-005",
+  "industry": "edu",
+  "no": 5,
+  "stage": 1,
+  "title": "Canvaで学校便り・部活チラシを作成",
+  "summary": "デザイン経験なしでも見栄えのよい学校だよりや進路資料が簡単に制作できる",
+  "budget": 0,
+  "tools": [
+    "Canva for Education"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Canva for Education",
+      "what": "学校向けの無料Canvaプラン。学校便り・部活チラシ・進路資料などをデザイン知識なしで作れます。",
+      "how": "canva.com/education で教育機関向け無料プランに申請。テンプレートを選んで文字・写真を差し替えるだけで完成。保護者向けPDF・SNS投稿用JPGどちらでも出力できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

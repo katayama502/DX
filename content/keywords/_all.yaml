@@ -1,0 +1,53 @@
+# テーマ判定用キーワードと重み。入力語は synonyms.yaml で正規化されてから照合される
+website-new:
+  - { keyword: ホームページ, weight: 10 }
+  - { keyword: 作りたい, weight: 3 }
+  - { keyword: 作る, weight: 3 }
+  - { keyword: ネットショップ, weight: 6 }
+  - { keyword: Googleビジネスプロフィール, weight: 8 }
+  - { keyword: 地図, weight: 4 }
+  - { keyword: 検索, weight: 3 }
+  - { keyword: ペライチ, weight: 6 }
+  - { keyword: Jimdo, weight: 6 }
+  - { keyword: Wix, weight: 6 }
+cashless:
+  - { keyword: キャッシュレス, weight: 10 }
+  - { keyword: 決済, weight: 8 }
+  - { keyword: PayPay, weight: 8 }
+  - { keyword: カード, weight: 5 }
+  - { keyword: クレジット, weight: 6 }
+  - { keyword: 手数料, weight: 5 }
+  - { keyword: レジ, weight: 5 }
+  - { keyword: Square, weight: 6 }
+  - { keyword: 電子マネー, weight: 6 }
+invoice:
+  - { keyword: インボイス, weight: 10 }
+  - { keyword: 電子帳簿保存, weight: 10 }
+  - { keyword: 消費税, weight: 6 }
+  - { keyword: 請求書, weight: 6 }
+  - { keyword: 領収書, weight: 5 }
+  - { keyword: 会計, weight: 5 }
+  - { keyword: 帳簿, weight: 5 }
+  - { keyword: freee, weight: 5 }
+  - { keyword: マネーフォワード, weight: 5 }
+  - { keyword: 税理士, weight: 4 }
+gen-ai:
+  - { keyword: 生成AI, weight: 10 }
+  - { keyword: ChatGPT, weight: 10 }
+  - { keyword: AI, weight: 6 }
+  - { keyword: Claude, weight: 8 }
+  - { keyword: Gemini, weight: 8 }
+  - { keyword: 情報漏えい, weight: 6 }
+  - { keyword: 文章, weight: 3 }
+  - { keyword: 要約, weight: 4 }
+sns-hijack:
+  - { keyword: 乗っ取り, weight: 10 }
+  - { keyword: 詐欺, weight: 10 }
+  - { keyword: フィッシング, weight: 8 }
+  - { keyword: 不審なメール, weight: 8 }
+  - { keyword: ウイルス, weight: 8 }
+  - { keyword: ログインできない, weight: 8 }
+  - { keyword: 勝手に投稿, weight: 8 }
+  - { keyword: パスワード, weight: 5 }
+  - { keyword: セキュリティ, weight: 5 }
+  - { keyword: 振り込んだ, weight: 7 }

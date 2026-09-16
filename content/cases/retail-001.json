@@ -1,0 +1,28 @@
+{
+  "id": "retail-001",
+  "industry": "retail",
+  "no": 1,
+  "stage": 1,
+  "title": "Canvaで販促チラシ・POPを作成",
+  "summary": "デザイン知識不要でスタッフが自分でPOPやセール告知チラシをCanvaで制作",
+  "budget": 0,
+  "tools": [
+    "Canva"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Canva",
+      "what": "ブラウザ上でチラシ・POP・SNS投稿などをドラッグ＆ドロップで作れる無料デザインツール。テンプレートが数万種類あり、デザインの知識がなくてもプロ品質の制作物が作れます。",
+      "how": "canva.com にアクセスしてGoogleアカウントでログイン。「チラシ」「POP」「A4チラシ」などと検索してテンプレートを選び、店名・商品名・価格を書き換えるだけで完成。PDF・JPGで出力してそのまま印刷できます。",
+      "url": "https://www.canva.com/ja_jp/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

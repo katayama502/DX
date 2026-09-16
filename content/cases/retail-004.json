@@ -1,0 +1,28 @@
+{
+  "id": "retail-004",
+  "industry": "retail",
+  "no": 4,
+  "stage": 1,
+  "title": "Instagramで新商品を告知",
+  "summary": "チラシ配布をやめInstagramの投稿・ストーリーで商品情報を発信",
+  "budget": 0,
+  "tools": [
+    "Instagramビジネスアカウント"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Instagramビジネスアカウント",
+      "what": "写真・動画で商品を発信できるSNS。ビジネスアカウントは無料で、閲覧数・リーチ数などの分析データも確認できます。",
+      "how": "既存Instagramアカウントをプロアカウントに無料切り替え。商品写真をスマホで撮影してそのままアップ。ハッシュタグ（#地域名 #商品名など）をつけることで知らない人にも届きます。ストーリーズで「本日のセール」を告知するのも効果的。",
+      "url": "https://www.instagram.com/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

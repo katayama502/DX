@@ -1,0 +1,28 @@
+{
+  "id": "finance-011",
+  "industry": "finance",
+  "no": 11,
+  "stage": 2,
+  "title": "AIによる融資審査・スコアリング自動化",
+  "summary": "AIが財務データ・行動データを分析し数秒で融資可否と金利を算出",
+  "budget": 5,
+  "tools": [
+    "Fintech AIスコアリング（JCB等活用）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Fintech AIスコアリング（JCB等活用）",
+      "what": "AIが財務データ・行動データを瞬時に分析して融資可否と適正金利を自動算出するシステム。人の審査工数を削減しながら判断精度を向上させます。",
+      "how": "申込データをシステムに取り込むとAIが信用スコアを自動計算。過去の返済履歴・収支データ・行動特性を総合評価して審査結果と根拠を即座に提示します。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

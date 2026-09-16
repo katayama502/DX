@@ -1,0 +1,28 @@
+{
+  "id": "const-019",
+  "industry": "const",
+  "no": 19,
+  "stage": 2,
+  "title": "AR現場ナビゲーション",
+  "summary": "ヘルメット装着型ARで図面と現場を重ね合わせて配管・配線位置を直感的に確認",
+  "budget": 5,
+  "tools": [
+    "Trimble XR10（AR現場ナビ）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Trimble XR10（AR現場ナビ）",
+      "what": "ヘルメット装着型ARデバイスが図面と現場を重ね合わせて配管・配線位置を直感的に確認できるシステム。設置ミスを大幅削減します。",
+      "how": "Trimble XR10を装着するだけで視野に3D図面がオーバーレイ表示されます。「ここにパイプを通す」という位置が実際の現場に重なって見えるため取り違えがなくなります。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

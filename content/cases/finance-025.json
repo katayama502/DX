@@ -1,0 +1,28 @@
+{
+  "id": "finance-025",
+  "industry": "finance",
+  "no": 25,
+  "stage": 3,
+  "title": "企業の環境・社会・ガバナンス評価をデータで可視化するサービス",
+  "summary": "環境配慮や社会貢献などの取り組みをスコア化してリアルタイムで提供し、投資家の判断に役立てる",
+  "budget": 5,
+  "tools": [
+    "Bloomberg ESGデータサービス"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Bloomberg ESGデータサービス",
+      "what": "企業の環境・社会・ガバナンス活動をリアルタイムでスコア化して機関投資家の意思決定を支援するデータサービス。",
+      "how": "BloombergのAPIまたは管理画面から企業のESGスコアを検索・比較。投資判断の根拠としてESGデータをポートフォリオ管理ツールと連携して活用します。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

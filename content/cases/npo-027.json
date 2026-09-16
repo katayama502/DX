@@ -1,0 +1,28 @@
+{
+  "id": "npo-027",
+  "industry": "npo",
+  "no": 27,
+  "stage": 3,
+  "title": "AIで行政業務の全自動化",
+  "summary": "定型業務の大半をAI・RPAで自動処理し職員が政策立案・住民対話に集中できる行政へ",
+  "budget": 4,
+  "tools": [
+    "UiPath（行政業務RPA自動化）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "UiPath（行政業務RPA自動化）",
+      "what": "定型業務の大半をRPAが自動処理して職員が政策立案・住民対話に集中できる行政を実現するRPAツール。",
+      "how": "職員が毎日繰り返している入力・転記・集計作業をUiPathで「記録」するだけでロボットが代行します。書類の受付から基幹システムへの入力まで自動化できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

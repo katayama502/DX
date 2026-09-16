@@ -1,0 +1,18 @@
+theme: website-new
+rules:
+  - id: website-y1
+    if: { q_goal: [商品をネットで売りたい] }
+    level: yellow
+    reason: ネット販売は決済・配送・在庫の仕組みを比較検討する必要があるため
+  - id: website-r1
+    if: { q_ec: [50点以上] }
+    level: red
+    reason: 商品点数が多いネットショップは、在庫連携などの個別設計が必要なため
+  - id: website-y2
+    if: { q_who: [業者に任せたい] }
+    level: yellow
+    reason: 制作会社の見積もりを複数社で比較する必要があるため
+  - id: website-y3
+    if: { q_existing: [ある（古い・更新していない）] }
+    level: yellow
+    reason: 既存サイトの契約状況（ドメイン・サーバー）の確認が必要なため

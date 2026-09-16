@@ -1,0 +1,28 @@
+{
+  "id": "hr-014",
+  "industry": "hr",
+  "no": 14,
+  "stage": 2,
+  "title": "チャットボットで社内FAQ自動対応",
+  "summary": "有給申請方法などの質問にAIが24時間自動回答しHR担当の負荷削減",
+  "budget": 3,
+  "tools": [
+    "チャットボット（HiTTO等）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "チャットボット（HiTTO等）",
+      "what": "「有給の申請方法は？」「育休はいつから取れる？」などのよくある社内質問にAIが24時間自動回答するシステム。HR担当者への電話・メールを大幅削減します。",
+      "how": "HiTTOにQ&Aを登録するだけでAIチャットボットが完成。SlackやTeamsに連携すれば社員が使い慣れたツールから質問できます。回答できない質問は担当者にエスカレーションされます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

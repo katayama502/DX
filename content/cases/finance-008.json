@@ -1,0 +1,28 @@
+{
+  "id": "finance-008",
+  "industry": "finance",
+  "no": 8,
+  "stage": 1,
+  "title": "Slackで社内コミュニケーションを集約",
+  "summary": "電話・メールでの社内連絡をSlackに統一し返信遅延・情報散逸を削減",
+  "budget": 0,
+  "tools": [
+    "Slack"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Slack",
+      "what": "メール・電話での社内連絡をチャットで一元化するツール。部署別・案件別にチャンネルを分けて情報を整理できます。",
+      "how": "Slackにワークスペースを作成して全社員を招待。「全社連絡」「コンプライアンス」「商品情報」などのチャンネルを作って連絡を振り分け。ファイル共有・検索も内蔵しています。",
+      "url": "https://slack.com/intl/ja-jp/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

@@ -1,0 +1,28 @@
+{
+  "id": "agri-004",
+  "industry": "agri",
+  "no": 4,
+  "stage": 1,
+  "title": "LINEで農協・仕入れ先と連絡",
+  "summary": "電話・FAX中心の連絡をLINEに統一し写真付きで即時連絡・相談が可能に",
+  "budget": 0,
+  "tools": [
+    "LINE（農協・仕入れ先連絡）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "LINE（農協・仕入れ先連絡）",
+      "what": "農協・JA・仕入れ先との連絡をLINEグループで一元化するツール。電話・FAXより速く・記録が残る連絡手段です。",
+      "how": "主な取引先とLINEグループを作成。収穫量の報告・出荷日程の連絡・天候による変更を写真付きでメッセージするだけ。過去のやり取りを遡れるため確認作業が減ります。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

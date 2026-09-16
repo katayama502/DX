@@ -1,0 +1,28 @@
+{
+  "id": "const-007",
+  "industry": "const",
+  "no": 7,
+  "stage": 1,
+  "title": "資材発注をLINE WORKSで統一",
+  "summary": "電話・FAX・メールに分散していた資材発注をビジネスチャットに集約",
+  "budget": 1,
+  "tools": [
+    "LINE WORKS"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "LINE WORKS",
+      "what": "資材発注・現場連絡をビジネスチャットで一元化するツール。電話・FAX・メールに分散した連絡を整理して記録が残るようにします。",
+      "how": "LINE WORKSに会社・職人・仕入れ先のアカウントを作成してグループを設定。資材発注は写真付きメッセージで送信するだけで記録が自動保存されます。",
+      "url": "https://line-works.com/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

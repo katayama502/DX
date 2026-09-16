@@ -1,0 +1,28 @@
+{
+  "id": "edu-020",
+  "industry": "edu",
+  "no": 20,
+  "stage": 2,
+  "title": "自動採点AIで記述式答案を評価",
+  "summary": "AIが記述答案の内容・表現を採点基準にもとづき自動評価し教員の採点負担を削減",
+  "budget": 2,
+  "tools": [
+    "Gradescope（AI自動採点）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Gradescope（AI自動採点）",
+      "what": "記述式答案をスキャンしてAIが採点基準にもとづき自動評価するシステム。記述式テストの採点時間を大幅に削減します。",
+      "how": "採点基準をシステムに登録して答案をスキャンするだけ。AIが同じ回答パターンをグループ化して一括採点できます。部分点の設定・フィードバックコメントの自動挿入も可能です。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

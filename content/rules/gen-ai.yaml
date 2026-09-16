@@ -1,0 +1,14 @@
+theme: gen-ai
+rules:
+  - id: genai-y1
+    if: { q_data: [入力したい] }
+    level: yellow
+    reason: 個人情報を扱う場合は、法人向けプランや社内ルールの比較検討が必要なため
+  - id: genai-r1
+    if: { q_use: [顧客対応の自動化] }
+    level: red
+    reason: 顧客対応の自動化はシステム連携や誤回答時の責任整理など個別設計が必要なため
+  - id: genai-y2
+    if: { q_scope: [全員] }
+    level: yellow
+    reason: 全員で使う場合は利用ルールと有料プランの検討が必要なため

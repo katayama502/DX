@@ -1,0 +1,28 @@
+{
+  "id": "medical-016",
+  "industry": "medical",
+  "no": 16,
+  "stage": 2,
+  "title": "移乗支援ロボットの導入",
+  "summary": "介護職員の腰痛を防ぐため入浴・移動介助にロボットアームを活用",
+  "budget": 5,
+  "tools": [
+    "CYBERDYNE HAL（介護ロボット）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "CYBERDYNE HAL（介護ロボット）",
+      "what": "介護スタッフが腰を痛めないよう移乗・移動介助を補助するロボットスーツ。体への負担を軽減して離職率の低下につなげます。",
+      "how": "スタッフがロボットスーツを装着してから通常の介助を行います。センサーが筋電シグナルを読み取ってスーツが動きをサポート。腰椎への負担が50%以上軽減されます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

@@ -1,0 +1,28 @@
+{
+  "id": "mfg-009",
+  "industry": "mfg",
+  "no": 9,
+  "stage": 1,
+  "title": "クラウドERPで在庫・原価を一元管理",
+  "summary": "部門別に分散したExcelをクラウドERPに統合し在庫ズレ・原価計算ミスを防止",
+  "budget": 4,
+  "tools": [
+    "弥生ERP（クラウドERP）"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "弥生ERP（クラウドERP）",
+      "what": "在庫・原価・受発注・生産管理を一つのシステムで管理するクラウドERP。各部門のExcelをなくして情報を一元化します。",
+      "how": "弥生ERPに商品マスタ・仕入れ先・顧客情報を登録するだけで運用開始。各工程の入力データが自動で連携されて在庫・原価・売上が一画面で確認できます。",
+      "url": null
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}

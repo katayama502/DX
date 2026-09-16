@@ -1,0 +1,28 @@
+{
+  "id": "finance-004",
+  "industry": "finance",
+  "no": 4,
+  "stage": 1,
+  "title": "Googleワークスペースで内部文書をクラウド管理",
+  "summary": "紙・ローカルPC管理の契約書・稟議書をGoogleドライブに集約して検索可能に",
+  "budget": 2,
+  "tools": [
+    "Googleワークスペース"
+  ],
+  "detail": {
+    "points": [],
+    "steps": [],
+    "tips": "",
+    "tool": {
+      "name": "Googleワークスペース",
+      "what": "メール・文書・スプレッドシートをクラウドで一元管理するGoogle提供の業務ツール。在宅・出張中でも社内文書にアクセスできます。",
+      "how": "Google Workspaceに登録してGoogleドライブに文書をアップするだけ。契約書・稟議書をフォルダで整理して共有設定を制御。検索機能で過去文書も即座に見つかります。",
+      "url": "https://workspace.google.com/intl/ja/"
+    },
+    "glossary": []
+  },
+  "themes": [],
+  "type": "model",
+  "reviewedAt": "2026-09",
+  "generated": false
+}
