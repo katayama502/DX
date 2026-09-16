@@ -50,8 +50,21 @@ const themeIds = new Set(themes.map((t) => t.id))
 // ---- dialogs ----
 type RawNode = { id: string; type: DialogNode['type']; shared?: boolean; text: string; why?: string; options?: string[]; show_if?: Record<string, string[]> }
 const nodes: DialogNode[] = []
+// YAMLのフロー配列 `[a, b]` は引用符なしのカンマで区切られるため、"〜月1,000円" のような数値+カンマを含む
+// 選択肢を裸で書くと "〜月1" と "000円" に割れてしまう。その痕跡（数字とカンマ・単位だけの断片）を検出する。
+function checkOptionFragments(f: string, n: RawNode) {
+  for (const opt of n.options ?? []) {
+    if (/^[0-9,]+\s*(円|名|人|件|万|万円|歳|年|回)?$/.test(opt.trim())) {
+      errors.push(`dialogs/${f}: ${n.id} の選択肢「${opt}」が数字の断片に見えます。カンマを含む場合はYAMLで引用符 "..." で囲んでください`)
+    }
+  }
+}
 const shared = readYaml<{ nodes: RawNode[] }>(path.join(ROOT, 'dialogs', '_shared.yaml'))
-shared.nodes.forEach((n, i) => nodes.push({ id: n.id, themeId: null, type: n.type, shared: true, text: n.text, why: n.why, options: n.options, sort: i }))
+shared.nodes.forEach((n, i) => {
+  if (n.type.startsWith('ask_') && n.type !== 'ask_text' && (!n.options || n.options.length < 2)) errors.push(`dialogs/_shared.yaml: ${n.id} の選択肢が2つ未満`)
+  checkOptionFragments('_shared.yaml', n)
+  nodes.push({ id: n.id, themeId: null, type: n.type, shared: true, text: n.text, why: n.why, options: n.options, sort: i })
+})
 for (const f of listFiles(path.join(ROOT, 'dialogs'), '.yaml')) {
   if (f.startsWith('_')) continue
   const d = readYaml<{ theme: string; nodes: RawNode[] }>(path.join(ROOT, 'dialogs', f))
@@ -61,6 +74,7 @@ for (const f of listFiles(path.join(ROOT, 'dialogs'), '.yaml')) {
     if (ids.has(n.id)) errors.push(`dialogs/${f}: 質問ID ${n.id} が重複`)
     ids.add(n.id)
     if (n.type.startsWith('ask_') && n.type !== 'ask_text' && (!n.options || n.options.length < 2)) errors.push(`dialogs/${f}: ${n.id} の選択肢が2つ未満`)
+    checkOptionFragments(f, n)
     nodes.push({ id: n.id, themeId: d.theme, type: n.type, text: n.text, why: n.why, options: n.options, showIf: n.show_if, sort: i })
   })
   // show_if の参照先と選択肢の存在チェック
