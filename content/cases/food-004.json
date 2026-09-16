@@ -3,8 +3,8 @@
   "industry": "food",
   "no": 4,
   "stage": 1,
-  "title": "Square・PayPayで多様な決済に対応",
-  "summary": "現金のみから脱却しカード・QRコード決済に対応して客単価アップ",
+  "title": "PayPayでキャッシュレス決済に対応",
+  "summary": "現金のみの会計にQRコード決済を追加し、スマホ決済を使いたいお客さまの会計機会を逃さないようにする",
   "budget": 0,
   "tools": [
     "PayPayforBusiness"

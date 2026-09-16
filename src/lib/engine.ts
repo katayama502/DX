@@ -214,3 +214,16 @@ export function formatReviewed(reviewedAt: string): string {
   const [y, m] = reviewedAt.split('-')
   return `${y}年${Number(m)}月`
 }
+
+/**
+ * その端末のローカル日付を YYYY-MM-DD で返す。
+ * `Date#toISOString()` はUTCに変換するため、JST（UTC+9）では深夜0時〜朝9時の間、
+ * 実際の日付より1日前の値になってしまう（お知らせの表示開始・契約開始日などがズレる原因）。
+ * カレンダー入力のデフォルト値や「今日」判定には、必ずこちらを使う。
+ */
+export function localDateISO(d: Date = new Date()): string {
+  const y = d.getFullYear()
+  const m = String(d.getMonth() + 1).padStart(2, '0')
+  const day = String(d.getDate()).padStart(2, '0')
+  return `${y}-${m}-${day}`
+}

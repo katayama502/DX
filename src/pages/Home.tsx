@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useApp, useContent } from '../lib/app-context'
-import { search } from '../lib/engine'
+import { localDateISO, search } from '../lib/engine'
 import { getPref, setPref } from '../lib/session'
 import { Page, ThemeCard } from '../components/ui'
 import { CaseRow } from './Cases'
@@ -81,7 +81,7 @@ function AnnouncementBanner() {
     let alive = true
     backend.listAnnouncements().then((list) => {
       if (!alive) return
-      const today = new Date().toISOString().slice(0, 10)
+      const today = localDateISO()
       const dismissed = getPref<string[]>('dismissedAnnouncements', [])
       setItems(list.filter((a) => a.starts_at <= today && (!a.ends_at || a.ends_at >= today) && !dismissed.includes(a.id)))
     }).catch(() => setItems([]))

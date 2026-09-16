@@ -2,6 +2,7 @@
 // パスワードは平文比較だがデモ専用（本番は Supabase Auth）。
 import type { Backend, Session, SharePayload, UsageKind } from './backend'
 import { BackendError } from './backend'
+import { localDateISO } from './engine'
 import type { Announcement, AppUser, CaseSummary, ContentBundle, EscalationContact, Invitation, Organization, RegionalCase, Theme } from './types'
 
 interface Db {
@@ -30,7 +31,7 @@ const KEY = 'navi.demo.db'
 const SESSION_KEY = 'navi.demo.session'
 const DEMO_PASSWORD = 'demo1234'
 const today = new Date()
-const iso = (d: Date) => d.toISOString().slice(0, 10)
+const iso = (d: Date) => localDateISO(d) // ローカル日付（JSTのUTC変換ズレを避ける）
 const plusDays = (n: number) => { const d = new Date(today); d.setDate(d.getDate() + n); return iso(d) }
 
 function seed(): Db {
@@ -114,6 +115,11 @@ export function createDemoBackend(): Backend {
       await this.bumpUsage('logins'); notify()
     },
     async signOut() { try { localStorage.removeItem(SESSION_KEY) } catch { /* noop */ } notify() },
+    async isActiveNow() {
+      const id = currentUserId(); if (!id) return false
+      const u = load().users.find((x) => x.id === id)
+      return u?.status === 'active'
+    },
     async resetPassword() { await delay(400) },
     async updatePassword(password) { const db = load(); const u = db.users.find((x) => x.id === currentUserId()); if (u) { u.password = password; save(db) } },
     async updateMyName(name) { const db = load(); const u = db.users.find((x) => x.id === currentUserId()); if (u) { u.name = name; save(db); notify() } },

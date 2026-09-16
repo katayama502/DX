@@ -1,10 +1,12 @@
 // コンテンツ表示管理（運営管理者のみ）：相談テーマ・事例の公開/非公開・表示順、お知らせ配信
 // トグルはDBの published/sort 列を直接更新する。次回のコンテンツ同期（npm run content:seed → SQL実行）で上書きされない設計（supabase/seed/load_content.sql参照）
 import { useCallback, useEffect, useState, type FormEvent } from 'react'
+import { Link } from 'react-router-dom'
 import { useApp, useContent } from '../../lib/app-context'
 import type { Announcement, CaseSummary, Theme } from '../../lib/types'
 import { BUDGET_LABELS, LEVEL_META, STAGE_LABELS } from '../../lib/types'
 import { ErrorText, Field, Page, Spinner, TopBar, useToast } from '../../components/ui'
+import { localDateISO } from '../../lib/engine'
 
 const TABS = [
   { key: 'themes', label: '相談テーマ' },
@@ -96,17 +98,18 @@ function CasesTab() {
   const { content } = useContent()
   const [q, setQ] = useState('')
   const [industry, setIndustry] = useState('')
-  const [type, setType] = useState<'' | 'model' | 'regional'>('')
+  // cases テーブルには常に type='model'（モデルケース）しか存在しない。地域事例は団体ごとの
+  // regional_cases テーブルが別にあり、運営管理画面の「地域事例」で公開設定する（このタブでは扱わない）
   const [cases, setCases] = useState<CaseSummary[] | null>(null)
   const [limit, setLimit] = useState(PAGE_SIZE)
   const [err, setErr] = useState<string | null>(null)
 
   const reload = useCallback(async () => {
-    try { setCases(await backend.listCaseSummaries({ q, industry: industry || undefined, type: type || undefined })) }
+    try { setCases(await backend.listCaseSummaries({ q, industry: industry || undefined })) }
     catch (e) { setErr((e as Error).message) }
-  }, [backend, q, industry, type])
+  }, [backend, q, industry])
   useEffect(() => { const t = setTimeout(reload, 250); return () => clearTimeout(t) }, [reload])
-  useEffect(() => { setLimit(PAGE_SIZE) }, [q, industry, type])
+  useEffect(() => { setLimit(PAGE_SIZE) }, [q, industry])
 
   const togglePublished = async (c: CaseSummary) => {
     setErr(null)
@@ -119,15 +122,11 @@ function CasesTab() {
   return (
     <section className="flex flex-col gap-2">
       <ErrorText msg={err} />
-      <div className="grid grid-cols-3 gap-2">
-        <input id="caseQ" className="input min-h-12 text-[14px] px-2 col-span-3 sm:col-span-1" placeholder="タイトルで検索" value={q} onChange={(e) => setQ(e.target.value)} />
+      <p className="text-[13px] text-muted">ここではDX事例360のモデルケース（360件）を管理します。団体ごとの地域事例は<Link to="/admin/ops#regional" className="underline">運営管理の「地域事例」</Link>で公開設定してください。</p>
+      <div className="grid grid-cols-2 gap-2">
+        <input id="caseQ" className="input min-h-12 text-[14px] px-2" placeholder="タイトルで検索" value={q} onChange={(e) => setQ(e.target.value)} />
         <select aria-label="業種" className="input min-h-12 text-[14px] px-2" value={industry} onChange={(e) => setIndustry(e.target.value)}>
           <option value="">業種：すべて</option>{content.industries.map((i) => <option key={i.id} value={i.id}>{i.icon} {i.name}</option>)}
-        </select>
-        <select aria-label="種別" className="input min-h-12 text-[14px] px-2" value={type} onChange={(e) => setType(e.target.value as typeof type)}>
-          <option value="">種別：すべて</option>
-          <option value="model">モデルケース</option>
-          <option value="regional">地域事例</option>
         </select>
       </div>
       {cases === null ? <Spinner /> : (
@@ -138,10 +137,10 @@ function CasesTab() {
               const ind = content.industries.find((i) => i.id === c.industry)
               return (
                 <li key={c.id} className={`card flex items-center gap-3 ${!c.published ? 'opacity-60' : ''}`}>
-                  <span className="text-xl w-7 text-center shrink-0" aria-hidden="true">{c.type === 'regional' ? '📍' : ind?.icon}</span>
+                  <span className="text-xl w-7 text-center shrink-0" aria-hidden="true">{ind?.icon}</span>
                   <span className="flex-1 min-w-0">
                     <span className="block font-bold text-[14px] truncate">{c.title}</span>
-                    <span className="block text-[12px] text-muted">{c.type === 'regional' ? '地域事例' : ind?.name}・{STAGE_LABELS[c.stage].split(' ')[0]}・{BUDGET_LABELS[c.budget]}{!c.generated && '・詳細未生成'}</span>
+                    <span className="block text-[12px] text-muted">{ind?.name}・{STAGE_LABELS[c.stage].split(' ')[0]}・{BUDGET_LABELS[c.budget]}{!c.generated && '・詳細未生成'}</span>
                   </span>
                   <label className="flex items-center gap-2 text-[12px] font-bold shrink-0">
                     <input type="checkbox" role="switch" className="w-11 h-6 accent-primary" checked={c.published} onChange={() => togglePublished(c)} aria-label={`${c.title}を公開する`} />
@@ -165,7 +164,7 @@ function AnnouncementsTab() {
   const [err, setErr] = useState<string | null>(null)
   const reload = useCallback(async () => { try { setList(await backend.listAnnouncements()) } catch (e) { setErr((e as Error).message) } }, [backend])
   useEffect(() => { reload() }, [reload])
-  const today = new Date().toISOString().slice(0, 10)
+  const today = localDateISO()
   const isActive = (a: Announcement) => a.starts_at <= today && (!a.ends_at || a.ends_at >= today)
 
   if (!list) return <Spinner />
@@ -202,7 +201,7 @@ function AnnouncementsTab() {
 function AnnouncementForm({ value, onCancel, onSave }: { value: Announcement | null; onCancel: () => void; onSave: (a: Omit<Announcement, 'id'> & { id?: string }) => void }) {
   const [title, setTitle] = useState(value?.title ?? '')
   const [body, setBody] = useState(value?.body ?? '')
-  const [startsAt, setStartsAt] = useState(value?.starts_at ?? new Date().toISOString().slice(0, 10))
+  const [startsAt, setStartsAt] = useState(value?.starts_at ?? localDateISO())
   const [endsAt, setEndsAt] = useState(value?.ends_at ?? '')
   const submit = (e: FormEvent) => {
     e.preventDefault()

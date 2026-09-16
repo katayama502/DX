@@ -1,4 +1,5 @@
 // 下部タブ（ホーム／テーマ／事例／メニュー）と、ログイン・契約状態のガード
+import { useEffect, useRef } from 'react'
 import { Navigate, NavLink, Outlet, useLocation } from 'react-router-dom'
 import { useApp } from '../lib/app-context'
 import { Spinner } from './ui'
@@ -24,10 +25,19 @@ export function BottomTabs() {
   )
 }
 
-/** ログイン必須。契約終了なら /expired へ */
+/** ログイン必須。契約終了なら /expired へ。停止されたアカウントは次の画面遷移でログアウトする（仕様書F-001受入条件） */
 export function RequireAuth() {
-  const { session, sessionLoading, access, content, contentError } = useApp()
+  const { session, sessionLoading, access, content, contentError, backend, refreshSession } = useApp()
   const loc = useLocation()
+  const lastChecked = useRef<string | null>(null)
+
+  useEffect(() => {
+    if (!session || lastChecked.current === loc.pathname) return
+    lastChecked.current = loc.pathname
+    // getSession() 側でも status を再確認して自動的にサインアウトするため、ここでは refreshSession だけでよい
+    backend.isActiveNow().then((active) => { if (!active) refreshSession() }).catch(() => { /* 通信できない場合は現在の画面を維持する */ })
+  }, [loc.pathname, session, backend, refreshSession])
+
   if (sessionLoading) return <Spinner />
   if (!session) return <Navigate to="/login" replace state={{ from: loc.pathname }} />
   if (access === 'expired') return <Navigate to="/expired" replace />

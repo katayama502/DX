@@ -93,6 +93,14 @@ export function createSupabaseBackend(url: string, anonKey: string): Backend {
       try { await sb.rpc('bump_usage', { p_kind: 'logins' }) } catch { /* noop */ }
     },
     async signOut() { await sb.auth.signOut(); try { await Promise.all((await caches.keys()).map((k) => caches.delete(k))) } catch { /* noop */ } },
+    async isActiveNow() {
+      // sb.auth.getSession() はローカルのトークンを読むだけで通信しない。プロフィールの1行だけを取得する軽量チェック。
+      const { data: { session: authSession } } = await sb.auth.getSession()
+      if (!authSession) return false
+      const { data, error } = await sb.from('profiles').select('status').eq('id', authSession.user.id).maybeSingle()
+      if (error) return true // 通信エラー時はここでログアウトさせない（オフライン時に誤って締め出さないため）
+      return data?.status === 'active'
+    },
     async resetPassword(email) { const { error } = await sb.auth.resetPasswordForEmail(email.trim(), { redirectTo: `${location.origin}/reset` }); if (error) fail('現在送信できません。時間をおいてお試しください') },
     async updatePassword(password) { const { error } = await sb.auth.updateUser({ password }); if (error) fail(toJa(error.message)) },
     async updateMyName(name) { await must(sb.rpc('update_my_name', { p_name: name })) },

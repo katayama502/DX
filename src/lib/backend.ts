@@ -16,6 +16,8 @@ export interface Backend {
   onAuthChange(cb: () => void): () => void
   signIn(email: string, password: string): Promise<void>
   signOut(): Promise<void>
+  /** 停止・削除されていないかを軽量に確認する（画面遷移のたびに呼び、停止済みならその場でログアウトさせるため） */
+  isActiveNow(): Promise<boolean>
   resetPassword(email: string): Promise<void>
   updatePassword(password: string): Promise<void>
   updateMyName(name: string): Promise<void>

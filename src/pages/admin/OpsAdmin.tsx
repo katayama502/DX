@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom'
 import { useApp, useContent } from '../../lib/app-context'
 import type { Organization, RegionalCase } from '../../lib/types'
 import { ErrorText, Field, Page, Section, TopBar, useToast } from '../../components/ui'
+import { localDateISO } from '../../lib/engine'
 
 const KIND = { city: '市町村', shokokai: '商工会', cci: '商工会議所', other: 'その他' }
 const STATUS = { trial: '試行', active: '契約中', grace: '猶予', expired: '終了', suspended: '停止' }
-const empty = (): Organization & { admin_email?: string } => ({ code: '', name: '', kind: 'shokokai', plan: 'basic', status: 'trial', contract_start: new Date().toISOString().slice(0, 10), contract_end: '', seat_limit: 10, logo_url: null, contact: null, region_links: [], admin_email: '' })
+const empty = (): Organization & { admin_email?: string } => ({ code: '', name: '', kind: 'shokokai', plan: 'basic', status: 'trial', contract_start: localDateISO(), contract_end: '', seat_limit: 10, logo_url: null, contact: null, region_links: [], admin_email: '' })
 type OrgDraft = Organization & { admin_email?: string }
 type Editor = { mode: 'create' | 'edit'; value: OrgDraft }
 
@@ -98,7 +99,7 @@ function RegionalCasesSection({ orgs }: { orgs: Organization[] }) {
   useEffect(() => { reload(orgCode) }, [orgCode, reload])
 
   return (
-    <Section title="地域事例（F-012）" defaultOpen={false}>
+    <Section title="地域事例（F-012）" defaultOpen={false} id="regional">
       <p className="text-[14px] text-ink-2 mb-3">地域版プランの団体ごとに、実在する事業者の事例を登録します。事業者の掲載許諾（同意）を得てから公開してください。</p>
       <Field label="対象団体">
         <select id="rcOrg" className="input" value={orgCode} onChange={(e) => { setOrgCode(e.target.value); setEditor(null) }}>
@@ -151,7 +152,7 @@ function RegionalCaseForm({ orgCode, value, themes, onCancel, onSave }: {
   const [summary, setSummary] = useState(value?.summary ?? '')
   const [points, setPoints] = useState((value?.detail.points ?? []).join('\n'))
   const [tips, setTips] = useState(value?.detail.tips ?? '')
-  const [interviewedAt, setInterviewedAt] = useState(value?.interviewed_at ?? new Date().toISOString().slice(0, 7))
+  const [interviewedAt, setInterviewedAt] = useState(value?.interviewed_at ?? localDateISO().slice(0, 7))
   const [consent, setConsent] = useState(value?.consent ?? false)
   const [published, setPublished] = useState(value?.published ?? false)
   const [themeIds, setThemeIds] = useState<string[]>(value?.theme_ids ?? [])

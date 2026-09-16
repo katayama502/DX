@@ -68,7 +68,8 @@ export default function Chat() {
   }
   const proceedSay = (node: DialogNode) => { const s = new Set(seenSay); s.add(node.id); setSeenSay(s); persist(answers, s) }
   const back = () => {
-    // 表示順で最後に答えた質問を取り消す
+    // 表示順で最後に答えた質問を取り消す。選択中だった複数選択・自由記述の入力欄もリセットする
+    setMulti([]); setText('')
     const answered = nodes.filter((n) => n.type !== 'say' && answers[n.id] !== undefined && isVisible(n, answers))
     const last = answered[answered.length - 1]
     if (!last) { nav(`/themes/${theme.id}`); return }
