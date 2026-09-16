@@ -12,7 +12,8 @@
     "content:push": "tsx --env-file=.env scripts/build-content.ts --push",
     "predev": "npm run content:build",
     "prebuild": "npm run content:build",
-    "typecheck": "tsc -b --noEmit"
+    "typecheck": "tsc -b --noEmit",
+    "content:seed": "tsx scripts/build-content.ts && cp src/generated/content.json supabase/seed/content.json"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.109.0",
