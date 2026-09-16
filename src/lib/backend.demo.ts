@@ -3,7 +3,6 @@
 import type { Backend, Session, SharePayload, UsageKind } from './backend'
 import { BackendError } from './backend'
 import type { AppUser, ContentBundle, EscalationContact, Invitation, Organization } from './types'
-import bundle from '../generated/content.json'
 
 interface Db {
   orgs: Organization[]
@@ -11,6 +10,15 @@ interface Db {
   invitations: Invitation[]
   contacts: EscalationContact[]
   usage: Record<string, Record<UsageKind, number>> // key: org|day
+}
+// demo モードのときだけ content.json を読み込む（supabase モードのビルドには含めない）
+let bundleCache: ContentBundle | null = null
+async function loadBundle(): Promise<ContentBundle> {
+  if (bundleCache) return bundleCache
+  if (import.meta.env.VITE_APP_MODE === 'supabase') throw new BackendError('demo コンテンツは本番ビルドに含まれません')
+  const m = await import('../generated/content.json')
+  bundleCache = m.default as unknown as ContentBundle
+  return bundleCache
 }
 const KEY = 'navi.demo.db'
 const SESSION_KEY = 'navi.demo.session'
@@ -88,7 +96,7 @@ export function createDemoBackend(): Backend {
     async resetPassword() { await delay(400) },
     async updatePassword(password) { const db = load(); const u = db.users.find((x) => x.id === currentUserId()); if (u) { u.password = password; save(db) } },
     async updateMyName(name) { const db = load(); const u = db.users.find((x) => x.id === currentUserId()); if (u) { u.name = name; save(db); notify() } },
-    async loadContent() { await delay(100); return bundle as unknown as ContentBundle },
+    async loadContent() { await delay(100); return loadBundle() },
     async bumpUsage(kind) {
       const db = load(); const u = db.users.find((x) => x.id === currentUserId()); if (!u) return
       const k = `${u.org_code}|${iso(today)}`
@@ -96,7 +104,7 @@ export function createDemoBackend(): Backend {
       db.usage[k][kind]++; save(db)
     },
     async getShare(themeId, orgCode): Promise<SharePayload> {
-      const db = load(); const t = (bundle as unknown as ContentBundle).themes.find((x) => x.id === themeId && x.published)
+      const db = load(); const t = (await loadBundle()).themes.find((x) => x.id === themeId && x.published)
       const now = today.getTime()
       const o = db.orgs.find((x) => x.code === orgCode && ['trial', 'active', 'grace'].includes(x.status)
         && new Date(`${x.contract_start}T00:00:00Z`).getTime() <= now

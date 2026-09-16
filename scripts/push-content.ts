@@ -18,7 +18,7 @@ export async function pushToSupabase(b: ContentBundle) {
     case_ids: t.cases, links: t.links, reviewed_at: `${t.reviewedAt}-01`, published: t.published,
     first_tell: t.firstTell, misconceptions: t.misconceptions, cost: t.cost, next_steps: t.nextSteps, checklist: t.checklist, term_names: t.terms,
   })), 'id')
-  await up('questions', b.nodes.map((n) => ({ id: n.id, theme_id: n.themeId, type: n.type, shared: !!n.shared, text: n.text, why: n.why ?? null, options: n.options ?? [], show_if: n.showIf ?? null, sort: n.sort })), 'id')
+  await up('questions', b.nodes.map((n) => ({ id: n.id, theme_id: n.themeId, type: n.type, shared: !!n.shared, text: n.text, why: n.why ?? null, options: n.options ?? [], show_if: n.showIf ?? null, sort: n.sort })), 'key')
   await up('level_rules', b.rules.map((r) => ({ id: r.id, theme_id: r.themeId, if_conditions: r.if, then_level: r.level, reason: r.reason })), 'id')
   await sb.from('theme_keywords').delete().neq('theme_id', '')
   await up('theme_keywords', b.keywords.map((k) => ({ theme_id: k.themeId, keyword: k.keyword, weight: k.weight })), 'theme_id,keyword')

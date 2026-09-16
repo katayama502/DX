@@ -27,7 +27,7 @@ begin
   select e->>'id', e->>'themeId', e->>'type', coalesce((e->>'shared')::boolean,false), e->>'text', e->>'why',
     coalesce(array(select jsonb_array_elements_text(e->'options')), '{}'), e->'showIf', (e->>'sort')::int
   from jsonb_array_elements(j->'nodes') e
-  on conflict (id) do update set theme_id = excluded.theme_id, type = excluded.type, shared = excluded.shared, text = excluded.text, why = excluded.why, options = excluded.options, show_if = excluded.show_if, sort = excluded.sort;
+  on conflict (key) do update set type = excluded.type, shared = excluded.shared, text = excluded.text, why = excluded.why, options = excluded.options, show_if = excluded.show_if, sort = excluded.sort;
 
   insert into public.level_rules (id, theme_id, if_conditions, then_level, reason)
   select e->>'id', e->>'themeId', e->'if', e->>'level', e->>'reason' from jsonb_array_elements(j->'rules') e
