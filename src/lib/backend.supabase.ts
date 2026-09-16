@@ -7,12 +7,36 @@ import { CATEGORY_ORDER } from './types'
 
 const ym = (d: string) => String(d).slice(0, 7)
 
+// DB・Auth の内部エラーコード（英語・短文）を、画面に出しても恥ずかしくない日本語に翻訳する。
+// 一致しないものは「現在この操作を行えません」に丸め、内部の詳細文言は表示しない。
+const DB_ERROR_JA: [RegExp, string][] = [
+  [/invalid name/i, '名前を正しく入力してください'],
+  [/invalid contact/i, '連絡先は500文字以内で入力してください'],
+  [/invalid logo url/i, 'ロゴのURLは https:// から始まる形式で入力してください'],
+  [/invalid region links?/i, '地域の支援制度リンクの形式が正しくありません'],
+  [/invalid email/i, 'メールアドレスの形式が正しくありません'],
+  [/invalid status/i, '指定できない状態です'],
+  [/invalid usage kind/i, '指定できない項目です'],
+  [/invalid role/i, '指定できない権限です'],
+  [/organization not found/i, '団体が見つかりません'],
+  [/organization is not under contract/i, '契約中の団体ではありません'],
+  [/profile not found/i, 'アカウント情報が見つかりません'],
+  [/invitation not found|invitation state mismatch|no pending invitation/i, 'この招待は無効または期限切れです'],
+  [/email already registered or invited/i, 'このメールアドレスは登録済みまたは招待中です'],
+  [/seat limit reached/i, 'アカウント上限に達しています'],
+  [/cannot change own status/i, '自分自身の状態は変更できません'],
+  [/forbidden|not found/i, 'この操作を行う権限がありません'],
+  [/password should be at least/i, 'パスワードは8文字以上にしてください'],
+  [/network|fetch|timeout/i, '通信状況をご確認のうえ、時間をおいてお試しください'],
+]
+const toJa = (msg: string): string => DB_ERROR_JA.find(([re]) => re.test(msg))?.[1] ?? '現在この操作を行えません。時間をおいてお試しください'
+
 export function createSupabaseBackend(url: string, anonKey: string): Backend {
   const sb: SupabaseClient = createClient(url, anonKey, { auth: { persistSession: true, autoRefreshToken: true } })
   const fail = (msg: string): never => { throw new BackendError(msg) }
   const must = async <T,>(p: PromiseLike<{ data: T | null; error: { message: string } | null }>): Promise<T> => {
     const { data, error } = await p
-    if (error) fail(error.message)
+    if (error) fail(toJa(error.message))
     return data as T
   }
 
@@ -61,7 +85,7 @@ export function createSupabaseBackend(url: string, anonKey: string): Backend {
     },
     async signOut() { await sb.auth.signOut(); try { await Promise.all((await caches.keys()).map((k) => caches.delete(k))) } catch { /* noop */ } },
     async resetPassword(email) { const { error } = await sb.auth.resetPasswordForEmail(email.trim(), { redirectTo: `${location.origin}/reset` }); if (error) fail('現在送信できません。時間をおいてお試しください') },
-    async updatePassword(password) { const { error } = await sb.auth.updateUser({ password }); if (error) fail(error.message) },
+    async updatePassword(password) { const { error } = await sb.auth.updateUser({ password }); if (error) fail(toJa(error.message)) },
     async updateMyName(name) { await must(sb.rpc('update_my_name', { p_name: name })) },
     async loadContent(): Promise<ContentBundle> {
       const [themes, questions, rules, keywords, cases, industries, terms, synonyms] = await Promise.all([
@@ -110,7 +134,7 @@ export function createSupabaseBackend(url: string, anonKey: string): Backend {
     },
     async setUserStatus(userId, status: UserStatus) {
       const { error } = await sb.rpc('set_user_status', { p_user: userId, p_status: status })
-      if (error) fail(error.message.includes('own') ? '自分自身の状態は変更できません' : error.message.includes('seat limit') ? 'アカウント上限に達しているため再開できません' : 'この操作を行う権限がありません')
+      if (error) fail(toJa(error.message))
     },
     async listContacts(orgCode) { return must(sb.from('escalation_contacts').select('*').eq('org_code', orgCode).order('sort')) as Promise<EscalationContact[]> },
     async saveContact(c) {
@@ -118,7 +142,7 @@ export function createSupabaseBackend(url: string, anonKey: string): Backend {
       await must(sb.from('escalation_contacts').upsert({ ...c, name: c.name.trim(), email: c.email.trim().toLowerCase(), id: c.id ?? undefined }))
     },
     async deleteContact(id) { await must(sb.from('escalation_contacts').delete().eq('id', id)) },
-    async updateOrgProfile(orgCode, p) { const { error } = await sb.rpc('update_org_profile', { p_org_code: orgCode, p_name: p.name, p_contact: p.contact, p_logo_url: p.logo_url, p_region_links: p.region_links }); if (error) fail(error.message) },
+    async updateOrgProfile(orgCode, p) { const { error } = await sb.rpc('update_org_profile', { p_org_code: orgCode, p_name: p.name, p_contact: p.contact, p_logo_url: p.logo_url, p_region_links: p.region_links }); if (error) fail(toJa(error.message)) },
     async listOrgs() { return must(sb.from('organizations').select('*').order('name')) as Promise<Organization[]> },
     async upsertOrg(org) {
       const { admin_email, ...o } = org
@@ -127,7 +151,7 @@ export function createSupabaseBackend(url: string, anonKey: string): Backend {
     },
     async listUsage(orgCode) { let q = sb.from('usage_daily').select('*').order('day', { ascending: false }).limit(400); if (orgCode) q = q.eq('org_code', orgCode); return must(q) },
     async listRegionalCases(orgCode) { return must(sb.from('regional_cases').select('*').eq('org_code', orgCode).order('interviewed_at', { ascending: false })) as Promise<RegionalCase[]> },
-    async getRegionalCase(id) { const { data, error } = await sb.from('regional_cases').select('*').eq('id', id).maybeSingle(); if (error) fail(error.message); return (data as RegionalCase) ?? null },
+    async getRegionalCase(id) { const { data, error } = await sb.from('regional_cases').select('*').eq('id', id).maybeSingle(); if (error) fail(toJa(error.message)); return (data as RegionalCase) ?? null },
     async saveRegionalCase(rc) {
       if (!rc.title.trim() || !rc.summary.trim()) fail('タイトルと概要を入力してください')
       if (rc.published && !rc.consent) fail('掲載には事業者の掲載許諾（同意）が必要です')
