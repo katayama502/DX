@@ -61,7 +61,8 @@ supabase/
 |---|---|
 | アプリ | https://dx-soudan-navi.netlify.app （Netlify site: dx-soudan-navi） |
 | Supabase | プロジェクト `DX_MASUDA`（ref: lctaqygbyuchiretbdhc、東京リージョン） |
-| 適用済み | migrations 0001・0002、Edge Function `invite-user`、コンテンツ投入（`supabase/seed/load_content.sql`）、pg_cron で毎日 03:00 JST に契約状態を更新 |
+| 適用済み | migrations 0001〜0003、Edge Function `invite-user`、コンテンツ投入（`supabase/seed/load_content.sql`）、pg_cron で毎日 03:00 JST に契約状態を更新 |
+| コンテンツ | 相談テーマ10件（初期候補テーブル全件）、事例360件（全件に詳細生成済み）、用語64語 |
 | 団体 | `creatte`（運営）／`masuda-city`／`masuda-cci`（試行・2027-03-31 まで） |
 
 **展開後に手動で行う設定（ダッシュボード）**
@@ -82,6 +83,14 @@ supabase/
 5. `npm run content:push` でコンテンツ投入
 6. `.env` を `VITE_APP_MODE=supabase`、`VITE_SUPABASE_URL`、`VITE_SUPABASE_ANON_KEY` に設定して `npm run build` → `dist/` を Cloudflare Pages へ（SPA なので `/*  /index.html  200` の `_redirects` を置く）
 7. pg_cron が使えるなら `select cron.schedule('rollover', '0 3 * * *', $$select public.rollover_contracts()$$);`
+
+## 残っている手動作業・既知の課題
+
+- **Supabase Auth の管理画面設定**（API未対応のため手動）：Site URL / Redirect URLs の登録、公開サインアップの無効化、Edge Function `invite-user` への `SITE_URL` シークレット設定。詳細は上の「展開後に手動で行う設定」参照
+- **Netlify ⇄ GitHub 連携**：現在は手動アップロードでデプロイしている（API からリポジトリ連携を張れないため）。Netlify ダッシュボード → Site settings → Build & deploy → Link repository で `katayama502/DX` を選び、Base directory を空欄（リポジトリ直下）にすると、以後は `git push` で自動デプロイになる
+- **360事例の詳細コンテンツ**：AIが事前生成した内容（`generated: true`）。仕様書10.1の運用フロー通り、価格・固有名詞の公式情報での確認と、専門分野（セキュリティ・補助金・法令）の有識者レビューを公開前に行うことを推奨
+- **多要素認証（MFA）**：仕様書F-001で「任意設定」とされているが、UI上の設定画面は未実装（Supabase Auth自体はTOTPをサポート）
+- **利用規約・プライバシーポリシー**：ドラフト表示のまま（`/terms` `/privacy`）。Phase 0での所属機関確認・契約書式確定を待って正式版に切り替える
 
 ## 受入テストの観点（仕様書12章）
 - 未ログインで `/share/:id` 以外が見えないこと（RLS：`org_can_read()`）
