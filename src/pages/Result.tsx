@@ -2,27 +2,36 @@
 import { useEffect, useMemo } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import { useApp, useContent } from '../lib/app-context'
-import { answerSummary, buildSummaryText, judge, nodesForTheme } from '../lib/engine'
-import { loadHearing } from '../lib/session'
+import { answerSummary, buildSummaryText, judge, nextNode, nodesForTheme, visibleAnswers } from '../lib/engine'
+import { getConsultationId, loadHearing } from '../lib/session'
 import { LEVEL_META } from '../lib/types'
 import { Bullets, Disclaimer, LevelBadge, Page, ReviewedNote, Section, TopBar, copyText, useToast } from '../components/ui'
 
 export default function Result() {
   const { id } = useParams()
   const { content, session } = useContent()
-  const { backend } = useApp()
+  const { backend, access } = useApp()
   const [toast, showToast] = useToast()
   const theme = content.themes.find((t) => t.id === id)
   const hearing = loadHearing()
-  const answers = useMemo(() => (theme ? { ...hearing.shared, ...(hearing.byTheme[theme.id] ?? {}) } : {}), [theme, hearing.shared, hearing.byTheme])
+  const rawAnswers = useMemo(() => (theme ? { ...hearing.shared, ...(hearing.byTheme[theme.id] ?? {}) } : {}), [theme, hearing.shared, hearing.byTheme])
   const nodes = useMemo(() => (theme ? nodesForTheme(content, theme.id) : []), [content, theme])
+  const answers = useMemo(() => visibleAnswers(nodes, rawAnswers), [nodes, rawAnswers])
+  const seenSay = useMemo(() => new Set(theme ? (hearing.seenSay[theme.id] ?? []) : []), [theme, hearing.seenSay])
+  const complete = !!theme && nextNode(nodes, answers, seenSay) === null
   const j = useMemo(() => (theme ? judge(theme, content.rules, answers) : null), [theme, content.rules, answers])
   useEffect(() => {
-    if (!theme) return
-    const k = `navi.counted.${theme.id}`
-    try { if (!sessionStorage.getItem(k)) { sessionStorage.setItem(k, '1'); backend.bumpUsage('hearings_done') } } catch { /* noop */ }
-  }, [theme, backend])
+    if (!theme || !complete || access !== 'ok') return
+    const k = `navi.counted.hearing.${getConsultationId(theme.id)}`
+    try {
+      if (!sessionStorage.getItem(k)) {
+        sessionStorage.setItem(k, '1')
+        void backend.bumpUsage('hearings_done').catch(() => { sessionStorage.removeItem(k) })
+      }
+    } catch { /* noop */ }
+  }, [theme, complete, access, backend])
   if (!theme || !j) return <Navigate to="/themes" replace />
+  if (!complete) return <Navigate to={`/themes/${theme.id}/chat`} replace />
 
   const qa = answerSummary(nodes, answers)
   const meta = LEVEL_META[j.level]

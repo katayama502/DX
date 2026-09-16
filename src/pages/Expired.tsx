@@ -1,5 +1,6 @@
 import { Navigate } from 'react-router-dom'
 import { useApp } from '../lib/app-context'
+import { clearHearing } from '../lib/session'
 
 export default function Expired() {
   const { session, backend, access, sessionLoading } = useApp()
@@ -18,7 +19,7 @@ export default function Expired() {
         <p className="font-bold">お問い合わせ</p>
         <p>株式会社クリエット　info@creatte.example（仮）</p>
       </div>
-      <button type="button" className="btn-secondary" onClick={() => backend.signOut()}>ログアウト</button>
+      <button type="button" className="btn-secondary" onClick={async () => { clearHearing(); await backend.signOut() }}>ログアウト</button>
     </main>
   )
 }

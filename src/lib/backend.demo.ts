@@ -71,7 +71,7 @@ export function createDemoBackend(): Backend {
     mode: 'demo',
     async getSession(): Promise<Session | null> {
       const db = load(); const id = currentUserId(); if (!id) return null
-      const u = db.users.find((x) => x.id === id); if (!u || u.status === 'disabled') { try { localStorage.removeItem(SESSION_KEY) } catch { /* noop */ } return null }
+      const u = db.users.find((x) => x.id === id); if (!u || u.status !== 'active') { try { localStorage.removeItem(SESSION_KEY) } catch { /* noop */ } return null }
       const org = db.orgs.find((o) => o.code === u.org_code)!
       return { user: strip(u), org }
     },
@@ -80,7 +80,7 @@ export function createDemoBackend(): Backend {
       await delay(400)
       const db = load(); const u = db.users.find((x) => x.email.toLowerCase() === email.trim().toLowerCase())
       if (!u || u.password !== password) throw new BackendError('メールアドレスまたはパスワードが違います')
-      if (u.status === 'disabled') throw new BackendError('このアカウントは停止されています。団体の管理者にお問い合わせください')
+      if (u.status !== 'active') throw new BackendError('このアカウントは利用できません。団体の管理者にお問い合わせください')
       try { localStorage.setItem(SESSION_KEY, u.id) } catch { /* noop */ }
       await this.bumpUsage('logins'); notify()
     },
@@ -107,6 +107,8 @@ export function createDemoBackend(): Backend {
     async listInvitations(orgCode) { const db = requireOpsOrAdmin(orgCode); return db.invitations.filter((i) => i.org_code === orgCode && !i.accepted_at) },
     async inviteUser(orgCode, email, role) {
       const db = requireOpsOrAdmin(orgCode); const org = db.orgs.find((o) => o.code === orgCode)!
+      const me = db.users.find((u) => u.id === currentUserId())!
+      if (me.role === 'org_admin' && role !== 'staff') throw new BackendError('団体管理者が招待できるのはスタッフのみです')
       const e = email.trim().toLowerCase()
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)) throw new BackendError('メールアドレスの形式が正しくありません')
       const used = db.users.filter((u) => u.org_code === orgCode && u.status !== 'disabled').length + db.invitations.filter((i) => i.org_code === orgCode && !i.accepted_at).length
@@ -118,14 +120,23 @@ export function createDemoBackend(): Backend {
     async setUserStatus(userId, status) {
       const db = load(); const u = db.users.find((x) => x.id === userId); if (!u) throw new BackendError('見つかりません')
       if (u.id === currentUserId()) throw new BackendError('自分自身の状態は変更できません')
-      requireOpsOrAdmin(u.org_code); u.status = status; save(db)
+      const authorized = requireOpsOrAdmin(u.org_code)
+      const me = authorized.users.find((x) => x.id === currentUserId())!
+      if (me.role === 'org_admin' && u.role !== 'staff') throw new BackendError('団体管理者が状態を変更できるのはスタッフのみです')
+      if (status === 'active' && u.status !== 'active') {
+        const org = db.orgs.find((o) => o.code === u.org_code)!
+        const used = db.users.filter((x) => x.org_code === u.org_code && x.status === 'active').length + db.invitations.filter((i) => i.org_code === u.org_code && !i.accepted_at && new Date(i.expires_at) > new Date()).length
+        if (used >= org.seat_limit) throw new BackendError(`アカウント上限（${org.seat_limit}）に達しています`)
+      }
+      u.status = status; save(db)
     },
     async listContacts(orgCode) { const db = load(); return db.contacts.filter((c) => c.org_code === orgCode).sort((a, b) => a.sort - b.sort) },
     async saveContact(c) {
       const db = requireOpsOrAdmin(c.org_code)
       if (!c.name.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.email)) throw new BackendError('名称とメールアドレスを正しく入力してください')
-      if (c.id) { const i = db.contacts.findIndex((x) => x.id === c.id); if (i >= 0) db.contacts[i] = { ...db.contacts[i], ...c, id: c.id } }
-      else db.contacts.push({ ...c, id: `c-${Date.now()}` })
+      const normalized = { ...c, name: c.name.trim(), email: c.email.trim().toLowerCase() }
+      if (c.id) { const i = db.contacts.findIndex((x) => x.id === c.id); if (i >= 0) db.contacts[i] = { ...db.contacts[i], ...normalized, id: c.id } }
+      else db.contacts.push({ ...normalized, id: `c-${Date.now()}` })
       save(db)
     },
     async deleteContact(id) { const db = load(); const c = db.contacts.find((x) => x.id === id); if (!c) return; requireOpsOrAdmin(c.org_code); db.contacts = db.contacts.filter((x) => x.id !== id); save(db) },

@@ -1,12 +1,23 @@
 // 「事業者に見せるモード」：相談員向けの注釈（.staff-only）を隠し、文字を大きくする
-import { useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
 import { getPref, setPref } from '../lib/session'
 
-export function useShowMode(): [boolean, (v: boolean) => void] {
+const ShowModeContext = createContext<[boolean, (v: boolean) => void] | null>(null)
+
+export function ShowModeProvider({ children }: { children: ReactNode }) {
   const [on, setOn] = useState<boolean>(() => getPref('showMode', false))
-  useEffect(() => { document.body.classList.toggle('show-mode', on); setPref('showMode', on) }, [on])
-  useEffect(() => () => document.body.classList.remove('show-mode'), [])
-  return [on, setOn]
+  useEffect(() => {
+    document.documentElement.classList.toggle('show-mode', on)
+    setPref('showMode', on)
+  }, [on])
+  useEffect(() => () => document.documentElement.classList.remove('show-mode'), [])
+  return <ShowModeContext.Provider value={[on, setOn]}>{children}</ShowModeContext.Provider>
+}
+
+export function useShowMode(): [boolean, (v: boolean) => void] {
+  const value = useContext(ShowModeContext)
+  if (!value) throw new Error('ShowModeProvider の外で useShowMode が呼ばれました')
+  return value
 }
 
 export function ShowModeToggle() {

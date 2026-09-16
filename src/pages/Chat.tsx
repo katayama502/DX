@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import { useContent } from '../lib/app-context'
-import { type Answers, endText, isVisible, nextNode, nodesForTheme, progress } from '../lib/engine'
+import { type Answers, endText, isVisible, nextNode, nodesForTheme, progress, pruneHiddenAnswers } from '../lib/engine'
 import { clearThemeHearing, loadHearing, saveHearing } from '../lib/session'
 import type { DialogNode } from '../lib/types'
 import { TopBar } from '../components/ui'
@@ -30,16 +30,17 @@ export default function Chat() {
     const s = loadHearing()
     const own = s.byTheme[theme.id] ?? {}
     const merged: Answers = { ...s.shared, ...own }
-    setAnswers(merged)
+    setAnswers(pruneHiddenAnswers(nodes, merged))
     setInherited(new Set(Object.keys(s.shared).filter((k) => own[k] === undefined)))
     setSeenSay(new Set(s.seenSay[theme.id] ?? []))
-  }, [theme])
+  }, [theme, nodes])
 
   const persist = useCallback((a: Answers, say: Set<string>) => {
     if (!theme) return
     const s = loadHearing()
     const sharedIds = new Set(nodes.filter((n) => n.shared).map((n) => n.id))
     const shared: Answers = { ...s.shared }; const own: Answers = {}
+    for (const id of sharedIds) delete shared[id]
     for (const [k, v] of Object.entries(a)) (sharedIds.has(k) ? shared : own)[k] = v
     s.shared = shared; s.byTheme[theme.id] = own; s.seenSay[theme.id] = [...say]
     saveHearing(s)
@@ -60,7 +61,7 @@ export default function Chat() {
   if (!theme) return <Navigate to="/themes" replace />
 
   const answer = (node: DialogNode, value: string[]) => {
-    const a = { ...answers, [node.id]: value }
+    const a = pruneHiddenAnswers(nodes, { ...answers, [node.id]: value })
     setAnswers(a); setMulti([]); setText('')
     setInherited((s) => { const n = new Set(s); n.delete(node.id); return n })
     persist(a, seenSay)
@@ -71,7 +72,8 @@ export default function Chat() {
     const answered = nodes.filter((n) => n.type !== 'say' && answers[n.id] !== undefined && isVisible(n, answers))
     const last = answered[answered.length - 1]
     if (!last) { nav(`/themes/${theme.id}`); return }
-    const a = { ...answers }; delete a[last.id]; setAnswers(a); persist(a, seenSay)
+    const next = { ...answers }; delete next[last.id]
+    const a = pruneHiddenAnswers(nodes, next); setAnswers(a); persist(a, seenSay)
   }
   const restart = () => { clearThemeHearing(theme.id); const s = loadHearing(); setAnswers({ ...s.shared }); setSeenSay(new Set()); setInherited(new Set(Object.keys(s.shared))) }
 
@@ -85,7 +87,7 @@ export default function Chat() {
         <div className="h-2 rounded-full bg-surface-2 overflow-hidden" role="progressbar" aria-valuemin={0} aria-valuemax={prog.total} aria-valuenow={prog.done} aria-label="ヒアリングの進み具合">
           <div className="h-full bg-primary transition-all" style={{ width: `${prog.total ? (prog.done / prog.total) * 100 : 0}%` }} />
         </div>
-        <p className="text-[12px] text-muted text-right mt-1">{prog.done} / {prog.total} 問　この画面の内容は保存されません</p>
+        <p className="text-[12px] text-muted text-right mt-1">{prog.done} / {prog.total} 問　回答はこのタブ内だけに一時保存されます</p>
       </div>
 
       <main className="mx-auto max-w-3xl w-full px-4 pb-72 flex-1 flex flex-col gap-3 pt-2" aria-live="polite">
@@ -140,6 +142,7 @@ export default function Chat() {
             )}
             {current.type === 'ask_text' && (
               <div className="flex gap-2">
+                <label htmlFor={`t-${current.id}`} className="sr-only">{current.text}への回答</label>
                 <input id={`t-${current.id}`} className="input" value={text} onChange={(e) => setText(e.target.value)} maxLength={100} />
                 <button type="button" className="btn-primary w-auto px-5" disabled={!text.trim()} onClick={() => answer(current, [text.trim()])}>決定</button>
               </div>

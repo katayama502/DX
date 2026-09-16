@@ -4,6 +4,7 @@ export type Level = 'blue' | 'yellow' | 'red' | 'urgent'
 export const LEVEL_ORDER: Level[] = ['blue', 'yellow', 'red', 'urgent']
 
 export type Role = 'staff' | 'org_admin' | 'ops_admin'
+export type InvitableRole = Exclude<Role, 'ops_admin'>
 export type OrgStatus = 'trial' | 'active' | 'grace' | 'expired' | 'suspended'
 export type UserStatus = 'invited' | 'active' | 'disabled'
 
@@ -165,7 +166,7 @@ export interface Invitation {
   id: string
   org_code: string
   email: string
-  role: Role
+  role: InvitableRole
   expires_at: string
   accepted_at: string | null
 }

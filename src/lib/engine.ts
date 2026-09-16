@@ -101,6 +101,30 @@ export function isVisible(node: DialogNode, answers: Answers): boolean {
   return Object.entries(node.showIf).every(([qid, opts]) => (answers[qid] ?? []).some((a) => opts.includes(a)))
 }
 
+/** 分岐変更で非表示になった回答を取り除く。連鎖して非表示になる場合も収束するまで整理する。 */
+export function pruneHiddenAnswers(nodes: DialogNode[], answers: Answers): Answers {
+  let next = { ...answers }
+  let changed = true
+  while (changed) {
+    changed = false
+    for (const node of nodes) {
+      if (node.type !== 'say' && next[node.id] !== undefined && !isVisible(node, next)) {
+        delete next[node.id]
+        changed = true
+      }
+    }
+  }
+  return next
+}
+
+/** 判定・出力に使ってよい、現在表示されている質問の回答だけを返す。 */
+export function visibleAnswers(nodes: DialogNode[], answers: Answers): Answers {
+  const pruned = pruneHiddenAnswers(nodes, answers)
+  return Object.fromEntries(nodes
+    .filter((node) => node.type !== 'say' && isVisible(node, pruned) && pruned[node.id] !== undefined)
+    .map((node) => [node.id, pruned[node.id]]))
+}
+
 /** 回答済み・非表示をスキップして、次に表示すべきノードを返す。すべて終わっていれば null */
 export function nextNode(nodes: DialogNode[], answers: Answers, seenSay: Set<string>): DialogNode | null {
   for (const n of nodes) {
@@ -153,9 +177,10 @@ function themeLevelReason(l: Level) {
 
 // ---------- サマリー・相談票テキスト ----------
 export function answerSummary(nodes: DialogNode[], answers: Answers): { q: string; a: string }[] {
+  const visible = visibleAnswers(nodes, answers)
   return nodes
-    .filter((n) => n.type !== 'say' && answers[n.id] !== undefined)
-    .map((n) => ({ q: n.text, a: answers[n.id].join('、') }))
+    .filter((n) => n.type !== 'say' && visible[n.id] !== undefined)
+    .map((n) => ({ q: n.text, a: visible[n.id].join('、') }))
 }
 
 export function buildSummaryText(opts: { date: string; orgName: string; staffName: string; theme: Theme; judgement: Judgement; qa: { q: string; a: string }[]; opinion?: string }): string {

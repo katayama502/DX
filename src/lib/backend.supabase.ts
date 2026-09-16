@@ -2,7 +2,7 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 import type { Backend, Session, SharePayload } from './backend'
 import { BackendError } from './backend'
-import type { AppUser, Case, ContentBundle, DialogNode, EscalationContact, Invitation, LevelRule, Organization, Role, Synonym, Term, Theme, ThemeKeyword, UserStatus } from './types'
+import type { AppUser, Case, ContentBundle, DialogNode, EscalationContact, Invitation, InvitableRole, LevelRule, Organization, Synonym, Term, Theme, ThemeKeyword, UserStatus } from './types'
 import { CATEGORY_ORDER } from './types'
 
 const ym = (d: string) => String(d).slice(0, 7)
@@ -19,12 +19,21 @@ export function createSupabaseBackend(url: string, anonKey: string): Backend {
   return {
     mode: 'supabase',
     async getSession(): Promise<Session | null> {
-      const { data: { session } } = await sb.auth.getSession()
+      const { data: { session }, error: sessionError } = await sb.auth.getSession()
+      if (sessionError) fail(sessionError.message)
       if (!session) return null
-      const { data: prof } = await sb.from('profiles').select('*').eq('id', session.user.id).maybeSingle()
+      // 招待ユーザーは、招待リンク経由でセッションが成立した時点でのみ active にする。
+      const { error: activateError } = await sb.rpc('activate_my_invitation')
+      if (activateError && !/no pending invitation/i.test(activateError.message)) {
+        await sb.auth.signOut()
+        return null
+      }
+      const { data: prof, error: profError } = await sb.from('profiles').select('*').eq('id', session.user.id).maybeSingle()
+      if (profError) fail(profError.message)
       if (!prof) return null
-      if (prof.status === 'disabled') { await sb.auth.signOut(); return null }
-      const { data: org } = await sb.from('organizations').select('*').eq('code', prof.org_code).single()
+      if (prof.status !== 'active') { await sb.auth.signOut(); return null }
+      const { data: org, error: orgError } = await sb.from('organizations').select('*').eq('code', prof.org_code).single()
+      if (orgError) fail(orgError.message)
       if (!org) return null
       return { user: prof as AppUser, org: org as Organization }
     },
@@ -36,13 +45,14 @@ export function createSupabaseBackend(url: string, anonKey: string): Backend {
         if (/network|fetch/i.test(error.message)) fail('現在ログインできません。時間をおいてお試しください')
         fail('現在ログインできません。時間をおいてお試しください')
       }
-      await sb.from('profiles').update({ last_login_at: new Date().toISOString() }).eq('id', (await sb.auth.getUser()).data.user?.id ?? '')
-      await sb.rpc('bump_usage', { p_kind: 'logins' })
+      const { error: activateError } = await sb.rpc('activate_my_invitation')
+      if (activateError) { await sb.auth.signOut(); fail('この招待は無効または期限切れです') }
+      await must(sb.rpc('bump_usage', { p_kind: 'logins' }))
     },
     async signOut() { await sb.auth.signOut(); try { await Promise.all((await caches.keys()).map((k) => caches.delete(k))) } catch { /* noop */ } },
     async resetPassword(email) { const { error } = await sb.auth.resetPasswordForEmail(email.trim(), { redirectTo: `${location.origin}/reset` }); if (error) fail('現在送信できません。時間をおいてお試しください') },
     async updatePassword(password) { const { error } = await sb.auth.updateUser({ password }); if (error) fail(error.message) },
-    async updateMyName(name) { const u = (await sb.auth.getUser()).data.user; if (u) await must(sb.from('profiles').update({ name }).eq('id', u.id)) },
+    async updateMyName(name) { await must(sb.rpc('update_my_name', { p_name: name })) },
     async loadContent(): Promise<ContentBundle> {
       const [themes, questions, rules, keywords, cases, industries, terms, synonyms] = await Promise.all([
         must(sb.from('themes').select('*').eq('published', true).order('sort')),
@@ -74,24 +84,28 @@ export function createSupabaseBackend(url: string, anonKey: string): Backend {
         categories: CATEGORY_ORDER.filter((c) => th.some((t) => t.category === c)),
       }
     },
-    async bumpUsage(kind) { await sb.rpc('bump_usage', { p_kind: kind }) },
+    async bumpUsage(kind) { await must(sb.rpc('bump_usage', { p_kind: kind })) },
     async getShare(themeId, orgCode) { const data = await must(sb.rpc('get_share', { p_theme: themeId, p_org: orgCode })); return (data ?? { theme: null, org: null }) as SharePayload },
-    async listStaff(orgCode) { return must(sb.from('profiles').select('id, org_code, email, name, role, status').eq('org_code', orgCode).order('created_at')) as Promise<AppUser[]> },
+    async listStaff(orgCode) { return must(sb.from('profiles').select('id, org_code, email, name, role, status').eq('org_code', orgCode).neq('status', 'invited').order('created_at')) as Promise<AppUser[]> },
     async listInvitations(orgCode) { return must(sb.from('invitations').select('*').eq('org_code', orgCode).is('accepted_at', null).gt('expires_at', new Date().toISOString())) as Promise<Invitation[]> },
-    async inviteUser(orgCode, email, role: Role) {
-      const { data, error } = await sb.functions.invoke('invite-user', { body: { email, role, org_code: orgCode, redirect_to: `${location.origin}/welcome` } })
+    async inviteUser(orgCode, email, role: InvitableRole) {
+      const { data, error } = await sb.functions.invoke('invite-user', { body: { action: 'invite', email, role, org_code: orgCode, redirect_to: `${location.origin}/welcome` } })
       if (error) fail('招待を送れませんでした。時間をおいてお試しください')
       if (data?.error) fail(data.error)
     },
-    async cancelInvitation(id) { await must(sb.from('invitations').delete().eq('id', id)) },
+    async cancelInvitation(id) {
+      const { data, error } = await sb.functions.invoke('invite-user', { body: { action: 'cancel', invitation_id: id } })
+      if (error) fail('招待を取り消せませんでした。時間をおいてお試しください')
+      if (data?.error) fail(data.error)
+    },
     async setUserStatus(userId, status: UserStatus) { const { error } = await sb.rpc('set_user_status', { p_user: userId, p_status: status }); if (error) fail(error.message.includes('own') ? '自分自身の状態は変更できません' : 'この操作を行う権限がありません') },
     async listContacts(orgCode) { return must(sb.from('escalation_contacts').select('*').eq('org_code', orgCode).order('sort')) as Promise<EscalationContact[]> },
     async saveContact(c) {
       if (!c.name.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.email)) fail('名称とメールアドレスを正しく入力してください')
-      await must(sb.from('escalation_contacts').upsert({ ...c, id: c.id ?? undefined }))
+      await must(sb.from('escalation_contacts').upsert({ ...c, name: c.name.trim(), email: c.email.trim().toLowerCase(), id: c.id ?? undefined }))
     },
     async deleteContact(id) { await must(sb.from('escalation_contacts').delete().eq('id', id)) },
-    async updateOrgProfile(_orgCode, p) { const { error } = await sb.rpc('update_org_profile', { p_name: p.name, p_contact: p.contact, p_logo_url: p.logo_url, p_region_links: p.region_links }); if (error) fail(error.message) },
+    async updateOrgProfile(orgCode, p) { const { error } = await sb.rpc('update_org_profile', { p_org_code: orgCode, p_name: p.name, p_contact: p.contact, p_logo_url: p.logo_url, p_region_links: p.region_links }); if (error) fail(error.message) },
     async listOrgs() { return must(sb.from('organizations').select('*').order('name')) as Promise<Organization[]> },
     async upsertOrg(org) {
       const { admin_email, ...o } = org

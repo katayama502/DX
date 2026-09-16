@@ -10,7 +10,12 @@ export default function Share() {
   const [sp] = useSearchParams()
   const org = (sp.get('org') ?? '').replace(/[^a-z0-9-]/g, '')
   const [data, setData] = useState<SharePayload | null | 'error'>(null)
-  useEffect(() => { backend.getShare(id ?? '', org).then(setData).catch(() => setData('error')) }, [id, org])
+  useEffect(() => {
+    let alive = true
+    setData(null)
+    backend.getShare(id ?? '', org).then((next) => { if (alive) setData(next) }).catch(() => { if (alive) setData('error') })
+    return () => { alive = false }
+  }, [id, org])
   if (data === null) return <main className="p-8 text-center text-muted">読み込み中…</main>
   if (data === 'error' || !data.theme) return <main className="p-8 text-center"><p className="font-bold">このページは表示できません</p><p className="text-muted text-[15px] mt-2">相談した窓口にお問い合わせください。</p></main>
   const t = data.theme

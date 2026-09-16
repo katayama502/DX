@@ -2,21 +2,22 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Navigate, useParams } from 'react-router-dom'
 import { useApp, useContent } from '../lib/app-context'
-import { answerSummary, buildSummaryText, judge, nodesForTheme } from '../lib/engine'
-import { loadHearing } from '../lib/session'
+import { answerSummary, buildSummaryText, judge, nodesForTheme, visibleAnswers } from '../lib/engine'
+import { getConsultationId, loadHearing } from '../lib/session'
 import type { EscalationContact } from '../lib/types'
 import { LEVEL_META } from '../lib/types'
-import { Field, LevelBadge, Notice, Page, TopBar, copyText, useToast } from '../components/ui'
+import { ErrorText, Field, LevelBadge, Notice, Page, TopBar, copyText, useToast } from '../components/ui'
 
 export default function Ticket() {
   const { id } = useParams()
   const { content, session } = useContent()
-  const { backend } = useApp()
+  const { backend, access } = useApp()
   const [toast, showToast] = useToast()
   const theme = content.themes.find((t) => t.id === id)
   const hearing = loadHearing()
-  const answers = useMemo(() => (theme ? { ...hearing.shared, ...(hearing.byTheme[theme.id] ?? {}) } : {}), [theme, hearing.shared, hearing.byTheme])
+  const rawAnswers = useMemo(() => (theme ? { ...hearing.shared, ...(hearing.byTheme[theme.id] ?? {}) } : {}), [theme, hearing.shared, hearing.byTheme])
   const nodes = useMemo(() => (theme ? nodesForTheme(content, theme.id) : []), [content, theme])
+  const answers = useMemo(() => visibleAnswers(nodes, rawAnswers), [nodes, rawAnswers])
   const j = useMemo(() => (theme ? judge(theme, content.rules, answers) : null), [theme, content.rules, answers])
   const [contacts, setContacts] = useState<EscalationContact[] | null>(null)
   const [consent, setConsent] = useState(false)
@@ -24,7 +25,16 @@ export default function Ticket() {
   const [bizContact, setBizContact] = useState('')
   const [opinion, setOpinion] = useState('')
   const [to, setTo] = useState<string>('')
-  useEffect(() => { backend.listContacts(session.org.code).then((c) => { setContacts(c); if (c[0]) setTo(c[0].id) }).catch(() => setContacts([])) }, [backend, session.org.code])
+  const [contactsError, setContactsError] = useState<string | null>(null)
+  useEffect(() => {
+    let alive = true
+    setContacts(null); setContactsError(null)
+    backend.listContacts(session.org.code).then((c) => {
+      if (!alive) return
+      setContacts(c); setTo((current) => c.some((x) => x.id === current) ? current : (c[0]?.id ?? ''))
+    }).catch((e) => { if (alive) { setContacts([]); setContactsError((e as Error).message || '専門相談窓口を読み込めませんでした') } })
+    return () => { alive = false }
+  }, [backend, session.org.code])
   if (!theme || !j) return <Navigate to="/themes" replace />
 
   const qa = answerSummary(nodes, answers)
@@ -36,15 +46,23 @@ export default function Ticket() {
   }
   const contact = contacts?.find((c) => c.id === to)
   const mailto = contact ? `mailto:${encodeURIComponent(contact.email)}?subject=${encodeURIComponent(`【DX相談票】${theme.name}（${session.org.name}）`)}&body=${encodeURIComponent(body())}` : ''
-  const onSend = () => backend.bumpUsage('tickets_made')
-  const copy = async () => { showToast((await copyText(body())) ? '相談票をコピーしました' : 'コピーできませんでした'); onSend() }
-  const print = () => { onSend(); window.print() }
+  const countTicket = () => {
+    if (access !== 'ok') return
+    const k = `navi.counted.ticket.${getConsultationId(theme.id)}`
+    try {
+      if (sessionStorage.getItem(k)) return
+      sessionStorage.setItem(k, '1')
+      void backend.bumpUsage('tickets_made').catch(() => { sessionStorage.removeItem(k) })
+    } catch { /* noop */ }
+  }
+  const copy = async () => { const ok = await copyText(body()); showToast(ok ? '相談票をコピーしました' : 'コピーできませんでした'); if (ok) countTicket() }
+  const print = () => { countTicket(); window.print() }
 
   return (
     <>
       <TopBar title="相談票" />
       <Page>
-        <Notice kind="warn">この内容はサーバーに保存されません。送信は自分のメールソフトで行います。</Notice>
+        <Notice kind="warn">相談票の本文はサーバーに送信・保存されません。送信は自分のメールソフトで行います。</Notice>
         <section className="card no-print">
           <p className="label">自動で入ります</p>
           <p className="text-[15px]">作成日 {date}　{session.org.name}　{session.user.name || '（氏名未設定）'}</p>
@@ -67,7 +85,8 @@ export default function Ticket() {
           </Field>
         </section>
 
-        {contacts === null ? null : contacts.length === 0 ? (
+        <ErrorText msg={contactsError} />
+        {contacts === null ? <p role="status" className="text-center text-muted">専門相談窓口を読み込んでいます…</p> : contacts.length === 0 ? (
           <Notice kind="warn">専門相談窓口が未設定です。団体管理者に窓口の設定を依頼してください。（コピー・印刷は利用できます）</Notice>
         ) : (
           <section className="card flex flex-col gap-3 no-print">
@@ -76,7 +95,7 @@ export default function Ticket() {
                 {contacts.map((c) => <option key={c.id} value={c.id}>{c.name}{c.fields.length ? `（${c.fields.join('・')}）` : ''}</option>)}
               </select>
             </Field>
-            <a href={mailto} className="btn-primary" onClick={onSend}>✉ メールで送る（自分のメールソフトが開きます）</a>
+            <a href={mailto} className="btn-primary" onClick={countTicket}>✉ メールで送る（自分のメールソフトが開きます）</a>
           </section>
         )}
         <div className="grid grid-cols-2 gap-2 no-print">

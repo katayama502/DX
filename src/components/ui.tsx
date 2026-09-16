@@ -1,18 +1,19 @@
 // 共通UI部品。設計書 §02 の原則（1画面1目的・主ボタンは1つ・色＋アイコン＋文言）をここで担保する
 import { useEffect, useState, type ReactNode } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import type { Level, Theme } from '../lib/types'
 import { LEVEL_META } from '../lib/types'
 import { formatReviewed, isStale } from '../lib/engine'
 
 /** 画面上部バー：左「戻る」右「ホーム」を常設（原則7） */
-export function TopBar({ title, back = true, right }: { title: string; back?: boolean; right?: ReactNode }) {
+export function TopBar({ title, back = true, right, backTo = '/' }: { title: string; back?: boolean; right?: ReactNode; backTo?: string }) {
   const nav = useNavigate()
+  const location = useLocation()
   return (
     <header className="sticky top-0 z-20 bg-surface border-b border-line no-print" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
       <div className="mx-auto max-w-3xl flex items-center gap-2 px-2 h-14">
         {back ? (
-          <button type="button" onClick={() => (window.history.length > 1 ? nav(-1) : nav('/'))} className="min-w-12 min-h-12 px-2 flex items-center gap-1 text-primary font-bold rounded-lg hover:bg-primary-soft" aria-label="前の画面に戻る">
+          <button type="button" onClick={() => (location.key === 'default' ? nav(backTo, { replace: true }) : nav(-1))} className="min-w-12 min-h-12 px-2 flex items-center gap-1 text-primary font-bold rounded-lg hover:bg-primary-soft" aria-label="前の画面に戻る">
             <span aria-hidden="true" className="text-2xl leading-none">‹</span>戻る
           </button>
         ) : <span className="w-3" />}

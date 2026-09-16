@@ -5,6 +5,7 @@ import { createDemoBackend } from './backend.demo'
 import { createSupabaseBackend } from './backend.supabase'
 import { Synonymizer } from './engine'
 import type { ContentBundle } from './types'
+import { bindHearingToUser } from './session'
 
 const mode = (import.meta.env.VITE_APP_MODE ?? 'demo') as 'demo' | 'supabase'
 export const backend: Backend =
@@ -42,7 +43,11 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [contentError, setContentError] = useState<string | null>(null)
 
   const refreshSession = useCallback(async () => {
-    try { setSession(await backend.getSession()) } catch { setSession(null) } finally { setLoading(false) }
+    try {
+      const next = await backend.getSession()
+      if (next) bindHearingToUser(next.user.id)
+      setSession(next)
+    } catch { setSession(null) } finally { setLoading(false) }
   }, [])
   useEffect(() => { refreshSession(); return backend.onAuthChange(() => { refreshSession() }) }, [refreshSession])
 

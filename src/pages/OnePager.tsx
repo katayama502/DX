@@ -1,5 +1,5 @@
 // S-008 事業者向け1枚資料：A4縦1枚。QRコードで共有ページ（ログイン不要）へ
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, Navigate, useParams } from 'react-router-dom'
 import QRCode from 'qrcode'
 import { useApp, useContent } from '../lib/app-context'
@@ -9,15 +9,22 @@ import { Page, TopBar } from '../components/ui'
 export default function OnePager() {
   const { id } = useParams()
   const { content, session } = useContent()
-  const { backend } = useApp()
+  const { backend, access } = useApp()
   const theme = content.themes.find((t) => t.id === id)
   const [qr, setQr] = useState('')
   const [big, setBig] = useState(false)
+  const dialogRef = useRef<HTMLDialogElement>(null)
   const shareUrl = `${location.origin}/share/${theme?.id}?org=${encodeURIComponent(session.org.code)}`
   useEffect(() => { QRCode.toDataURL(shareUrl, { width: 320, margin: 1 }).then(setQr).catch(() => setQr('')) }, [shareUrl])
+  useEffect(() => {
+    const dialog = dialogRef.current
+    if (!dialog) return
+    if (big && !dialog.open) dialog.showModal()
+    if (!big && dialog.open) dialog.close()
+  }, [big])
   if (!theme) return <Navigate to="/themes" replace />
   const relCase = theme.cases.map((cid) => content.cases.find((c) => c.id === cid)).find(Boolean)
-  const print = () => { backend.bumpUsage('onepagers'); window.print() }
+  const print = () => { if (access === 'ok') void backend.bumpUsage('onepagers').catch(() => undefined); window.print() }
 
   return (
     <>
@@ -74,19 +81,19 @@ export default function OnePager() {
         </article>
         <div className="grid grid-cols-2 gap-2 no-print">
           <button type="button" className="btn-accent" onClick={print}>🖨 印刷する</button>
-          <button type="button" className="btn-secondary" onClick={() => setBig(true)}>📱 QRを大きく</button>
+          <button type="button" className="btn-secondary" onClick={() => setBig(true)} disabled={!qr}>📱 QRを大きく</button>
         </div>
         <p className="text-[13px] text-muted no-print">PDFで保存するには、印刷画面で「PDFとして保存」を選んでください。共有ページには事業者名や相談内容は含まれません。</p>
         <Link to={`/themes/${theme.id}`} className="btn-ghost btn-sm no-print">テーマに戻る</Link>
       </Page>
-      {big && (
-        <div className="fixed inset-0 z-50 bg-white flex flex-col items-center justify-center gap-4 p-6" role="dialog" aria-label="QRコード">
-          <p className="text-xl font-bold text-center text-ink">{theme.name}</p>
+      <dialog ref={dialogRef} onCancel={() => setBig(false)} onClose={() => setBig(false)} aria-labelledby="qr-dialog-title" className="m-auto w-full max-w-lg rounded-2xl bg-white text-ink p-6 backdrop:bg-ink/70">
+        <div className="flex flex-col items-center justify-center gap-4">
+          <p id="qr-dialog-title" className="text-xl font-bold text-center text-ink">{theme.name}</p>
           <img src={qr} alt="共有ページのQRコード" className="w-72 h-72 max-w-full" />
           <p className="text-ink-2 text-center">スマホのカメラで読み取ると、この内容をいつでも見られます</p>
           <button type="button" className="btn-primary max-w-xs" onClick={() => setBig(false)}>閉じる</button>
         </div>
-      )}
+      </dialog>
     </>
   )
 }

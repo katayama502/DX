@@ -1,7 +1,7 @@
 // 使い方・利用規約・プライバシー・アカウント設定
 import { useState, type FormEvent } from 'react'
 import { useApp } from '../lib/app-context'
-import { ErrorText, Field, Page, TopBar, useToast } from '../components/ui'
+import { ErrorText, Field, Notice, Page, TopBar, useToast } from '../components/ui'
 
 export function Guide() {
   const steps = [
@@ -10,7 +10,7 @@ export function Guide() {
     ['💬', 'ヒアリング', '「ヒアリングを始める」で相談ナビが質問します。事業者に聞きながらボタンを押すだけ。'],
     ['🚦', '判定を見る', '青＝その場で対応OK、黄＝資料を渡して検討、赤＝専門家につなぐ、緊急＝すぐに対応。理由も表示されます。'],
     ['🖨', '渡す・つなぐ', '青・黄は1枚資料を印刷かQRで渡す。赤は相談票を作って、自分のメールソフトで専門窓口へ送ります。'],
-    ['📋', '記録する', '「記録用にコピー」で、団体の支援記録に貼り付けられる文章が出ます。このアプリには何も保存されません。'],
+    ['📋', '記録する', '「記録用にコピー」で、団体の支援記録に貼り付けられる文章が出ます。相談内容はサーバーには保存されません。'],
   ]
   return (
     <>
@@ -20,36 +20,43 @@ export function Guide() {
         {steps.map(([icon, t, d], i) => (
           <div key={i} className="card flex gap-3"><span className="text-3xl" aria-hidden="true">{icon}</span><div><p className="font-bold text-[17px]">{i + 1}. {t}</p><p className="text-[15px] text-ink-2">{d}</p></div></div>
         ))}
-        <div className="card bg-surface-2"><p className="font-bold">安心して使うために</p><ul className="list-disc pl-5 text-[15px] mt-1"><li>ヒアリングの回答や相談票はサーバーに保存されません</li><li>案内はAIではなく、登録済みの質問と回答で動きます</li><li>迷ったら右上の「ホーム」でいつでも最初に戻れます</li></ul></div>
+        <div className="card bg-surface-2"><p className="font-bold">安心して使うために</p><ul className="list-disc pl-5 text-[15px] mt-1"><li>ヒアリングの回答はこのタブ内だけに一時保存され、相談票の本文とともにサーバーへは保存されません</li><li>案内はAIではなく、登録済みの質問と回答で動きます</li><li>迷ったら右上の「ホーム」でいつでも最初に戻れます</li></ul></div>
       </Page>
     </>
   )
 }
 
 export function Account() {
-  const { session, backend, refreshSession } = useApp()
+  const { session, backend, refreshSession, access } = useApp()
   const [name, setName] = useState(session?.user.name ?? '')
   const [pw, setPw] = useState('')
   const [err, setErr] = useState<string | null>(null)
+  const [busy, setBusy] = useState(false)
   const [toast, show] = useToast()
   const save = async (e: FormEvent) => {
     e.preventDefault(); setErr(null)
+    const cleanName = name.trim()
+    if (!cleanName) return setErr('お名前を入力してください')
+    if (pw && pw.length < 8) return setErr('パスワードは8文字以上にしてください')
+    setBusy(true)
     try {
-      if (name.trim() !== session?.user.name) await backend.updateMyName(name.trim())
-      if (pw) { if (pw.length < 8) return setErr('パスワードは8文字以上にしてください'); await backend.updatePassword(pw); setPw('') }
+      if (cleanName !== session?.user.name) await backend.updateMyName(cleanName)
+      if (pw) { await backend.updatePassword(pw); setPw('') }
       await refreshSession(); show('保存しました')
     } catch (ex) { setErr((ex as Error).message) }
+    finally { setBusy(false) }
   }
   return (
     <>
       <TopBar title="アカウント" />
       <Page>
+        {access !== 'ok' && <Notice kind="warn">契約終了後の閲覧期間中は、アカウント情報を変更できません。</Notice>}
         <form onSubmit={save} className="card flex flex-col gap-4">
-          <Field label="お名前（相談票に自動で入ります）"><input id="aname" className="input" value={name} onChange={(e) => setName(e.target.value)} maxLength={50} /></Field>
-          <Field label="新しいパスワード（変更する場合のみ・8文字以上）"><input id="apw" className="input" type="password" value={pw} onChange={(e) => setPw(e.target.value)} autoComplete="new-password" /></Field>
+          <Field label="お名前（相談票に自動で入ります）"><input id="aname" className="input" value={name} onChange={(e) => setName(e.target.value)} maxLength={50} required disabled={access !== 'ok' || busy} /></Field>
+          <Field label="新しいパスワード（変更する場合のみ・8文字以上）"><input id="apw" className="input" type="password" value={pw} onChange={(e) => setPw(e.target.value)} autoComplete="new-password" disabled={access !== 'ok' || busy} /></Field>
           <p className="text-[13px] text-muted">メールアドレス：{session?.user.email}（変更は団体管理者へ）</p>
           <ErrorText msg={err} />
-          <button type="submit" className="btn-primary">保存する</button>
+          <button type="submit" className="btn-primary" disabled={access !== 'ok' || busy}>{busy ? '保存中…' : '変更を保存する'}</button>
         </form>
       </Page>
       {toast}

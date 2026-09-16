@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useState, type FormEvent } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { useApp } from '../../lib/app-context'
-import type { AppUser, EscalationContact, Invitation } from '../../lib/types'
+import type { AppUser, EscalationContact, Invitation, Organization } from '../../lib/types'
 import { ErrorText, Field, Notice, Page, Section, TopBar, useToast } from '../../components/ui'
 
 const FIELDS = ['全般', '補助金・制度', 'セキュリティ', 'IT導入', '会計・税務', 'Web・集客']
@@ -11,31 +11,40 @@ const STATUS = { active: '利用中', invited: '招待中', disabled: '停止中
 export default function OrgAdmin() {
   const { session, backend, refreshSession } = useApp()
   const [sp] = useSearchParams()
-  const org = session!.org
-  const orgCode = (session!.user.role === 'ops_admin' && sp.get('org')) || org.code
+  const ownOrg = session!.org
+  const orgCode = (session!.user.role === 'ops_admin' && sp.get('org')) || ownOrg.code
+  const [targetOrg, setTargetOrg] = useState<Organization | null>(orgCode === ownOrg.code ? ownOrg : null)
   const [staff, setStaff] = useState<AppUser[]>([])
   const [inv, setInv] = useState<Invitation[]>([])
   const [contacts, setContacts] = useState<EscalationContact[]>([])
   const [err, setErr] = useState<string | null>(null)
   const [toast, show] = useToast()
   const reload = useCallback(async () => {
-    try { const [s, i, c] = await Promise.all([backend.listStaff(orgCode), backend.listInvitations(orgCode), backend.listContacts(orgCode)]); setStaff(s); setInv(i); setContacts(c) }
+    try {
+      const target = session!.user.role === 'ops_admin' && orgCode !== ownOrg.code
+        ? backend.listOrgs().then((all) => all.find((o) => o.code === orgCode) ?? null)
+        : Promise.resolve(ownOrg)
+      const [s, i, c, o] = await Promise.all([backend.listStaff(orgCode), backend.listInvitations(orgCode), backend.listContacts(orgCode), target])
+      if (!o) throw new Error('対象の団体が見つかりません')
+      setStaff(s); setInv(i); setContacts(c); setTargetOrg(o); setErr(null)
+    }
     catch (e) { setErr((e as Error).message) }
-  }, [backend, orgCode])
+  }, [backend, orgCode, ownOrg, session])
   useEffect(() => { reload() }, [reload])
 
   const used = staff.filter((u) => u.status !== 'disabled').length + inv.length
-  const full = used >= org.seat_limit
+  const full = targetOrg ? used >= targetOrg.seat_limit : true
   const run = async (fn: () => Promise<void>, ok: string) => { setErr(null); try { await fn(); await reload(); show(ok) } catch (e) { setErr((e as Error).message) } }
 
   return (
     <>
       <TopBar title="団体管理" />
       <Page>
+        {session!.user.role === 'ops_admin' && targetOrg && targetOrg.code !== ownOrg.code && <Notice>運営管理者として「{targetOrg.name}」を管理しています。</Notice>}
         {contacts.length === 0 && <Notice kind="warn">⚠ 専門相談窓口が未設定です。赤判定のとき相談票をメールで送れません。<a href="#contacts" className="underline ml-1">設定する</a></Notice>}
         <div className="grid grid-cols-2 gap-2">
-          <div className="card text-center"><p className="text-3xl font-bold">{used}<span className="text-base text-muted">/{org.seat_limit}</span></p><p className="text-[13px] text-muted">アカウント</p></div>
-          <div className="card text-center"><p className="text-xl font-bold">{org.contract_end}</p><p className="text-[13px] text-muted">契約期限</p></div>
+          <div className="card text-center"><p className="text-3xl font-bold">{used}<span className="text-base text-muted">/{targetOrg?.seat_limit ?? '—'}</span></p><p className="text-[13px] text-muted">アカウント</p></div>
+          <div className="card text-center"><p className="text-xl font-bold">{targetOrg?.contract_end ?? '読み込み中'}</p><p className="text-[13px] text-muted">契約期限</p></div>
         </div>
         <ErrorText msg={err} />
 
@@ -57,7 +66,7 @@ export default function OrgAdmin() {
               </li>
             ))}
           </ul>
-          <InviteForm disabled={full} limit={org.seat_limit} onInvite={(email) => run(() => backend.inviteUser(orgCode, email, 'staff'), `${email} に招待メールを送りました`)} />
+          <InviteForm disabled={full} limit={targetOrg?.seat_limit ?? 0} onInvite={(email) => run(() => backend.inviteUser(orgCode, email, 'staff'), `${email} に招待メールを送りました`)} />
         </Section>
 
         <Section title={`専門相談窓口（${contacts.length}件）`} id="contacts">
@@ -74,7 +83,7 @@ export default function OrgAdmin() {
         </Section>
 
         <Section title="団体の表示設定（1枚資料に載ります）" defaultOpen={false}>
-          <OrgProfileForm onSave={(p) => run(async () => { await backend.updateOrgProfile(orgCode, p); await refreshSession() }, '保存しました')} />
+          {targetOrg && <OrgProfileForm key={targetOrg.code} org={targetOrg} onSave={(p) => run(async () => { await backend.updateOrgProfile(orgCode, p); if (orgCode === ownOrg.code) await refreshSession() }, '団体の表示設定を保存しました')} />}
         </Section>
         {session!.user.role === 'ops_admin' && <Link to="/admin/ops" className="btn-ghost btn-sm">運営管理へ</Link>}
       </Page>
@@ -117,8 +126,7 @@ function ContactForm({ orgCode, onSave }: { orgCode: string; onSave: (c: Omit<Es
   )
 }
 
-function OrgProfileForm({ onSave }: { onSave: (p: { name: string; contact: string | null; logo_url: string | null; region_links: { name: string; url: string }[] }) => void }) {
-  const { session } = useApp(); const org = session!.org
+function OrgProfileForm({ org, onSave }: { org: Organization; onSave: (p: { name: string; contact: string | null; logo_url: string | null; region_links: { name: string; url: string }[] }) => void }) {
   const [name, setName] = useState(org.name); const [contact, setContact] = useState(org.contact ?? ''); const [logo, setLogo] = useState(org.logo_url ?? '')
   const [links, setLinks] = useState(org.region_links.map((l) => `${l.name} ${l.url}`).join('\n'))
   const submit = (e: FormEvent) => {

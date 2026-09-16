@@ -1,5 +1,5 @@
 // 認証・データアクセスの抽象。demo（ローカル模擬）と supabase（本番）の2実装を同じ形で使う
-import type { AppUser, ContentBundle, EscalationContact, Invitation, Organization, Role, UserStatus } from './types'
+import type { AppUser, ContentBundle, EscalationContact, Invitation, InvitableRole, Organization, UserStatus } from './types'
 
 export interface Session { user: AppUser; org: Organization }
 
@@ -25,7 +25,7 @@ export interface Backend {
   // 団体管理
   listStaff(orgCode: string): Promise<AppUser[]>
   listInvitations(orgCode: string): Promise<Invitation[]>
-  inviteUser(orgCode: string, email: string, role: Role): Promise<void>
+  inviteUser(orgCode: string, email: string, role: InvitableRole): Promise<void>
   cancelInvitation(id: string): Promise<void>
   setUserStatus(userId: string, status: UserStatus): Promise<void>
   listContacts(orgCode: string): Promise<EscalationContact[]>

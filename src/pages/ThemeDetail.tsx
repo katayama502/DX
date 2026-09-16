@@ -10,9 +10,9 @@ import { ShowModeToggle } from '../components/ShowMode'
 export default function ThemeDetail() {
   const { id } = useParams()
   const { content } = useContent()
-  const { backend } = useApp()
+  const { backend, access } = useApp()
   const theme = content.themes.find((t) => t.id === id)
-  useEffect(() => { if (theme) backend.bumpUsage('theme_views') }, [theme, backend])
+  useEffect(() => { if (theme && access === 'ok') void backend.bumpUsage('theme_views').catch(() => undefined) }, [theme, access, backend])
   if (!theme) return <Navigate to="/themes" replace />
   const cases = theme.cases.map((cid) => content.cases.find((c) => c.id === cid)).filter(Boolean).slice(0, 3)
   const terms = theme.terms.map((n) => content.terms.find((t) => t.term === n)).filter(Boolean)

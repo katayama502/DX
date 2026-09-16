@@ -19,6 +19,7 @@ import Diagnosis from './pages/Diagnosis'
 import { Account, Guide, Privacy, Terms } from './pages/Static'
 import OrgAdmin from './pages/admin/OrgAdmin'
 import OpsAdmin from './pages/admin/OpsAdmin'
+import { ShowModeProvider } from './components/ShowMode'
 
 /** 画面遷移のたびに先頭へ（前の画面のスクロール位置を引き継がない） */
 function ScrollToTop() {
@@ -29,7 +30,7 @@ function ScrollToTop() {
 
 export default function App() {
   return (
-    <>
+    <ShowModeProvider>
     <ScrollToTop />
     <Routes>
       <Route path="/login" element={<Login />} />
@@ -63,6 +64,6 @@ export default function App() {
       </Route>
       <Route path="*" element={<Login />} />
     </Routes>
-    </>
+    </ShowModeProvider>
   )
 }

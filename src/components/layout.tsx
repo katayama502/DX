@@ -51,7 +51,8 @@ function GraceBanner({ end }: { end: string }) {
 }
 
 export function RequireRole({ roles }: { roles: ('org_admin' | 'ops_admin')[] }) {
-  const { session } = useApp()
+  const { session, access } = useApp()
+  if (access !== 'ok') return <Navigate to="/" replace />
   if (!session || !roles.includes(session.user.role as 'org_admin' | 'ops_admin')) return <Navigate to="/" replace />
   return <Outlet />
 }
