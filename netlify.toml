@@ -1,0 +1,28 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+  VITE_APP_MODE = "supabase"
+  VITE_SUPABASE_URL = "https://lctaqygbyuchiretbdhc.supabase.co"
+  # 公開キー（anon/publishable）。サービスロールキーは絶対に置かない
+  VITE_SUPABASE_ANON_KEY = "sb_publishable_ppDJttMeZkZmawhHcl7DIQ_Qpv7uaTl"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
