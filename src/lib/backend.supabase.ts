@@ -39,7 +39,7 @@ export function createSupabaseBackend(url: string, anonKey: string): Backend {
       await sb.from('profiles').update({ last_login_at: new Date().toISOString() }).eq('id', (await sb.auth.getUser()).data.user?.id ?? '')
       await sb.rpc('bump_usage', { p_kind: 'logins' })
     },
-    async signOut() { await sb.auth.signOut(); try { await (await caches.keys()).forEach((k) => caches.delete(k)) } catch { /* noop */ } },
+    async signOut() { await sb.auth.signOut(); try { await Promise.all((await caches.keys()).map((k) => caches.delete(k))) } catch { /* noop */ } },
     async resetPassword(email) { const { error } = await sb.auth.resetPasswordForEmail(email.trim(), { redirectTo: `${location.origin}/reset` }); if (error) fail('現在送信できません。時間をおいてお試しください') },
     async updatePassword(password) { const { error } = await sb.auth.updateUser({ password }); if (error) fail(error.message) },
     async updateMyName(name) { const u = (await sb.auth.getUser()).data.user; if (u) await must(sb.from('profiles').update({ name }).eq('id', u.id)) },
