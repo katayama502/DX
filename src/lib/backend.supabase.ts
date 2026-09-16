@@ -98,7 +98,10 @@ export function createSupabaseBackend(url: string, anonKey: string): Backend {
       if (error) fail('招待を取り消せませんでした。時間をおいてお試しください')
       if (data?.error) fail(data.error)
     },
-    async setUserStatus(userId, status: UserStatus) { const { error } = await sb.rpc('set_user_status', { p_user: userId, p_status: status }); if (error) fail(error.message.includes('own') ? '自分自身の状態は変更できません' : 'この操作を行う権限がありません') },
+    async setUserStatus(userId, status: UserStatus) {
+      const { error } = await sb.rpc('set_user_status', { p_user: userId, p_status: status })
+      if (error) fail(error.message.includes('own') ? '自分自身の状態は変更できません' : error.message.includes('seat limit') ? 'アカウント上限に達しているため再開できません' : 'この操作を行う権限がありません')
+    },
     async listContacts(orgCode) { return must(sb.from('escalation_contacts').select('*').eq('org_code', orgCode).order('sort')) as Promise<EscalationContact[]> },
     async saveContact(c) {
       if (!c.name.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.email)) fail('名称とメールアドレスを正しく入力してください')

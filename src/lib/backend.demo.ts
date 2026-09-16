@@ -97,21 +97,25 @@ export function createDemoBackend(): Backend {
     },
     async getShare(themeId, orgCode): Promise<SharePayload> {
       const db = load(); const t = (bundle as unknown as ContentBundle).themes.find((x) => x.id === themeId && x.published)
-      const o = db.orgs.find((x) => x.code === orgCode && ['trial', 'active', 'grace'].includes(x.status))
+      const now = today.getTime()
+      const o = db.orgs.find((x) => x.code === orgCode && ['trial', 'active', 'grace'].includes(x.status)
+        && new Date(`${x.contract_start}T00:00:00Z`).getTime() <= now
+        && new Date(`${x.contract_end}T00:00:00Z`).getTime() + 30 * 86400000 >= now)
       return {
-        theme: t ? { id: t.id, name: t.name, icon: t.icon, firstTell: t.firstTell, nextSteps: t.nextSteps, cost: t.cost, checklist: t.checklist, links: t.links, reviewedAt: t.reviewedAt } : null,
+        theme: t && o ? { id: t.id, name: t.name, icon: t.icon, firstTell: t.firstTell, nextSteps: t.nextSteps, cost: t.cost, checklist: t.checklist, links: t.links, reviewedAt: t.reviewedAt } : null,
         org: o ? { code: o.code, name: o.name, contact: o.contact, logo_url: o.logo_url, region_links: o.region_links } : null,
       }
     },
     async listStaff(orgCode) { const db = requireOpsOrAdmin(orgCode); return db.users.filter((u) => u.org_code === orgCode).map(strip) },
-    async listInvitations(orgCode) { const db = requireOpsOrAdmin(orgCode); return db.invitations.filter((i) => i.org_code === orgCode && !i.accepted_at) },
+    async listInvitations(orgCode) { const db = requireOpsOrAdmin(orgCode); return db.invitations.filter((i) => i.org_code === orgCode && !i.accepted_at && new Date(i.expires_at) > new Date()) },
     async inviteUser(orgCode, email, role) {
       const db = requireOpsOrAdmin(orgCode); const org = db.orgs.find((o) => o.code === orgCode)!
       const me = db.users.find((u) => u.id === currentUserId())!
       if (me.role === 'org_admin' && role !== 'staff') throw new BackendError('団体管理者が招待できるのはスタッフのみです')
+      if (!['trial', 'active'].includes(org.status) || org.contract_start > iso(today) || org.contract_end < iso(today)) throw new BackendError('契約中の団体ではありません')
       const e = email.trim().toLowerCase()
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)) throw new BackendError('メールアドレスの形式が正しくありません')
-      const used = db.users.filter((u) => u.org_code === orgCode && u.status !== 'disabled').length + db.invitations.filter((i) => i.org_code === orgCode && !i.accepted_at).length
+      const used = db.users.filter((u) => u.org_code === orgCode && u.status === 'active').length + db.invitations.filter((i) => i.org_code === orgCode && !i.accepted_at && new Date(i.expires_at) > new Date()).length
       if (used >= org.seat_limit) throw new BackendError(`アカウント上限（${org.seat_limit}）に達しています。停止中のアカウントを整理するか、運営にご相談ください`)
       if (db.users.some((u) => u.email === e) || db.invitations.some((i) => i.email === e && !i.accepted_at)) throw new BackendError('このメールアドレスは登録済みまたは招待中です')
       db.invitations.push({ id: `inv-${Date.now()}`, org_code: orgCode, email: e, role, expires_at: plusDays(7) + 'T00:00:00Z', accepted_at: null }); save(db)

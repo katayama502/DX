@@ -9,13 +9,14 @@ export default function Share() {
   const { id } = useParams()
   const [sp] = useSearchParams()
   const org = (sp.get('org') ?? '').replace(/[^a-z0-9-]/g, '')
-  const [data, setData] = useState<SharePayload | null | 'error'>(null)
+  const requestKey = `${id ?? ''}\u0000${org}`
+  const [result, setResult] = useState<{ key: string; data: SharePayload | null | 'error' }>(() => ({ key: requestKey, data: null }))
   useEffect(() => {
     let alive = true
-    setData(null)
-    backend.getShare(id ?? '', org).then((next) => { if (alive) setData(next) }).catch(() => { if (alive) setData('error') })
+    backend.getShare(id ?? '', org).then((data) => { if (alive) setResult({ key: requestKey, data }) }).catch(() => { if (alive) setResult({ key: requestKey, data: 'error' }) })
     return () => { alive = false }
-  }, [id, org])
+  }, [id, org, requestKey])
+  const data = result.key === requestKey ? result.data : null
   if (data === null) return <main className="p-8 text-center text-muted">読み込み中…</main>
   if (data === 'error' || !data.theme) return <main className="p-8 text-center"><p className="font-bold">このページは表示できません</p><p className="text-muted text-[15px] mt-2">相談した窓口にお問い合わせください。</p></main>
   const t = data.theme

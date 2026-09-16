@@ -5,7 +5,7 @@
   --color-primary: #1f4e8c;
   --color-primary-soft: #e4edf8;
   --color-primary-dark: #173d70;
-  --color-accent: #b85f12;
+  --color-accent: #b05a10;
   --color-accent-soft: #fbeadb;
   --color-accent-dark: #93490b;
   --color-ink: #1b232e;
@@ -16,11 +16,11 @@
   --color-bg: #f4f6f8;
   --color-surface: #ffffff;
   --color-surface-2: #eaeef3;
-  --color-lv-blue: #2c6fd1;
+  --color-lv-blue: #245eaf;
   --color-lv-blue-soft: #e3edfb;
-  --color-lv-yellow: #9a6a00;
+  --color-lv-yellow: #855b00;
   --color-lv-yellow-soft: #fdf2d4;
-  --color-lv-red: #c9362b;
+  --color-lv-red: #ad2e25;
   --color-lv-red-soft: #fbe3e0;
   --color-lv-urgent: #7c1a3c;
   --color-lv-urgent-soft: #f6dde6;

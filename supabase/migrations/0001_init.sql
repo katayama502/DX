@@ -14,9 +14,9 @@ create table public.organizations (
   contract_start date not null default current_date,
   contract_end   date not null check (contract_end >= contract_start),
   seat_limit     int  not null default 10 check (seat_limit between 1 and 200),
-  logo_url       text check (logo_url is null or (length(logo_url) <= 2048 and logo_url ~ '^https://')),
+  logo_url       text check (logo_url is null or (length(logo_url) <= 2048 and logo_url ~ '^https://[^[:space:]]+$')),
   contact        text check (contact is null or length(contact) <= 500),
-  region_links   jsonb not null default '[]'::jsonb check (jsonb_typeof(region_links) = 'array' and jsonb_array_length(region_links) <= 30),
+  region_links   jsonb not null default '[]'::jsonb check (jsonb_typeof(region_links) = 'array' and jsonb_array_length(region_links) <= 30 and octet_length(region_links::text) <= 50000),
   created_at     timestamptz not null default now(),
   updated_at     timestamptz not null default now()
 );
@@ -32,6 +32,7 @@ create table public.profiles (
   created_at    timestamptz not null default now()
 );
 create index on public.profiles(org_code);
+create unique index profiles_email_unique on public.profiles(lower(email));
 
 create table public.invitations (
   id          uuid primary key default gen_random_uuid(),
@@ -43,7 +44,10 @@ create table public.invitations (
   auth_user_id uuid references auth.users(id) on delete cascade,
   sent_at     timestamptz,
   created_by  uuid references auth.users(id),
-  created_at  timestamptz not null default now()
+  created_at  timestamptz not null default now(),
+  check (expires_at > created_at),
+  check (sent_at is null or sent_at >= created_at),
+  check (accepted_at is null or accepted_at >= created_at)
 );
 create index on public.invitations(org_code);
 -- 1つのメールアドレスに複数団体の有効な招待をぶら下げず、Auth作成時の所属を一意に決める。
@@ -56,7 +60,7 @@ create table public.escalation_contacts (
   name     text not null check (length(btrim(name)) between 1 and 120),
   email    text not null check (email = lower(btrim(email)) and length(email) <= 254 and email ~ '^[^[:space:]@]+@[^[:space:]@]+\.[^[:space:]@]+$'),
   phone    text check (phone is null or length(phone) <= 40),
-  fields   text[] not null default '{}' check (cardinality(fields) <= 20),
+  fields   text[] not null default '{}' check (cardinality(fields) <= 20 and length(array_to_string(fields, ',')) <= 2000),
   sort     int not null default 0 check (sort between -10000 and 10000)
 );
 create index on public.escalation_contacts(org_code);
@@ -292,7 +296,7 @@ begin
   if v_target is null or (not public.is_ops() and p_org_code <> v_target) then raise exception 'forbidden'; end if;
   if p_name is null or length(btrim(p_name)) not between 1 and 120 then raise exception 'invalid name'; end if;
   if p_contact is not null and length(p_contact) > 500 then raise exception 'invalid contact'; end if;
-  if p_logo_url is not null and (length(p_logo_url) > 2048 or p_logo_url !~ '^https://') then raise exception 'invalid logo url'; end if;
+  if p_logo_url is not null and (length(p_logo_url) > 2048 or p_logo_url !~ '^https://[^[:space:]]+$') then raise exception 'invalid logo url'; end if;
   if p_region_links is null or jsonb_typeof(p_region_links) <> 'array' or jsonb_array_length(p_region_links) > 30 then raise exception 'invalid region links'; end if;
   update public.organizations set name = coalesce(p_name, name), contact = p_contact, logo_url = p_logo_url,
     region_links = coalesce(p_region_links, '[]'::jsonb), updated_at = now()
@@ -306,7 +310,7 @@ create or replace function public.update_my_name(p_name text)
 returns void language plpgsql security definer set search_path = pg_catalog, public as $$
 begin
   if public.auth_role() is null then raise exception 'forbidden'; end if;
-  if p_name is null or length(btrim(p_name)) > 100 then raise exception 'invalid name'; end if;
+  if p_name is null or length(btrim(p_name)) not between 1 and 100 then raise exception 'invalid name'; end if;
   update public.profiles set name = btrim(p_name) where id = auth.uid() and status = 'active';
   if not found then raise exception 'profile not found'; end if;
 end $$;
@@ -319,7 +323,7 @@ declare v_target public.profiles%rowtype;
         v_used int;
 begin
   if p_status not in ('active','disabled') then raise exception 'invalid status'; end if;
-  select * into v_target from public.profiles where id = p_user and role <> 'ops_admin' for update;
+  select * into v_target from public.profiles where id = p_user and role <> 'ops_admin' and status <> 'invited' for update;
   if not found then raise exception 'not found'; end if;
   if p_user = auth.uid() then raise exception 'cannot change own status'; end if;
   if not (public.is_ops() or (public.auth_role() = 'org_admin' and v_target.org_code = public.auth_org() and v_target.role = 'staff')) then raise exception 'forbidden'; end if;
@@ -347,7 +351,7 @@ declare v_actor public.profiles%rowtype;
 begin
   if p_role not in ('staff','org_admin') then raise exception 'invalid role'; end if;
   if length(v_email) > 254 or v_email !~ '^[^[:space:]@]+@[^[:space:]@]+\.[^[:space:]@]+$' then raise exception 'invalid email'; end if;
-  select * into v_actor from public.profiles where id = p_actor and status = 'active';
+  select * into v_actor from public.profiles where id = p_actor and status = 'active' for share;
   if not found or v_actor.role not in ('org_admin','ops_admin') then raise exception 'forbidden'; end if;
   if v_actor.role = 'org_admin' and (v_actor.org_code <> p_org or p_role <> 'staff') then raise exception 'forbidden'; end if;
   select * into v_org from public.organizations where code = p_org for update;
@@ -374,11 +378,18 @@ end $$;
 
 create or replace function public.finalize_invitation(p_actor uuid, p_invitation uuid, p_auth_user uuid)
 returns void language plpgsql security definer set search_path = pg_catalog, public as $$
-declare v_inv public.invitations%rowtype;
+declare v_actor public.profiles%rowtype;
+        v_inv public.invitations%rowtype;
 begin
-  select * into v_inv from public.invitations where id = p_invitation for update;
-  if not found or v_inv.created_by <> p_actor or v_inv.auth_user_id is distinct from p_auth_user then raise exception 'invitation state mismatch'; end if;
-  update public.invitations set sent_at = now() where id = p_invitation;
+  select * into v_actor from public.profiles where id = p_actor and status = 'active' and role in ('org_admin','ops_admin') for share;
+  if not found then raise exception 'forbidden'; end if;
+  select * into v_inv from public.invitations where id = p_invitation and accepted_at is null and expires_at > now() for update;
+  if not found or v_inv.created_by <> p_actor or v_inv.auth_user_id is not null then raise exception 'invitation state mismatch'; end if;
+  if v_actor.role = 'org_admin' and (v_actor.org_code <> v_inv.org_code or v_inv.role <> 'staff') then raise exception 'forbidden'; end if;
+  -- EdgeがAuth Admin APIから受け取ったIDにだけ所属を付ける。email metadataやAuth INSERTトリガーは信頼しない。
+  insert into public.profiles(id, org_code, email, name, role, status)
+  values (p_auth_user, v_inv.org_code, v_inv.email, '', v_inv.role, 'invited');
+  update public.invitations set auth_user_id = p_auth_user, sent_at = now() where id = p_invitation;
   insert into public.audit_logs(actor, org_code, action, target, detail)
   values (p_actor, v_inv.org_code, 'user.invite', v_inv.email, jsonb_build_object('invitation_id', p_invitation, 'role', v_inv.role));
 end $$;
@@ -389,7 +400,7 @@ returns uuid language plpgsql security definer set search_path = pg_catalog, pub
 declare v_actor public.profiles%rowtype;
         v_inv public.invitations%rowtype;
 begin
-  select * into v_actor from public.profiles where id = p_actor and status = 'active';
+  select * into v_actor from public.profiles where id = p_actor and status = 'active' for share;
   if not found or v_actor.role not in ('org_admin','ops_admin') then raise exception 'forbidden'; end if;
   select * into v_inv from public.invitations where id = p_invitation and accepted_at is null for update;
   if not found then raise exception 'invitation not found'; end if;
@@ -408,6 +419,7 @@ create or replace function public.activate_my_invitation()
 returns void language plpgsql security definer set search_path = pg_catalog, public as $$
 declare v_profile public.profiles%rowtype;
         v_inv public.invitations%rowtype;
+        v_org public.organizations%rowtype;
 begin
   select * into v_profile from public.profiles where id = auth.uid() for update;
   if not found or v_profile.status = 'active' then return; end if;
@@ -415,7 +427,10 @@ begin
   select * into v_inv from public.invitations
     where auth_user_id = auth.uid() and accepted_at is null and expires_at > now() for update;
   if not found then raise exception 'no pending invitation'; end if;
-  perform 1 from public.organizations where code = v_profile.org_code for update;
+  select * into v_org from public.organizations where code = v_profile.org_code for update;
+  if not found or v_org.status not in ('trial','active') or v_org.contract_start > current_date or v_org.contract_end < current_date then
+    raise exception 'organization is not under contract';
+  end if;
   update public.profiles set status = 'active' where id = auth.uid();
   update public.invitations set accepted_at = now() where id = v_inv.id;
   insert into public.audit_logs(actor, org_code, action, target)
@@ -454,24 +469,6 @@ returns jsonb language sql stable security definer set search_path = pg_catalog,
 $$;
 
 -- ========== トリガー ==========
--- metadataは利用者が変更できるため、所属・権限は予約済みの招待レコードだけを信頼する。
-create or replace function public.handle_new_user() returns trigger
-language plpgsql security definer set search_path = pg_catalog, public as $$
-declare v_inv public.invitations%rowtype;
-begin
-  select * into v_inv from public.invitations
-  where lower(email) = lower(new.email) and accepted_at is null and expires_at > now()
-  order by created_at limit 1 for update;
-  if not found then return new; end if; -- 通常サインアップにはprofileを作らず、データアクセスを与えない。
-  insert into public.profiles(id, org_code, email, name, role, status)
-  values (new.id, v_inv.org_code, lower(new.email), '', v_inv.role, 'invited')
-  on conflict (id) do nothing;
-  update public.invitations set auth_user_id = new.id where id = v_inv.id;
-  return new;
-end $$;
-drop trigger if exists on_auth_user_created on auth.users;
-create trigger on_auth_user_created after insert on auth.users for each row execute function public.handle_new_user();
-
 -- 日付とstatusの矛盾をDB書込時にも許さない（suspendedだけは運営の明示停止を優先）。
 create or replace function public.enforce_organization_contract() returns trigger
 language plpgsql security definer set search_path = pg_catalog, public as $$
@@ -480,12 +477,12 @@ begin
   if new.contract_end < new.contract_start then raise exception 'contract_end must be on or after contract_start'; end if;
   if jsonb_typeof(new.region_links) <> 'array' or jsonb_array_length(new.region_links) > 30 then raise exception 'invalid region links'; end if;
   for v_link in select value from jsonb_array_elements(new.region_links) loop
-    if jsonb_typeof(v_link) <> 'object'
-      or jsonb_typeof(v_link->'name') <> 'string'
-      or jsonb_typeof(v_link->'url') <> 'string'
-      or length(v_link->>'name') not between 1 and 120
+    if jsonb_typeof(v_link) is distinct from 'object'
+      or jsonb_typeof(v_link->'name') is distinct from 'string'
+      or jsonb_typeof(v_link->'url') is distinct from 'string'
+      or length(btrim(v_link->>'name')) not between 1 and 120
       or length(v_link->>'url') > 2048
-      or (v_link->>'url') !~ '^https://' then
+      or (v_link->>'url') !~ '^https://[^[:space:]]+$' then
       raise exception 'invalid region link';
     end if;
   end loop;
@@ -527,7 +524,6 @@ revoke all on function public.cancel_invitation(uuid, uuid) from public, anon, a
 revoke all on function public.activate_my_invitation() from public, anon, authenticated, service_role;
 revoke all on function public.bump_usage(text) from public, anon, authenticated, service_role;
 revoke all on function public.get_share(text, text) from public, anon, authenticated, service_role;
-revoke all on function public.handle_new_user() from public, anon, authenticated, service_role;
 revoke all on function public.enforce_organization_contract() from public, anon, authenticated, service_role;
 revoke all on function public.rollover_contracts() from public, anon, authenticated, service_role;
 

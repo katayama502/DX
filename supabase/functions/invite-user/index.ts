@@ -120,11 +120,15 @@ Deno.serve(async (req) => {
       return !cancelError
     }
 
-    // org_code/roleはmetadataに入れない。DBトリガーは予約済み招待だけを信頼する。
+    // org_code/roleはmetadataに入れない。確定RPCがAuth Admin APIの戻りIDと予約済み招待だけを使う。
     const { data: invited, error: inviteError } = await admin.auth.admin.inviteUserByEmail(email, { redirectTo })
     if (inviteError || !invited.user) {
       await compensate(invited.user?.id)
       return json({ error: '招待メールを送信できませんでした。時間をおいてお試しください' }, 400)
+    }
+    if (invited.user.email?.trim().toLowerCase() !== email) {
+      await compensate(invited.user.id)
+      return json({ error: '招待先の確認に失敗しました。もう一度お試しください' }, 500)
     }
 
     const { error: finalizeError } = await admin.rpc('finalize_invitation', {
