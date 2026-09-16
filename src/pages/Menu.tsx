@@ -26,6 +26,7 @@ export default function Menu() {
         <Item to="/guide" icon="❓" title="使い方（3分）" />
         {access === 'ok' && (user.role === 'org_admin' || user.role === 'ops_admin') && <Item to="/admin/org" icon="⚙️" title="団体管理" sub="スタッフ・専門相談窓口・団体の設定" hl />}
         {access === 'ok' && user.role === 'ops_admin' && <Item to="/admin/ops" icon="🏢" title="運営管理（クリエット）" sub="団体・契約・利用状況" hl />}
+        {access === 'ok' && user.role === 'ops_admin' && <Item to="/admin/content" icon="🗂️" title="コンテンツ表示管理" sub="相談テーマ・事例の公開設定、お知らせ配信" hl />}
         <section className="card">
           <p className="label">アカウント</p>
           <p className="font-bold">{user.name || '（氏名未設定）'} <span className="text-[13px] text-muted font-normal">{ROLE_LABEL[user.role]}</span></p>

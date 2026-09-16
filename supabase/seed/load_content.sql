@@ -19,8 +19,9 @@ begin
     array(select jsonb_array_elements_text(e->'firstTell')), array(select jsonb_array_elements_text(e->'misconceptions')), array(select jsonb_array_elements_text(e->'cost')),
     array(select jsonb_array_elements_text(e->'nextSteps')), array(select jsonb_array_elements_text(e->'checklist')), array(select jsonb_array_elements_text(e->'terms'))
   from jsonb_array_elements(j->'themes') e
-  on conflict (id) do update set name = excluded.name, category = excluded.category, icon = excluded.icon, default_level = excluded.default_level, urgent = excluded.urgent, sort = excluded.sort,
-    case_ids = excluded.case_ids, links = excluded.links, reviewed_at = excluded.reviewed_at, published = excluded.published, first_tell = excluded.first_tell, misconceptions = excluded.misconceptions,
+  -- sort と published は管理ダッシュボードで運営が調整できる値なので、既存行がある場合は上書きしない（新規テーマのみ frontmatter の値で作成）
+  on conflict (id) do update set name = excluded.name, category = excluded.category, icon = excluded.icon, default_level = excluded.default_level, urgent = excluded.urgent,
+    case_ids = excluded.case_ids, links = excluded.links, reviewed_at = excluded.reviewed_at, first_tell = excluded.first_tell, misconceptions = excluded.misconceptions,
     cost = excluded.cost, next_steps = excluded.next_steps, checklist = excluded.checklist, term_names = excluded.term_names;
 
   insert into public.questions (id, theme_id, type, shared, text, why, options, show_if, sort)
@@ -52,6 +53,7 @@ begin
     coalesce(array(select jsonb_array_elements_text(e->'tools')), '{}'), coalesce(e->'detail','{}'::jsonb), coalesce(array(select jsonb_array_elements_text(e->'themes')), '{}'),
     coalesce(e->>'type','model'), (e->>'reviewedAt' || '-01')::date, coalesce((e->>'generated')::boolean,false), true
   from jsonb_array_elements(j->'cases') e
+  -- published は管理ダッシュボードで運営が切り替える値なので、既存行がある場合は上書きしない（新規事例のみ true で作成）
   on conflict (id) do update set industry = excluded.industry, no = excluded.no, stage = excluded.stage, title = excluded.title, summary = excluded.summary, budget = excluded.budget,
     tools = excluded.tools, detail = excluded.detail, theme_ids = excluded.theme_ids, type = excluded.type, reviewed_at = excluded.reviewed_at, generated = excluded.generated;
 

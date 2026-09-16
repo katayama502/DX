@@ -162,6 +162,27 @@ export interface EscalationContact {
   sort: number
 }
 
+export interface Announcement {
+  id: string
+  title: string
+  body: string
+  starts_at: string // YYYY-MM-DD
+  ends_at: string | null // null = 終了日を設定しない
+}
+
+/** コンテンツ管理画面の事例一覧用（detail を含まない軽量版） */
+export interface CaseSummary {
+  id: string
+  industry: string
+  no: number
+  stage: 1 | 2 | 3
+  title: string
+  type: 'model' | 'regional'
+  budget: number
+  generated: boolean
+  published: boolean
+}
+
 export interface RegionalCase {
   id: string
   org_code: string

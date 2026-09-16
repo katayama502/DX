@@ -37,6 +37,7 @@ export default function OpsAdmin() {
     <>
       <TopBar title="運営管理" />
       <Page>
+        <Link to="/admin/content" className="btn-secondary btn-sm">🗂️ コンテンツ表示管理（テーマ・事例の公開設定、お知らせ）</Link>
         <div className="grid grid-cols-2 gap-2">
           <div className="card text-center"><p className="text-3xl font-bold">{orgs.filter((o) => ['trial', 'active'].includes(o.status)).length}</p><p className="text-[13px] text-muted">契約団体</p></div>
           <div className="card text-center"><p className="text-3xl font-bold text-lv-yellow">{soon.length}</p><p className="text-[13px] text-muted">30日以内に期限</p></div>

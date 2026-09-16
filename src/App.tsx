@@ -19,6 +19,7 @@ import Diagnosis from './pages/Diagnosis'
 import { Account, Guide, Privacy, Terms } from './pages/Static'
 import OrgAdmin from './pages/admin/OrgAdmin'
 import OpsAdmin from './pages/admin/OpsAdmin'
+import ContentAdmin from './pages/admin/ContentAdmin'
 import { ShowModeProvider } from './components/ShowMode'
 
 /** 画面遷移のたびに先頭へ（前の画面のスクロール位置を引き継がない） */
@@ -60,6 +61,7 @@ export default function App() {
         </Route>
         <Route element={<RequireRole roles={['ops_admin']} />}>
           <Route path="/admin/ops" element={<OpsAdmin />} />
+          <Route path="/admin/content" element={<ContentAdmin />} />
         </Route>
       </Route>
       <Route path="*" element={<Login />} />

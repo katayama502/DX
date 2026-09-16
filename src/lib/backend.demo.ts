@@ -2,7 +2,7 @@
 // パスワードは平文比較だがデモ専用（本番は Supabase Auth）。
 import type { Backend, Session, SharePayload, UsageKind } from './backend'
 import { BackendError } from './backend'
-import type { AppUser, ContentBundle, EscalationContact, Invitation, Organization, RegionalCase } from './types'
+import type { Announcement, AppUser, CaseSummary, ContentBundle, EscalationContact, Invitation, Organization, RegionalCase, Theme } from './types'
 
 interface Db {
   orgs: Organization[]
@@ -10,6 +10,11 @@ interface Db {
   invitations: Invitation[]
   contacts: EscalationContact[]
   regionalCases: RegionalCase[]
+  announcements: Announcement[]
+  // コンテンツ表示管理のローカル上書き（本番は themes/cases テーブルの列を直接更新するが、
+  // demo はビルド済み content.json を書き換えられないため差分だけ保持する）
+  themeOverrides: Record<string, { published?: boolean; order?: number }>
+  caseOverrides: Record<string, boolean> // false のときだけ記録（true が既定値）
   usage: Record<string, Record<UsageKind, number>> // key: org|day
 }
 // demo モードのときだけ content.json を読み込む（supabase モードのビルドには含めない）
@@ -55,11 +60,21 @@ function seed(): Db {
         detail: { points: ['配信は週1回・スマホから5分で作成', '友だち登録はレジ横のQRコードで案内'], steps: [], tips: '最初は「クーポン付き」の配信が友だち登録を後押しした。', glossary: [] },
         theme_ids: ['sns-start'], interviewed_at: '2026-08', consent: true, published: true },
     ],
+    announcements: [
+      { id: 'ann-1', title: 'デモ版のご案内', body: 'こちらは10月末の共有会向けデモ版です。ヒアリングの回答は保存されません。', starts_at: '2026-09-01', ends_at: null },
+    ],
+    themeOverrides: {},
+    caseOverrides: {},
     usage: {},
   }
 }
 function load(): Db {
-  try { const raw = localStorage.getItem(KEY); if (raw) return JSON.parse(raw) } catch { /* noop */ }
+  try {
+    const raw = localStorage.getItem(KEY)
+    // 既存ブラウザに残っている旧バージョンのDBに、新しく追加したフィールド（themeOverrides等）が
+    // 無い場合はseed()の初期値で補う。既にあるキーはstoredの値を優先する。
+    if (raw) return { ...seed(), ...(JSON.parse(raw) as Partial<Db>) }
+  } catch { /* noop */ }
   const db = seed(); save(db); return db
 }
 function save(db: Db) { try { localStorage.setItem(KEY, JSON.stringify(db)) } catch { /* noop */ } }
@@ -102,7 +117,17 @@ export function createDemoBackend(): Backend {
     async resetPassword() { await delay(400) },
     async updatePassword(password) { const db = load(); const u = db.users.find((x) => x.id === currentUserId()); if (u) { u.password = password; save(db) } },
     async updateMyName(name) { const db = load(); const u = db.users.find((x) => x.id === currentUserId()); if (u) { u.name = name; save(db); notify() } },
-    async loadContent() { await delay(100); return loadBundle() },
+    async loadContent() {
+      await delay(100)
+      const bundle = await loadBundle()
+      const db = load()
+      const themes = bundle.themes
+        .filter((t) => db.themeOverrides[t.id]?.published ?? t.published)
+        .map((t) => ({ ...t, order: db.themeOverrides[t.id]?.order ?? t.order }))
+        .sort((a, b) => a.order - b.order)
+      const cases = bundle.cases.filter((c) => db.caseOverrides[c.id] ?? true)
+      return { ...bundle, themes, cases }
+    },
     async bumpUsage(kind) {
       const db = load(); const u = db.users.find((x) => x.id === currentUserId()); if (!u) return
       const k = `${u.org_code}|${iso(today)}`
@@ -110,7 +135,7 @@ export function createDemoBackend(): Backend {
       db.usage[k][kind]++; save(db)
     },
     async getShare(themeId, orgCode): Promise<SharePayload> {
-      const db = load(); const t = (await loadBundle()).themes.find((x) => x.id === themeId && x.published)
+      const db = load(); const t = (await loadBundle()).themes.find((x) => x.id === themeId && (db.themeOverrides[x.id]?.published ?? x.published))
       const now = today.getTime()
       const o = db.orgs.find((x) => x.code === orgCode && ['trial', 'active', 'grace'].includes(x.status)
         && new Date(`${x.contract_start}T00:00:00Z`).getTime() <= now
@@ -183,6 +208,39 @@ export function createDemoBackend(): Backend {
       save(db)
     },
     async deleteRegionalCase(id) { const db = requireOps(); db.regionalCases = db.regionalCases.filter((c) => c.id !== id); save(db) },
+    async listAllThemes() {
+      requireOps()
+      const bundle = await loadBundle()
+      const db = load()
+      return bundle.themes
+        .map((t): Theme => ({ ...t, published: db.themeOverrides[t.id]?.published ?? t.published, order: db.themeOverrides[t.id]?.order ?? t.order }))
+        .sort((a, b) => a.order - b.order)
+    },
+    async setThemeVisibility(id, patch) {
+      const db = requireOps()
+      db.themeOverrides[id] = { ...db.themeOverrides[id], ...patch }
+      save(db)
+    },
+    async listCaseSummaries(params) {
+      requireOps()
+      const bundle = await loadBundle()
+      const db = load()
+      return bundle.cases
+        .filter((c) => !params.industry || c.industry === params.industry)
+        .filter((c) => !params.type || c.type === params.type)
+        .filter((c) => !params.q?.trim() || c.title.includes(params.q.trim()))
+        .map((c): CaseSummary => ({ id: c.id, industry: c.industry, no: c.no, stage: c.stage, title: c.title, type: c.type, budget: c.budget, generated: c.generated, published: db.caseOverrides[c.id] ?? true }))
+    },
+    async setCasePublished(id, published) { const db = requireOps(); db.caseOverrides[id] = published; save(db) },
+    async listAnnouncements() { return load().announcements },
+    async saveAnnouncement(a) {
+      const db = requireOps()
+      if (!a.title.trim() || !a.body.trim()) throw new BackendError('タイトルと本文を入力してください')
+      if (a.id) { const i = db.announcements.findIndex((x) => x.id === a.id); if (i >= 0) db.announcements[i] = { ...a, id: a.id } }
+      else db.announcements.push({ ...a, id: `ann-${Date.now()}` })
+      save(db)
+    },
+    async deleteAnnouncement(id) { const db = requireOps(); db.announcements = db.announcements.filter((a) => a.id !== id); save(db) },
   }
 }
 

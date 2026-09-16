@@ -1,8 +1,9 @@
 // S-002 ホーム（S-012 検索結果は同じ画面内に表示）
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useContent } from '../lib/app-context'
+import { useApp, useContent } from '../lib/app-context'
 import { search } from '../lib/engine'
+import { getPref, setPref } from '../lib/session'
 import { Page, ThemeCard } from '../components/ui'
 import { CaseRow } from './Cases'
 
@@ -23,6 +24,7 @@ export default function Home() {
         </div>
       </header>
       <Page>
+        <AnnouncementBanner />
         <h1 className="text-2xl">どんな相談ですか？</h1>
         <label className="block">
           <span className="sr-only">相談内容を検索</span>
@@ -68,6 +70,38 @@ export default function Home() {
         )}
       </Page>
     </>
+  )
+}
+
+/** 運営が配信するお知らせ（コンテンツ表示管理から登録）。表示期間内かつ未確認のものだけ出す */
+function AnnouncementBanner() {
+  const { backend } = useApp()
+  const [items, setItems] = useState<{ id: string; title: string; body: string }[]>([])
+  useEffect(() => {
+    let alive = true
+    backend.listAnnouncements().then((list) => {
+      if (!alive) return
+      const today = new Date().toISOString().slice(0, 10)
+      const dismissed = getPref<string[]>('dismissedAnnouncements', [])
+      setItems(list.filter((a) => a.starts_at <= today && (!a.ends_at || a.ends_at >= today) && !dismissed.includes(a.id)))
+    }).catch(() => setItems([]))
+    return () => { alive = false }
+  }, [backend])
+  const dismiss = (id: string) => {
+    setPref('dismissedAnnouncements', [...getPref<string[]>('dismissedAnnouncements', []), id])
+    setItems((prev) => prev.filter((a) => a.id !== id))
+  }
+  if (items.length === 0) return null
+  return (
+    <div className="flex flex-col gap-2">
+      {items.map((a) => (
+        <div key={a.id} className="rounded-xl bg-primary-soft text-ink px-4 py-3 flex items-start gap-3">
+          <span className="text-xl shrink-0" aria-hidden="true">📢</span>
+          <span className="flex-1 min-w-0"><span className="block font-bold text-[14px]">{a.title}</span><span className="block text-[13px] text-ink-2">{a.body}</span></span>
+          <button type="button" onClick={() => dismiss(a.id)} className="shrink-0 min-w-9 min-h-9 text-muted font-bold" aria-label="このお知らせを閉じる">✕</button>
+        </div>
+      ))}
+    </div>
   )
 }
 

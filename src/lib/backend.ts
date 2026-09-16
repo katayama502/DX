@@ -1,5 +1,5 @@
 // 認証・データアクセスの抽象。demo（ローカル模擬）と supabase（本番）の2実装を同じ形で使う
-import type { AppUser, ContentBundle, EscalationContact, Invitation, InvitableRole, Organization, RegionalCase, UserStatus } from './types'
+import type { Announcement, AppUser, CaseSummary, ContentBundle, EscalationContact, Invitation, InvitableRole, Organization, RegionalCase, Theme, UserStatus } from './types'
 
 export interface Session { user: AppUser; org: Organization }
 
@@ -41,6 +41,14 @@ export interface Backend {
   getRegionalCase(id: string): Promise<RegionalCase | null>
   saveRegionalCase(rc: Omit<RegionalCase, 'id'> & { id?: string }): Promise<void>
   deleteRegionalCase(id: string): Promise<void>
+  // コンテンツ表示管理（運営管理者のみ）：テーマ・事例の公開/非公開・表示順、お知らせ
+  listAllThemes(): Promise<Theme[]>
+  setThemeVisibility(id: string, patch: { published?: boolean; order?: number }): Promise<void>
+  listCaseSummaries(params: { q?: string; industry?: string; type?: 'model' | 'regional' }): Promise<CaseSummary[]>
+  setCasePublished(id: string, published: boolean): Promise<void>
+  listAnnouncements(): Promise<Announcement[]>
+  saveAnnouncement(a: Omit<Announcement, 'id'> & { id?: string }): Promise<void>
+  deleteAnnouncement(id: string): Promise<void>
 }
 
 export class BackendError extends Error {}

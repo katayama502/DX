@@ -2,10 +2,19 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 import type { Backend, Session, SharePayload } from './backend'
 import { BackendError } from './backend'
-import type { AppUser, Case, ContentBundle, DialogNode, EscalationContact, Invitation, InvitableRole, LevelRule, Organization, RegionalCase, Synonym, Term, Theme, ThemeKeyword, UserStatus } from './types'
+import type { Announcement, AppUser, Case, CaseSummary, ContentBundle, DialogNode, EscalationContact, Invitation, InvitableRole, LevelRule, Organization, RegionalCase, Synonym, Term, Theme, ThemeKeyword, UserStatus } from './types'
 import { CATEGORY_ORDER } from './types'
 
 const ym = (d: string) => String(d).slice(0, 7)
+
+/** themes テーブルの1行を画面用の Theme 型に変換する（loadContent・listAllThemes で共用） */
+function rowToTheme(t: Record<string, unknown>): Theme {
+  return {
+    id: t.id as string, name: t.name as string, category: t.category as string, icon: t.icon as string, level: t.default_level as Theme['level'], urgent: t.urgent as boolean, order: t.sort as number,
+    cases: (t.case_ids as string[]) ?? [], links: (t.links as Theme['links']) ?? [], reviewedAt: ym(t.reviewed_at as string), published: t.published as boolean,
+    firstTell: t.first_tell as string[], misconceptions: t.misconceptions as string[], cost: t.cost as string[], nextSteps: t.next_steps as string[], checklist: t.checklist as string[], terms: t.term_names as string[],
+  }
+}
 
 // DB・Auth の内部エラーコード（英語・短文）を、画面に出しても恥ずかしくない日本語に翻訳する。
 // 一致しないものは「現在この操作を行えません」に丸め、内部の詳細文言は表示しない。
@@ -100,11 +109,7 @@ export function createSupabaseBackend(url: string, anonKey: string): Backend {
       ]) as [Record<string, unknown>[], Record<string, unknown>[], Record<string, unknown>[], Record<string, unknown>[], Record<string, unknown>[], Record<string, unknown>[], Record<string, unknown>[], Record<string, unknown>[]]
       const synMap = new Map<string, string[]>()
       for (const s of synonyms) { const c = s.canonical as string; synMap.set(c, [...(synMap.get(c) ?? []), s.variant as string]) }
-      const th: Theme[] = themes.map((t) => ({
-        id: t.id as string, name: t.name as string, category: t.category as string, icon: t.icon as string, level: t.default_level as Theme['level'], urgent: t.urgent as boolean, order: t.sort as number,
-        cases: (t.case_ids as string[]) ?? [], links: (t.links as Theme['links']) ?? [], reviewedAt: ym(t.reviewed_at as string), published: true,
-        firstTell: t.first_tell as string[], misconceptions: t.misconceptions as string[], cost: t.cost as string[], nextSteps: t.next_steps as string[], checklist: t.checklist as string[], terms: t.term_names as string[],
-      }))
+      const th: Theme[] = themes.map(rowToTheme)
       return {
         builtAt: new Date().toISOString(),
         themes: th,
@@ -158,5 +163,26 @@ export function createSupabaseBackend(url: string, anonKey: string): Backend {
       await must(sb.from('regional_cases').upsert({ ...rc, title: rc.title.trim(), summary: rc.summary.trim(), id: rc.id ?? undefined }))
     },
     async deleteRegionalCase(id) { await must(sb.from('regional_cases').delete().eq('id', id)) },
+    async listAllThemes() { const rows = await must(sb.from('themes').select('*').order('sort')) as Record<string, unknown>[]; return rows.map(rowToTheme) },
+    async setThemeVisibility(id, patch) {
+      const payload: Record<string, unknown> = {}
+      if (patch.published !== undefined) payload.published = patch.published
+      if (patch.order !== undefined) payload.sort = patch.order
+      await must(sb.from('themes').update(payload).eq('id', id))
+    },
+    async listCaseSummaries(params) {
+      let q = sb.from('cases').select('id, industry, no, stage, title, type, budget, generated, published').order('industry').order('no')
+      if (params.q?.trim()) q = q.ilike('title', `%${params.q.trim()}%`)
+      if (params.industry) q = q.eq('industry', params.industry)
+      if (params.type) q = q.eq('type', params.type)
+      return must(q) as Promise<CaseSummary[]>
+    },
+    async setCasePublished(id, published) { await must(sb.from('cases').update({ published }).eq('id', id)) },
+    async listAnnouncements() { return must(sb.from('announcements').select('*').order('starts_at', { ascending: false })) as Promise<Announcement[]> },
+    async saveAnnouncement(a) {
+      if (!a.title.trim() || !a.body.trim()) fail('タイトルと本文を入力してください')
+      await must(sb.from('announcements').upsert({ ...a, title: a.title.trim(), body: a.body.trim(), id: a.id ?? undefined }))
+    },
+    async deleteAnnouncement(id) { await must(sb.from('announcements').delete().eq('id', id)) },
   }
 }
