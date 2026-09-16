@@ -1,0 +1,10 @@
+theme: sns-start
+rules:
+  - id: sns-start-y1
+    if: { q_who: [業者に任せたい] }
+    level: yellow
+    reason: 運用代行の費用対効果を複数社で比較検討する必要があるため
+  - id: sns-start-y2
+    if: { q_worry: [炎上や批判的なコメントが怖い] }
+    level: yellow
+    reason: 炎上時の対応方針は事前にルール化しておく必要があるため

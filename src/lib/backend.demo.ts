@@ -2,13 +2,14 @@
 // パスワードは平文比較だがデモ専用（本番は Supabase Auth）。
 import type { Backend, Session, SharePayload, UsageKind } from './backend'
 import { BackendError } from './backend'
-import type { AppUser, ContentBundle, EscalationContact, Invitation, Organization } from './types'
+import type { AppUser, ContentBundle, EscalationContact, Invitation, Organization, RegionalCase } from './types'
 
 interface Db {
   orgs: Organization[]
   users: (AppUser & { password: string })[]
   invitations: Invitation[]
   contacts: EscalationContact[]
+  regionalCases: RegionalCase[]
   usage: Record<string, Record<UsageKind, number>> // key: org|day
 }
 // demo モードのときだけ content.json を読み込む（supabase モードのビルドには含めない）
@@ -48,6 +49,11 @@ function seed(): Db {
     ],
     contacts: [
       { id: 'c-1', org_code: 'masuda-city', name: '島根県よろず支援拠点', email: 'yorozu@example.jp', phone: '0852-60-5108', fields: ['全般'], sort: 0 },
+    ],
+    regionalCases: [
+      { id: 'rc-1', org_code: 'masuda-cci', title: '○○食堂｜LINE公式で常連客に週替わり告知', summary: '紙のチラシをやめ、LINE公式アカウントで週替わりメニューを配信。常連客の来店頻度が上がった。',
+        detail: { points: ['配信は週1回・スマホから5分で作成', '友だち登録はレジ横のQRコードで案内'], steps: [], tips: '最初は「クーポン付き」の配信が友だち登録を後押しした。', glossary: [] },
+        theme_ids: ['sns-start'], interviewed_at: '2026-08', consent: true, published: true },
     ],
     usage: {},
   }
@@ -166,6 +172,17 @@ export function createDemoBackend(): Backend {
       const db = load()
       return Object.entries(db.usage).filter(([k]) => !orgCode || k.startsWith(orgCode + '|')).map(([k, v]) => { const [org_code, day] = k.split('|'); return { org_code, day, ...v } })
     },
+    async listRegionalCases(orgCode) { const db = load(); return db.regionalCases.filter((c) => c.org_code === orgCode) },
+    async getRegionalCase(id) { const db = load(); return db.regionalCases.find((c) => c.id === id) ?? null },
+    async saveRegionalCase(rc) {
+      const db = requireOps()
+      if (!rc.title.trim() || !rc.summary.trim()) throw new BackendError('タイトルと概要を入力してください')
+      if (rc.published && !rc.consent) throw new BackendError('掲載には事業者の掲載許諾（同意）が必要です')
+      if (rc.id) { const i = db.regionalCases.findIndex((x) => x.id === rc.id); if (i >= 0) db.regionalCases[i] = { ...rc, id: rc.id } }
+      else db.regionalCases.push({ ...rc, id: `rc-${Date.now()}` })
+      save(db)
+    },
+    async deleteRegionalCase(id) { const db = requireOps(); db.regionalCases = db.regionalCases.filter((c) => c.id !== id); save(db) },
   }
 }
 

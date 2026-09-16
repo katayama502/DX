@@ -51,3 +51,35 @@ sns-hijack:
   - { keyword: パスワード, weight: 5 }
   - { keyword: セキュリティ, weight: 5 }
   - { keyword: 振り込んだ, weight: 7 }
+gbp:
+  - { keyword: Googleビジネスプロフィール, weight: 12 }
+  - { keyword: 口コミ, weight: 8 }
+  - { keyword: 地図, weight: 6 }
+  - { keyword: オーナー確認, weight: 8 }
+  - { keyword: 営業時間, weight: 4 }
+sns-start:
+  - { keyword: Instagram, weight: 10 }
+  - { keyword: LINE公式アカウント, weight: 10 }
+  - { keyword: SNS, weight: 8 }
+  - { keyword: 発信, weight: 4 }
+  - { keyword: フォロワー, weight: 5 }
+  - { keyword: 投稿, weight: 4 }
+reservation-pos:
+  - { keyword: 予約システム, weight: 10 }
+  - { keyword: 予約, weight: 6 }
+  - { keyword: POSレジ, weight: 10 }
+  - { keyword: レジ, weight: 5 }
+  - { keyword: 電話対応, weight: 4 }
+  - { keyword: キャンセル, weight: 4 }
+security-basics:
+  - { keyword: セキュリティ, weight: 8 }
+  - { keyword: パスワード, weight: 6 }
+  - { keyword: 二段階認証, weight: 8 }
+  - { keyword: バックアップ, weight: 8 }
+  - { keyword: 対策, weight: 3 }
+subsidy-it:
+  - { keyword: 補助金, weight: 10 }
+  - { keyword: IT導入補助金, weight: 12 }
+  - { keyword: DX認定, weight: 8 }
+  - { keyword: 助成金, weight: 6 }
+  - { keyword: 支援事業者, weight: 5 }

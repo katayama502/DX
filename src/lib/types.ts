@@ -162,6 +162,18 @@ export interface EscalationContact {
   sort: number
 }
 
+export interface RegionalCase {
+  id: string
+  org_code: string
+  title: string
+  summary: string
+  detail: { points: string[]; steps: { title: string; desc: string }[]; tips: string; glossary: { term: string; desc: string }[] }
+  theme_ids: string[]
+  interviewed_at: string // YYYY-MM
+  consent: boolean
+  published: boolean
+}
+
 export interface Invitation {
   id: string
   org_code: string

@@ -2,7 +2,7 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 import type { Backend, Session, SharePayload } from './backend'
 import { BackendError } from './backend'
-import type { AppUser, Case, ContentBundle, DialogNode, EscalationContact, Invitation, InvitableRole, LevelRule, Organization, Synonym, Term, Theme, ThemeKeyword, UserStatus } from './types'
+import type { AppUser, Case, ContentBundle, DialogNode, EscalationContact, Invitation, InvitableRole, LevelRule, Organization, RegionalCase, Synonym, Term, Theme, ThemeKeyword, UserStatus } from './types'
 import { CATEGORY_ORDER } from './types'
 
 const ym = (d: string) => String(d).slice(0, 7)
@@ -30,8 +30,7 @@ export function createSupabaseBackend(url: string, anonKey: string): Backend {
       }
       const { data: prof, error: profError } = await sb.from('profiles').select('*').eq('id', session.user.id).maybeSingle()
       if (profError) fail(profError.message)
-      if (!prof) return null
-      if (prof.status !== 'active') { await sb.auth.signOut(); return null }
+      if (!prof || prof.status !== 'active') { await sb.auth.signOut(); return null }
       const { data: org, error: orgError } = await sb.from('organizations').select('*').eq('code', prof.org_code).single()
       if (orgError) fail(orgError.message)
       if (!org) return null
@@ -42,12 +41,23 @@ export function createSupabaseBackend(url: string, anonKey: string): Backend {
       const { error } = await sb.auth.signInWithPassword({ email: email.trim(), password })
       if (error) {
         if (/invalid login/i.test(error.message)) fail('メールアドレスまたはパスワードが違います')
-        if (/network|fetch/i.test(error.message)) fail('現在ログインできません。時間をおいてお試しください')
         fail('現在ログインできません。時間をおいてお試しください')
       }
+      // 招待リンク経由の初回ログインだけ、ここで invited → active に遷移させる
       const { error: activateError } = await sb.rpc('activate_my_invitation')
-      if (activateError) { await sb.auth.signOut(); fail('この招待は無効または期限切れです') }
-      await must(sb.rpc('bump_usage', { p_kind: 'logins' }))
+      if (activateError && !/no pending invitation/i.test(activateError.message)) {
+        await sb.auth.signOut()
+        fail('この招待は無効または期限切れです。団体の管理者にお問い合わせください')
+      }
+      // パスワードは合っていても、団体アカウントが未登録・停止中ならここで弾く（内部エラーを見せない）
+      const { data: { user } } = await sb.auth.getUser()
+      const { data: prof } = await sb.from('profiles').select('status').eq('id', user?.id ?? '').maybeSingle()
+      if (!prof || prof.status !== 'active') {
+        await sb.auth.signOut()
+        fail('このアカウントはまだ利用できません。団体の管理者にお問い合わせください')
+      }
+      // 利用状況カウントの失敗でログイン自体を止めない
+      try { await sb.rpc('bump_usage', { p_kind: 'logins' }) } catch { /* noop */ }
     },
     async signOut() { await sb.auth.signOut(); try { await Promise.all((await caches.keys()).map((k) => caches.delete(k))) } catch { /* noop */ } },
     async resetPassword(email) { const { error } = await sb.auth.resetPasswordForEmail(email.trim(), { redirectTo: `${location.origin}/reset` }); if (error) fail('現在送信できません。時間をおいてお試しください') },
@@ -116,5 +126,13 @@ export function createSupabaseBackend(url: string, anonKey: string): Backend {
       if (admin_email) await this.inviteUser(o.code, admin_email, 'org_admin')
     },
     async listUsage(orgCode) { let q = sb.from('usage_daily').select('*').order('day', { ascending: false }).limit(400); if (orgCode) q = q.eq('org_code', orgCode); return must(q) },
+    async listRegionalCases(orgCode) { return must(sb.from('regional_cases').select('*').eq('org_code', orgCode).order('interviewed_at', { ascending: false })) as Promise<RegionalCase[]> },
+    async getRegionalCase(id) { const { data, error } = await sb.from('regional_cases').select('*').eq('id', id).maybeSingle(); if (error) fail(error.message); return (data as RegionalCase) ?? null },
+    async saveRegionalCase(rc) {
+      if (!rc.title.trim() || !rc.summary.trim()) fail('タイトルと概要を入力してください')
+      if (rc.published && !rc.consent) fail('掲載には事業者の掲載許諾（同意）が必要です')
+      await must(sb.from('regional_cases').upsert({ ...rc, title: rc.title.trim(), summary: rc.summary.trim(), id: rc.id ?? undefined }))
+    },
+    async deleteRegionalCase(id) { await must(sb.from('regional_cases').delete().eq('id', id)) },
   }
 }

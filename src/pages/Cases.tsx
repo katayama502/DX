@@ -1,10 +1,19 @@
-// S-010 事例一覧・S-011 事例詳細（既存360件の移植）
-import { useMemo } from 'react'
+// S-010 事例一覧・S-011 事例詳細（既存360件の移植＋F-012 地域事例）
+import { useEffect, useMemo, useState } from 'react'
 import { Link, Navigate, useParams, useSearchParams } from 'react-router-dom'
-import { useContent } from '../lib/app-context'
-import type { Case, Industry } from '../lib/types'
+import { useApp, useContent } from '../lib/app-context'
+import type { Case, Industry, RegionalCase } from '../lib/types'
 import { BUDGET_LABELS, STAGE_LABELS } from '../lib/types'
-import { Bullets, Disclaimer, Notice, Page, ReviewedNote, Section, ThemeCard, TopBar } from '../components/ui'
+import { Bullets, Disclaimer, Notice, Page, ReviewedNote, Section, Spinner, ThemeCard, TopBar } from '../components/ui'
+
+/** 地域事例を一覧・詳細で共通して使う Case 形式に変換する（業種・段階・予算は持たないためフィルタ対象外にする） */
+export function regionalToCase(rc: RegionalCase): Case {
+  return {
+    id: rc.id, industry: '', no: 0, stage: 1, title: rc.title, summary: rc.summary, budget: 0, tools: [],
+    detail: { points: rc.detail.points, steps: rc.detail.steps, tips: rc.detail.tips, tool: null, glossary: rc.detail.glossary },
+    themes: rc.theme_ids, type: 'regional', reviewedAt: rc.interviewed_at, generated: true,
+  }
+}
 
 export function CaseRow({ c, industries }: { c: Case; industries: Industry[] }) {
   const ind = industries.find((i) => i.id === c.industry)
@@ -13,7 +22,7 @@ export function CaseRow({ c, industries }: { c: Case; industries: Industry[] }) 
       <span className="text-2xl w-9 text-center" aria-hidden="true">{c.type === 'regional' ? '📍' : ind?.icon}</span>
       <span className="flex-1 min-w-0">
         <span className="block font-bold text-[16px] leading-snug">{c.title}</span>
-        <span className="block text-[13px] text-muted">{c.type === 'regional' ? '地域事例' : ind?.name}・{STAGE_LABELS[c.stage].split(' ')[0]}・{BUDGET_LABELS[c.budget]}</span>
+        <span className="block text-[13px] text-muted">{c.type === 'regional' ? `地域事例・取材 ${c.reviewedAt}` : `${ind?.name}・${STAGE_LABELS[c.stage].split(' ')[0]}・${BUDGET_LABELS[c.budget]}`}</span>
       </span>
       <span className="text-muted text-2xl" aria-hidden="true">›</span>
     </Link>
@@ -21,15 +30,24 @@ export function CaseRow({ c, industries }: { c: Case; industries: Industry[] }) 
 }
 
 export default function CaseList() {
-  const { content } = useContent()
+  const { content, session } = useContent()
+  const { backend } = useApp()
   const [sp, setSp] = useSearchParams()
+  const [regional, setRegional] = useState<Case[]>([])
   const ind = sp.get('ind') ?? ''
   const stage = sp.get('stage') ?? ''
   const budget = sp.get('budget') ?? ''
   const set = (k: string, v: string) => { const n = new URLSearchParams(sp); if (v) n.set(k, v); else n.delete(k); setSp(n) }
-  const list = useMemo(() => content.cases.filter((c) => (!ind || c.industry === ind) && (!stage || String(c.stage) === stage) && (!budget || String(c.budget) === budget)), [content.cases, ind, stage, budget])
-  const regional = list.filter((c) => c.type === 'regional')
-  const model = list.filter((c) => c.type === 'model').slice(0, 60)
+
+  useEffect(() => {
+    let alive = true
+    backend.listRegionalCases(session.org.code).then((rcs) => { if (alive) setRegional(rcs.filter((r) => r.published).map(regionalToCase)) }).catch(() => setRegional([]))
+    return () => { alive = false }
+  }, [backend, session.org.code])
+
+  const model = useMemo(() => content.cases.filter((c) => (!ind || c.industry === ind) && (!stage || String(c.stage) === stage) && (!budget || String(c.budget) === budget)), [content.cases, ind, stage, budget])
+  const filtering = !!(ind || stage || budget)
+  const shown = model.slice(0, 60)
   return (
     <>
       <TopBar title="事例" back={false} />
@@ -45,12 +63,16 @@ export default function CaseList() {
             <option value="">予算：すべて</option>{BUDGET_LABELS.map((b, i) => <option key={i} value={i}>{b}</option>)}
           </select>
         </div>
-        <p className="text-[13px] text-muted">{list.length}件</p>
-        {regional.length > 0 && <section className="flex flex-col gap-2"><h2 className="text-[14px] font-bold text-muted">📍 地域の事例</h2>{regional.map((c) => <CaseRow key={c.id} c={c} industries={content.industries} />)}</section>}
+        {!filtering && regional.length > 0 && (
+          <section className="flex flex-col gap-2">
+            <h2 className="text-[14px] font-bold text-muted">📍 {session.org.name}の事例</h2>
+            {regional.map((c) => <CaseRow key={c.id} c={c} industries={content.industries} />)}
+          </section>
+        )}
         <section className="flex flex-col gap-2">
-          <h2 className="text-[14px] font-bold text-muted">モデルケース</h2>
-          {model.map((c) => <CaseRow key={c.id} c={c} industries={content.industries} />)}
-          {list.filter((c) => c.type === 'model').length > 60 && <p className="text-[13px] text-muted text-center">絞り込むと、さらに表示されます</p>}
+          <h2 className="text-[14px] font-bold text-muted">モデルケース（{model.length}件）</h2>
+          {shown.map((c) => <CaseRow key={c.id} c={c} industries={content.industries} />)}
+          {model.length > 60 && <p className="text-[13px] text-muted text-center">絞り込むと、さらに表示されます</p>}
         </section>
       </Page>
     </>
@@ -60,7 +82,18 @@ export default function CaseList() {
 export function CaseDetail() {
   const { id } = useParams()
   const { content } = useContent()
-  const c = content.cases.find((x) => x.id === id)
+  const { backend } = useApp()
+  const [regional, setRegional] = useState<Case | null | undefined>(undefined)
+  const fromContent = content.cases.find((x) => x.id === id)
+  useEffect(() => {
+    if (fromContent || !id) { setRegional(null); return }
+    let alive = true
+    backend.getRegionalCase(id).then((rc) => { if (alive) setRegional(rc ? regionalToCase(rc) : null) }).catch(() => setRegional(null))
+    return () => { alive = false }
+  }, [id, fromContent, backend])
+
+  const c = fromContent ?? regional
+  if (c === undefined) return <Spinner />
   if (!c) return <Navigate to="/cases" replace />
   const ind = content.industries.find((i) => i.id === c.industry)
   const themes = c.themes.map((t) => content.themes.find((x) => x.id === t)).filter(Boolean)
@@ -71,11 +104,13 @@ export function CaseDetail() {
       <Page>
         {c.type === 'model' ? <Notice>ℹ 本事例は導入イメージを示すモデルケースです（実在の企業の事例ではありません）</Notice> : <Notice>📍 地域事例（取材日 {c.reviewedAt}）</Notice>}
         <h1 className="text-2xl">{c.title}</h1>
-        <div className="flex flex-wrap gap-2 text-[13px]">
-          <span className="chip !min-h-8 !text-[13px] !border-line-strong !text-ink-2">{ind?.icon} {ind?.name}</span>
-          <span className="chip !min-h-8 !text-[13px] !border-line-strong !text-ink-2">{STAGE_LABELS[c.stage]}</span>
-          <span className="chip !min-h-8 !text-[13px] !border-line-strong !text-ink-2">{BUDGET_LABELS[c.budget]}</span>
-        </div>
+        {c.type === 'model' && (
+          <div className="flex flex-wrap gap-2 text-[13px]">
+            <span className="chip !min-h-8 !text-[13px] !border-line-strong !text-ink-2">{ind?.icon} {ind?.name}</span>
+            <span className="chip !min-h-8 !text-[13px] !border-line-strong !text-ink-2">{STAGE_LABELS[c.stage]}</span>
+            <span className="chip !min-h-8 !text-[13px] !border-line-strong !text-ink-2">{BUDGET_LABELS[c.budget]}</span>
+          </div>
+        )}
         <p className="text-[17px]">{c.summary}</p>
         {c.detail.points.length > 0 && <Section title="ポイント"><Bullets items={c.detail.points} /></Section>}
         {c.detail.steps.length > 0 && <Section title="導入の手順"><ol className="list-decimal pl-6 flex flex-col gap-2">{c.detail.steps.map((s, i) => <li key={i}><strong>{s.title}</strong> {s.desc}</li>)}</ol></Section>}

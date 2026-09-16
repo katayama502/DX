@@ -27,3 +27,17 @@
   variants: [会計ソフト, 経理, 記帳, 帳簿づけ, 仕訳]
 - canonical: レジ
   variants: [POS, POSレジ, ポスレジ, Airレジ, エアレジ, スマレジ]
+- canonical: 予約システム
+  variants: [予約サイト, オンライン予約, ネット予約, よやくシステム]
+- canonical: POSレジ
+  variants: [ぽすれじ, POS, Airレジ, エアレジ, スマレジ, ぽす]
+- canonical: 二段階認証
+  variants: [2段階認証, 多要素認証, MFA, 二要素認証]
+- canonical: バックアップ
+  variants: [ばっくあっぷ, データの控え, データ保存]
+- canonical: 補助金
+  variants: [ほじょきん, IT導入補助金, 助成金, じょせいきん]
+- canonical: LINE公式アカウント
+  variants: [LINE公式, らいん公式, LINEアカウント]
+- canonical: Googleビジネスプロフィール
+  variants: [グーグルビジネス, Googleマイビジネス, マイビジネス, ビジネスプロフィール, GBP, 口コミ管理]

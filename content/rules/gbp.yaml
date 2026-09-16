@@ -1,0 +1,10 @@
+theme: gbp
+rules:
+  - id: gbp-r1
+    if: { q_owner: [編集できない・誰のものか分からない] }
+    level: red
+    reason: 既に他者が管理しているプロフィールの所有権移転は個別の手続きが必要なため
+  - id: gbp-y1
+    if: { q_reviews: [悪い口コミへの対応で困っている] }
+    level: yellow
+    reason: 口コミへの返信内容は事業者の状況に応じた個別の検討が必要なため

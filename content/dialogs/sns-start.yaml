@@ -1,0 +1,28 @@
+theme: sns-start
+nodes:
+  - id: s0
+    type: say
+    text: SNS・LINE公式のご相談ですね。目的を整理しましょう。
+  - id: q_goal
+    type: ask_single
+    text: 一番の目的はどちらに近いですか？
+    why: 新規開拓向けか、常連客向けかでSNSの選び方が変わります
+    options: [新しいお客さんに知ってほしい, 常連のお客さんに直接届けたい, 両方やりたい, まだ決めていない]
+  - id: q_existing
+    type: ask_single
+    text: 今、SNSやLINE公式のアカウントはありますか？
+    why: 既にあるかどうかで、始め方が変わります
+    options: [ない, ある（ほとんど使っていない）, ある（定期的に使っている）]
+  - id: q_who
+    type: ask_single
+    text: 投稿するのは誰ですか？
+    why: 続けられる体制かどうかを確認します
+    options: [自分でやる, 家族・スタッフに任せたい, 業者に任せたい]
+  - id: q_worry
+    type: ask_single
+    text: 心配なことはありますか？
+    why: 心配な点に合わせて案内を変えます
+    options: [炎上や批判的なコメントが怖い, 何を投稿すればいいか分からない, 特にない]
+  - id: end
+    type: say
+    text: ありがとうございます。ここまでの内容をまとめました。

@@ -1,0 +1,10 @@
+theme: reservation-pos
+rules:
+  - id: rsv-r1
+    if: { q_link: [連携させたい] }
+    level: red
+    reason: システム間の連携は個別の設計・見積もりが必要なため
+  - id: rsv-y1
+    if: { q_scale: [大規模・複数店舗] }
+    level: yellow
+    reason: 複数店舗での導入は契約条件・費用の比較検討が必要なため

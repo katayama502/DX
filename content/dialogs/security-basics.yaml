@@ -1,0 +1,28 @@
+theme: security-basics
+nodes:
+  - id: s0
+    type: say
+    text: セキュリティ対策のご相談ですね。今の状態を確認しましょう。
+  - id: q_password
+    type: ask_single
+    text: 複数のサービスで同じパスワードを使っていますか？
+    why: 使い回しは最も多い被害の原因です
+    options: [使い回している, 使い回していない, わからない]
+  - id: q_mfa
+    type: ask_single
+    text: 二段階認証は設定していますか？
+    why: 設定できるサービスから優先的に案内します
+    options: [設定している, 設定していない, 二段階認証を知らない]
+  - id: q_backup
+    type: ask_single
+    text: 大事なデータ（顧客名簿・会計データなど）のバックアップはありますか？
+    why: バックアップの有無で緊急度が変わります
+    options: [ある, ない, わからない]
+  - id: q_device
+    type: ask_single
+    text: パソコンやスマホのOS・ソフトは最新の状態に更新していますか？
+    why: 更新していないと既知の弱点を突かれやすくなります
+    options: [している, していない, わからない]
+  - id: end
+    type: say
+    text: ありがとうございます。ここまでの内容をまとめました。

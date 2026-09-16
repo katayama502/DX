@@ -1,0 +1,28 @@
+theme: reservation-pos
+nodes:
+  - id: s0
+    type: say
+    text: 予約システム・POSレジのご相談ですね。いくつか質問します。
+  - id: q_target
+    type: ask_single
+    text: 導入したいのはどちらですか？
+    why: 予約とレジでは比較するサービスが変わります
+    options: [予約システム, POSレジ, 両方]
+  - id: q_current
+    type: ask_single
+    text: 今はどうやって予約・会計を管理していますか？
+    why: 今のやり方との相性で、移行のしやすさが変わります
+    options: [電話・紙の台帳, 電卓・手書きの会計, 別のシステムを使っている, その両方が混在している]
+  - id: q_scale
+    type: ask_single
+    text: 席数・メニュー数はどのくらいですか？
+    why: 規模によって、無料プランで足りるかが変わります
+    options: [小規模（〜20席・〜30品目）, 中規模, 大規模・複数店舗]
+  - id: q_link
+    type: ask_single
+    text: レジと予約、または在庫システムとの連携は必要ですか？
+    why: 連携が必要な場合は個別の見積もりが必要になることがあります
+    options: [連携させたい, 別々でよい, わからない]
+  - id: end
+    type: say
+    text: ありがとうございます。ここまでの内容をまとめました。

@@ -1,0 +1,10 @@
+theme: subsidy-it
+rules:
+  - id: subsidy-r1
+    if: { q_purchased: [もう購入・契約した] }
+    level: red
+    reason: 購入後の申請は対象外になる場合があり、専門窓口での確認が必要なため
+  - id: subsidy-y1
+    if: { q_support: [ない, わからない] }
+    level: yellow
+    reason: IT導入支援事業者を探す必要があり、商工会・商工会議所での紹介が有効なため

@@ -1,0 +1,23 @@
+theme: subsidy-it
+nodes:
+  - id: s0
+    type: say
+    text: IT導入補助金のご相談ですね。まだ購入前かどうかが重要なので、そこから確認します。
+  - id: q_purchased
+    type: ask_single
+    text: 導入したいITツールは、もう購入・契約していますか？
+    why: 購入後だと対象外になることが多いため、最優先で確認します
+    options: [まだ購入していない, もう購入・契約した, 検討中で決めていない]
+  - id: q_tool
+    type: ask_single
+    text: 導入したいのはどんなITツールですか？
+    why: 対象になる分野の補助金があるか確認します
+    options: [会計・受発注などの業務ソフト, ホームページ・ECサイト, セキュリティ対策, まだ決めていない]
+  - id: q_support
+    type: ask_single
+    text: IT導入支援事業者（ベンダー）に心当たりはありますか？
+    why: 申請には登録済みの支援事業者を通す必要があります
+    options: [ある, ない, わからない]
+  - id: end
+    type: say
+    text: ありがとうございます。ここまでの内容をまとめました。

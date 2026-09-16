@@ -1,8 +1,8 @@
-// S-013 成熟度診断：1問1画面、レーダーチャート、関連テーマへ
-import { useState } from 'react'
+// S-013 成熟度診断・ROI試算：1問1画面、レーダーチャート、関連テーマ、投資対効果の概算（F-011・既存移植）
+import { useMemo, useState } from 'react'
 import { useContent } from '../lib/app-context'
 import { DIAG_IND_AVG, DIAG_LEVELS, DIAG_QUESTIONS } from '../data/diagnosis'
-import { Page, ThemeCard, TopBar } from '../components/ui'
+import { Page, Section, ThemeCard, TopBar } from '../components/ui'
 
 export default function Diagnosis() {
   const { content } = useContent()
@@ -43,6 +43,7 @@ export default function Diagnosis() {
             </div>
             <Radar values={ans} />
             {themes.length > 0 && <section className="flex flex-col gap-2"><h2 className="text-[14px] font-bold text-muted">おすすめの相談テーマ</h2>{themes.map((t) => <ThemeCard key={t!.id} theme={t!} />)}</section>}
+            <RoiCalculator initialSavingRate={Math.max(10, 60 - Math.round(avg) * 10)} />
             <button type="button" className="btn-secondary" onClick={() => setAns([])}>もう一度診断する</button>
             <p className="text-[12px] text-muted">※ 業種別平均は根拠データの出典を整理するまでの参考値です。診断結果は保存されません。</p>
           </>
@@ -62,5 +63,49 @@ function Radar({ values }: { values: number[] }) {
       <polygon points={poly} fill="#1f4e8c" fillOpacity=".25" stroke="#1f4e8c" strokeWidth="2" />
       {DIAG_QUESTIONS.map((q, k) => { const [x, y] = pt(6.2, k); return <text key={q.key} x={x} y={y} fontSize="11" textAnchor="middle" dominantBaseline="middle" fill="#4b5866">{q.axis}</text> })}
     </svg>
+  )
+}
+
+/** ROI試算：削減率・従業員数などから月間の効果を概算する（既存 DX事例360 のロジックを移植） */
+function RoiCalculator({ initialSavingRate }: { initialSavingRate: number }) {
+  const [emp, setEmp] = useState(10)
+  const [hours, setHours] = useState(20)
+  const [wage, setWage] = useState(1500)
+  const [sales, setSales] = useState('')
+  const [savingRate, setSavingRate] = useState(initialSavingRate)
+  const [revenueRate, setRevenueRate] = useState(0)
+  const [calculated, setCalculated] = useState(false)
+
+  const result = useMemo(() => {
+    const totalHours = Math.max(0, emp) * Math.max(0, hours)
+    const savedHours = Math.round((totalHours * savingRate) / 100)
+    const savedCost = savedHours * Math.max(0, wage)
+    const monthlySales = sales ? Number(sales) * 10000 : 0
+    const revenueGain = monthlySales > 0 && revenueRate > 0 ? Math.round((monthlySales * revenueRate) / 100) : 0
+    const annualSaving = (savedCost + revenueGain) * 12
+    return { savedHours, savedCost, revenueGain, annualSaving }
+  }, [emp, hours, wage, sales, savingRate, revenueRate])
+
+  return (
+    <Section title="💹 投資対効果（ROI）を試算する" defaultOpen={false}>
+      <p className="text-[14px] text-ink-2 mb-3">数字を入れて、DXツール導入の効果を大まかにイメージするための試算です。実際の効果を保証するものではありません。</p>
+      <div className="grid grid-cols-2 gap-3">
+        <label className="block"><span className="label">従業員数（人）</span><input type="number" min={1} className="input" value={emp} onChange={(e) => setEmp(Number(e.target.value))} /></label>
+        <label className="block"><span className="label">関連業務（時間/月・1人）</span><input type="number" min={1} className="input" value={hours} onChange={(e) => setHours(Number(e.target.value))} /></label>
+        <label className="block"><span className="label">平均時給（円）</span><input type="number" min={1} className="input" value={wage} onChange={(e) => setWage(Number(e.target.value))} /></label>
+        <label className="block"><span className="label">月間売上（万円・任意）</span><input type="number" min={0} className="input" value={sales} onChange={(e) => setSales(e.target.value)} placeholder="例：500" /></label>
+        <label className="block"><span className="label">見込み削減率（%）</span><input type="number" min={0} max={95} className="input" value={savingRate} onChange={(e) => setSavingRate(Number(e.target.value))} /></label>
+        <label className="block"><span className="label">見込み売上向上率（%・任意）</span><input type="number" min={0} max={200} className="input" value={revenueRate} onChange={(e) => setRevenueRate(Number(e.target.value))} /></label>
+      </div>
+      <button type="button" className="btn-primary mt-3" onClick={() => setCalculated(true)}>📊 試算する</button>
+      {calculated && (
+        <div className="grid grid-cols-3 gap-2 mt-3">
+          <div className="card text-center"><p className="text-2xl font-bold text-primary">{result.savedHours.toLocaleString()}h</p><p className="text-[12px] text-muted">月間削減時間</p></div>
+          <div className="card text-center"><p className="text-2xl font-bold text-primary">約{Math.round(result.savedCost / 10000)}万円</p><p className="text-[12px] text-muted">月間コスト削減額</p></div>
+          <div className="card text-center"><p className="text-2xl font-bold text-primary">約{Math.round(result.annualSaving / 10000)}万円</p><p className="text-[12px] text-muted">年間の効果（概算）</p></div>
+        </div>
+      )}
+      <p className="text-[12px] text-muted mt-2">※ 削減率・売上向上率はあくまで見込み値です。導入前に、同業他社の事例や提供元の実績値もあわせてご確認ください。</p>
+    </Section>
   )
 }

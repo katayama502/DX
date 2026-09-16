@@ -1,0 +1,30 @@
+theme: gbp
+nodes:
+  - id: s0
+    type: say
+    text: Googleビジネスプロフィールのご相談ですね。いくつか質問します。途中でやめても大丈夫です。
+  - id: q_listed
+    type: ask_single
+    text: Googleで店名を検索すると、地図と一緒に情報が出てきますか？
+    why: 未登録か、登録済みかで最初にやることが変わります
+    options: [出てくる, 出てこない, わからない]
+  - id: q_owner
+    type: ask_single
+    show_if: { q_listed: [出てくる] }
+    text: その情報を自分（お店側）で編集できますか？
+    why: 編集できない場合はオーナー確認からやり直す必要があります
+    options: [編集できる, 編集できない・誰のものか分からない, わからない]
+  - id: q_freshness
+    type: ask_single
+    show_if: { q_listed: [出てくる] }
+    text: 営業時間や写真は最新の状態ですか？
+    why: 情報が古いと来店機会を逃してしまいます
+    options: [最新, 古いままになっている, わからない]
+  - id: q_reviews
+    type: ask_single
+    text: 口コミへの返信はしていますか？
+    why: 悪い口コミへの対応方法は個別の判断が必要になることがあります
+    options: [返信している, 返信していない, 悪い口コミへの対応で困っている]
+  - id: end
+    type: say
+    text: ありがとうございます。ここまでの内容をまとめました。

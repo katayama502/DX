@@ -1,5 +1,5 @@
 // 認証・データアクセスの抽象。demo（ローカル模擬）と supabase（本番）の2実装を同じ形で使う
-import type { AppUser, ContentBundle, EscalationContact, Invitation, InvitableRole, Organization, UserStatus } from './types'
+import type { AppUser, ContentBundle, EscalationContact, Invitation, InvitableRole, Organization, RegionalCase, UserStatus } from './types'
 
 export interface Session { user: AppUser; org: Organization }
 
@@ -36,6 +36,11 @@ export interface Backend {
   listOrgs(): Promise<Organization[]>
   upsertOrg(org: Organization & { admin_email?: string }): Promise<void>
   listUsage(orgCode?: string): Promise<{ org_code: string; day: string; logins: number; theme_views: number; hearings_done: number; tickets_made: number; onepagers: number }[]>
+  // 地域事例（F-012。登録は運営管理者のみ）
+  listRegionalCases(orgCode: string): Promise<RegionalCase[]>
+  getRegionalCase(id: string): Promise<RegionalCase | null>
+  saveRegionalCase(rc: Omit<RegionalCase, 'id'> & { id?: string }): Promise<void>
+  deleteRegionalCase(id: string): Promise<void>
 }
 
 export class BackendError extends Error {}

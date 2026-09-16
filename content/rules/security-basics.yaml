@@ -1,0 +1,10 @@
+theme: security-basics
+rules:
+  - id: sec-y1
+    if: { q_password: [使い回している] }
+    level: yellow
+    reason: パスワードの一斉変更など具体的な対応の計画が必要なため
+  - id: sec-y2
+    if: { q_backup: [ない] }
+    level: yellow
+    reason: バックアップ方法の選定と設定支援が必要なため
