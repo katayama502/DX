@@ -3,8 +3,8 @@
   "industry": "retail",
   "no": 5,
   "stage": 1,
-  "title": "Square・Airレジでキャッシュレス対応",
-  "summary": "現金のみの会計をQRコード・カード払いに対応させ売上データも自動集計",
+  "title": "Squareでキャッシュレス決済に対応",
+  "summary": "現金のみの会計をカード・QRコード払いにも対応させ、売上データを自動集計する",
   "budget": 1,
   "tools": [
     "Square POSレジ"
