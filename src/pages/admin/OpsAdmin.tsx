@@ -71,7 +71,7 @@ export default function OpsAdmin() {
           </form>
         )}
         <Section title="コンテンツ" defaultOpen={false}>
-          <p className="text-[14px] text-ink-2">テーマ・事例・用語は Git（content/）で管理し、<code>npm run content:push</code> で反映します。公開状態の切替と確認日の一括更新は Phase 1 で追加予定。</p>
+          <p className="text-[14px] text-ink-2">テーマ・事例・用語は Git（content/）で管理し、<code>npm run content:seed</code> で確認日・内容を更新後、SQL Editor で <code>supabase/seed/load_content.sql</code> を実行して反映します。公開状態の切替・確認日の一括更新画面はPhase 2で追加予定です。</p>
         </Section>
         <RegionalCasesSection orgs={orgs} />
       </Page>
