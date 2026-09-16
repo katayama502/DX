@@ -55,7 +55,26 @@ supabase/
 2. `npm run content:build` — 必須項目・分岐の参照先・選択肢の存在・事例IDをチェックし、エラーがあれば止まる
 3. 本番へは `npm run content:push`（`.env` に `SUPABASE_URL` と `SUPABASE_SERVICE_ROLE_KEY`）
 
-## 本番（Supabase）へ切り替える
+## 本番環境（2026-09-16 展開済み）
+
+| 項目 | 値 |
+|---|---|
+| アプリ | https://dx-soudan-navi.netlify.app （Netlify site: dx-soudan-navi） |
+| Supabase | プロジェクト `DX_MASUDA`（ref: lctaqygbyuchiretbdhc、東京リージョン） |
+| 適用済み | migrations 0001・0002、Edge Function `invite-user`、コンテンツ投入（`supabase/seed/load_content.sql`）、pg_cron で毎日 03:00 JST に契約状態を更新 |
+| 団体 | `creatte`（運営）／`masuda-city`／`masuda-cci`（試行・2027-03-31 まで） |
+
+**展開後に手動で行う設定（ダッシュボード）**
+1. 運営アカウント：`supabase/seed/bootstrap_ops.sql` の手順（Auth でユーザー作成 → profiles に ops_admin を挿入）
+2. Authentication → URL Configuration：Site URL を `https://dx-soudan-navi.netlify.app`、Redirect URLs に `https://dx-soudan-navi.netlify.app/welcome` と `/reset` を追加
+3. Authentication → Sign In / Providers：「Allow new users to sign up」を OFF（招待制のため）
+4. Edge Functions → `invite-user` → Secrets：`SITE_URL=https://dx-soudan-navi.netlify.app`（招待メールのリンク先の許可リスト）
+5. Netlify：GitHub リポジトリ `katayama502/DX` と連携すると push で自動デプロイになる（現在は MCP からの手動デプロイ）
+
+**再デプロイ**：`netlify.toml` にビルド設定があるので、Netlify の Deploys →「Trigger deploy」またはリポジトリ連携で更新できる。
+**コンテンツ更新**：`npm run content:seed` → commit & push → Supabase SQL Editor で `supabase/seed/load_content.sql` を実行。
+
+## 別環境に構築する場合
 1. Supabase プロジェクトを作成し、`supabase/migrations/0001_init.sql` を SQL Editor で実行
 2. Edge Function `invite-user` をデプロイ（`supabase functions deploy invite-user`）
 3. Auth → Email テンプレートの招待リンク先を `https://<ドメイン>/welcome`、再設定を `/reset` に
